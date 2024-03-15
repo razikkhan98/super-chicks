@@ -1,38 +1,104 @@
-.App {
-  text-align: center;
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: "Poppins", sans-serif;
+}
+:root {
+  --red-color: #db1516;
+  --black-color: #000000;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+/* Home Page*/
+/* ---------------------------------*/ 
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.top-back-ground {
+  background: url(./Component/asset/img/Home/Group\ 1651.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  /* width: 100%; */
+  height: 115vh;
+  position: relative;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* .top-content {
+  position: relative;
+  padding-top: 30px;
+} */
+
+.white_pad {
+  position: relative;
+  right: 0px;
+  bottom: 0px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.white_pad img {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+}
+
+.home-heading {
+  padding: 110px 0px;
+}
+
+.home-heading h2 {
+  font-size: 30px;
+  color: var(--red-color);
+  text-align: left;
+}
+
+.home-heading p {
+  font-size: 16px;
+  padding: 6px 0px;
+  color: var(--black-color);
+}
+
+a.order-now-button {
+  padding: 8px 20px;
+  font-size: 12px;
+  color: #ffffff;
+  background: var(--red-color);
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+}
+a.learn_more2:hover {
+  background: #222222;
+}
+.back-ground-ch{
+    width: 70%;
+    /* position: absolute;
+    left: 213px; */
+    display: inline-block;    
+}
+
+/* About Page */
+/* ---------------------------------*/ 
+#about{
+    padding: 83px 0px;
+}
+.about-img{
+    width: 20%;
+    display: inline-block;
+}
+.about-content h3 span{
+color: var(--red-color);
+}
+.about-content p{
+    font-size: 16px;
+    color: var(--black-color);
+}
+.hover-effect {
+    display: block;
+    overflow: hidden;
+    position: relative;
 }
