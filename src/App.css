@@ -12,6 +12,18 @@ body {
   --red-color: #db1516;
   --black-color: #000000;
 }
+#section-padding {
+  /* padding: 75px 0px; */
+  padding-top: 85px;
+  padding-bottom: 0px;
+}
+.back-img-main {
+  background-image: url(./Component/asset/img/Home/back-img.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+}
 
 /* Home Page*/
 /* ---------------------------------*/
@@ -21,17 +33,11 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  /* width: 100%; */
   height: 115vh;
   position: relative;
   display: flex;
   align-items: center;
 }
-
-/* .top-content {
-  position: relative;
-  padding-top: 30px;
-} */
 
 .white_pad {
   position: relative;
@@ -76,32 +82,28 @@ a.order-now-button {
 a.learn_more2:hover {
   background: #222222;
 }
-
-.back-ground-ch {
-  width: 70%;
-  /* position: absolute;
+.back-ground-ch{
+    width: 70%;
+    /* position: absolute;
     left: 213px; */
   display: inline-block;
 }
 
 /* About Page */
-/* ---------------------------------*/
-#about {
-  padding: 83px 0px;
+/* ---------------------------------*/ 
+#about{
+    padding: 83px 0px;
 }
-
-.about-img {
-  width: 20%;
-  display: inline-block;
+.about-img{
+    width: 20%;
+    display: inline-block;
 }
-
-.about-content h3 span {
-  color: var(--red-color);
+.about-content h3 span{
+color: var(--red-color);
 }
-
-.about-content p {
-  font-size: 16px;
-  color: var(--black-color);
+.about-content p{
+    font-size: 16px;
+    color: var(--black-color);
 }
 
 .hover-effect {
@@ -109,6 +111,49 @@ a.learn_more2:hover {
   overflow: hidden;
   position: relative;
 }
+
+/* Categories */
+/* ---------------------------------*/
+
+.heading-categories h3 {
+  text-align: center;
+  font-size: 37px;
+  font-weight: 700;
+  color: var(--red-color);
+}
+
+.heading-categories p {
+  text-align: center;
+  font-size: 15px;
+  color: var(--black-color);
+}
+.circle {
+  width: 150px;
+  height: 150px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(219, 21, 22, 0.5) 0px 0px 55px 0px;
+
+}
+
+.fresh-chicken .heading {
+  font-size: 22px;
+  font-weight: 500;
+  text-align: center;
+  padding-top: 15px;
+}
+
+.fresh-chicken .description {
+  font-size: 15px;
+  font-weight: 500;
+  text-align: center;
+  color: var(--black-color);
+  padding: 10px;
+}
+
 
 
 /* -------- Navbar------- */
