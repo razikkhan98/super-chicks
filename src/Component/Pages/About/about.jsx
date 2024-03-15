@@ -8,7 +8,7 @@ import About4 from "../../asset/img/About/about-4.png";
 
 const About = () => {
   return (
-    <section className="" id="about">
+    <section className="" id="section-padding">
       <div className="container">
         <div className="row">
           <div className="col-lg-5">
@@ -31,7 +31,7 @@ const About = () => {
 
           <div className="col-lg-7">
               <div className="row">
-                <div className="col-sm-6 offset-sm-1 mt-4 ">
+                <div className="col-sm-6 offset-sm-1 align-self-center mt-4 ">
                   <span className="hover-effect ">
                     <img
                       className="img-fluid w-100"
@@ -49,7 +49,7 @@ const About = () => {
                     />
                   </span>
                 </div>
-                <div className="col-sm-5 mb-2">
+                <div className="col-sm-6 offset-sm-1 align-self-start mb-2">
                   <span className="hover-effect">
                     <img
                       className="img-fluid w-100"
@@ -58,7 +58,7 @@ const About = () => {
                     />
                   </span>
                 </div>
-                <div className="col-sm-6 mb-2">
+                <div className="col-sm-5 mb-2">
                 <span className="hover-effect">
                     <img
                       className="img-fluid w-100"
@@ -67,11 +67,7 @@ const About = () => {
                     />
                   </span>
                 </div>
-                <div className="col-sm-6 mb-2">
-                  <span className="hover-effect ">
-                    <img className="img-fluid w-100" alt="" />
-                  </span>
-                </div>
+                
               </div>
             </div>
           </div>
