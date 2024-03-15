@@ -1,15 +1,17 @@
 import React from "react";
-
+import Logo from "../../asset/img/Logo/logo.png";
 const Navbar = () => {
   return (
     <>
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="/">
-            Navbar scroll
+      <nav className="navbar navbar-expand-lg">
+        <div className="container">
+          <a className="navbar-brand" href="/">
+            <div className="logo-img">
+            <img src={Logo} alt="Loading"  />
+            </div>
           </a>
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarScroll"
@@ -17,70 +19,49 @@ const Navbar = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarScroll">
+          <div className="collapse navbar-collapse" id="navbarScroll">
             <ul
-              class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
-            >
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">
+              className="navbar-nav ms-auto  my-2 my-lg-0 navbar-nav-scroll">
+              <li className="nav-item">
+                <a className="nav-link active" aria-current="page" href="/">
                   Home
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/">
-                  Link
+              <li className="nav-item">
+                <a className="nav-link" href="/">
+                  Contact Us
                 </a>
               </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="/"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Link
+             
+              <li className="nav-item">
+                <a className="nav-link " aria-disabled="true" href="/">
+                About
                 </a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <a class="dropdown-item" href="/">
-                      Action
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="/">
-                      Another action
-                    </a>
-                  </li>
-                  <li>
-                    <hr class="dropdown-divider" />
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="/">
-                      Something else here
-                    </a>
-                  </li>
-                </ul>
               </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" aria-disabled="true" href="/">
-                  Link
+
+              <li className="nav-item">
+                <a className="nav-link " aria-disabled="true" href="/">
+                <i className="fa-regular fa-user"></i>Account
+                </a>
+              </li>
+
+              <li className="nav-item">
+                <a className="nav-link " aria-disabled="true" href="/">
+                <i className="fa-regular fa-cart-shopping"></i>
+                </a>
+              </li>
+
+              <li className="login-btn nav-item">
+                <a className="nav-link " aria-disabled="true" href="/">
+                  Login
                 </a>
               </li>
             </ul>
-            <form class="d-flex" role="search">
-              <input
-                class="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button class="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
+
+
+            
           </div>
         </div>
       </nav>

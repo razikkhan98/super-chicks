@@ -7,13 +7,14 @@
 body {
   font-family: "Poppins", sans-serif;
 }
+
 :root {
   --red-color: #db1516;
   --black-color: #000000;
 }
 
 /* Home Page*/
-/* ---------------------------------*/ 
+/* ---------------------------------*/
 
 .top-back-ground {
   background: url(./Component/asset/img/Home/Group\ 1651.png);
@@ -71,34 +72,61 @@ a.order-now-button {
   -moz-transition: all 0.2s ease-in-out;
   -webkit-transition: all 0.2s ease-in-out;
 }
+
 a.learn_more2:hover {
   background: #222222;
 }
-.back-ground-ch{
-    width: 70%;
-    /* position: absolute;
+
+.back-ground-ch {
+  width: 70%;
+  /* position: absolute;
     left: 213px; */
-    display: inline-block;    
+  display: inline-block;
 }
 
 /* About Page */
-/* ---------------------------------*/ 
-#about{
-    padding: 83px 0px;
+/* ---------------------------------*/
+#about {
+  padding: 83px 0px;
 }
-.about-img{
-    width: 20%;
-    display: inline-block;
+
+.about-img {
+  width: 20%;
+  display: inline-block;
 }
-.about-content h3 span{
-color: var(--red-color);
+
+.about-content h3 span {
+  color: var(--red-color);
 }
-.about-content p{
-    font-size: 16px;
-    color: var(--black-color);
+
+.about-content p {
+  font-size: 16px;
+  color: var(--black-color);
 }
+
 .hover-effect {
-    display: block;
-    overflow: hidden;
-    position: relative;
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+
+
+/* -------- Navbar------- */
+
+.navbar {
+  position: fixed;
+  border-radius: 40px;
+  width: 80%;
+  background-color: #FFF2F2;
+  z-index: 1;
+}
+
+.logo-img img {
+  max-height: 55px;
+  width: auto;
+}
+
+.login-btn {
+  border: 2px solid black;
+  border-radius: 40px;
 }
