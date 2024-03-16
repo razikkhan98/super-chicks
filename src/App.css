@@ -21,9 +21,9 @@ body {
 .back-img-main {
   background-image: url(./Component/asset/img/Home/back-img.png);
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center center;
   background-size: cover;
-  width: 100%;
+  background-attachment: fixed;
 }
 .heading-section h3 {
   text-align: center;
@@ -48,19 +48,19 @@ a.order-now-button {
   -moz-transition: all 0.2s ease-in-out;
   -webkit-transition: all 0.2s ease-in-out;
 }
-a.order-now-button:hover{
+a.order-now-button:hover {
   background: #ffffff;
   color: var(--red-color);
 }
-.text-color-red{
-color: var(--red-color);
-font-weight: 500;
+.text-color-red {
+  color: var(--red-color);
+  font-weight: 500;
 }
-.text-color-gray{
+.text-color-gray {
   color: var(--gray-color);
   font-weight: 500;
 }
-.text-color-black{
+.text-color-black {
   color: var(--black-color);
   font-weight: 500;
 }
@@ -178,7 +178,7 @@ a.learn_more2:hover {
   padding: 3px 0px;
 }
 .card-shadow {
-  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 22px 70px 4px;
   border: none;
   border-radius: 19px;
 }
@@ -200,26 +200,43 @@ a.learn_more2:hover {
   width: 55%;
 }
 
-.text-color-gray span{
+.text-color-gray span {
   color: var(--red-color);
   font-weight: 700;
 }
-.footer-icon{
+.footer-icon {
   color: var(--gray-color);
 }
-.footer span{
+.footer span {
   font-size: 14px;
-    margin-left: 8px;
-    color: var(--gray-color);
-
+  margin-left: 8px;
+  color: var(--gray-color);
 }
-.social-media-icon{
+.social-media-icon {
   width: 70%;
   display: flex;
   justify-content: space-between;
 }
-.hr{
-    background-color:var(--black-color) ;
-    height: 1px;
-    margin: 25px 30px;
+.hr {
+  background-color: var(--black-color);
+  height: 1px;
+  margin: 25px 30px;
+}
+
+/* Order Page */
+/* ---------------------------------*/
+.order-category-chicken {
+  display: flex;
+  align-items: center;
+  width: 11%;
+  justify-content: space-between;
+  padding: 15px 0px;
+}
+.order-category-desi-chicken {
+  display: flex;
+  align-items: center;
+  width: 18%;
+  justify-content: space-between;
+  padding: 25px 0px;
+
 }
