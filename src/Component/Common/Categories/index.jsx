@@ -1,4 +1,6 @@
 import React from "react";
+
+// Image
 import Logo1 from "../../asset/img/Logo/logo-1.png";
 import Logo2 from "../../asset/img/Logo/logo-2.png";
 import Logo3 from "../../asset/img/Logo/logo-3.png";
@@ -27,7 +29,7 @@ const Categories = () => {
   return (
     <section id="section-padding">
       <div className="container">
-        <div className="heading-categories">
+        <div className="heading-section">
           <h3> Explore Categories</h3>
           <p className="pb-5">We deliver fresh Raw Meat at your doorstep</p>
         </div>
@@ -37,7 +39,7 @@ const Categories = () => {
               <div className="col-lg-4 col-md-6 col-sm-12 py-2" key={index}>
                 <div className="d-flex justify-content-center">
                   <div className="circle">
-                    <img src={link.image} alt="Loading" />
+                    <img src={link.image} alt="Loading"  className="img-fluid"/>
                   </div>
                 </div>
                 <div className="fresh-chicken">
