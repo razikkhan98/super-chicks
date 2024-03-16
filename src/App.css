@@ -11,6 +11,7 @@ body {
 :root {
   --red-color: #db1516;
   --black-color: #000000;
+  --card-background-color: #d9d9d9;
 }
 #section-padding {
   /* padding: 75px 0px; */
@@ -23,6 +24,29 @@ body {
   background-position: center;
   background-size: cover;
   width: 100%;
+}
+.heading-section h3 {
+  text-align: center;
+  font-size: 37px;
+  font-weight: 700;
+  color: var(--red-color);
+}
+
+.heading-section p {
+  text-align: center;
+  font-size: 15px;
+  color: var(--black-color);
+}
+a.order-now-button {
+  padding: 8px 20px;
+  font-size: 12px;
+  color: #ffffff;
+  background: var(--red-color);
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
 }
 
 /* Home Page*/
@@ -78,13 +102,12 @@ a.order-now-button {
   -moz-transition: all 0.2s ease-in-out;
   -webkit-transition: all 0.2s ease-in-out;
 }
-
 a.learn_more2:hover {
   background: #222222;
 }
-.back-ground-ch{
-    width: 70%;
-    /* position: absolute;
+.back-ground-ch {
+  width: 70%;
+  /* position: absolute;
     left: 213px; */
   display: inline-block;
 }
@@ -115,18 +138,6 @@ color: var(--red-color);
 /* Categories */
 /* ---------------------------------*/
 
-.heading-categories h3 {
-  text-align: center;
-  font-size: 37px;
-  font-weight: 700;
-  color: var(--red-color);
-}
-
-.heading-categories p {
-  text-align: center;
-  font-size: 15px;
-  color: var(--black-color);
-}
 .circle {
   width: 150px;
   height: 150px;
@@ -136,7 +147,6 @@ color: var(--red-color);
   justify-content: center;
   align-items: center;
   box-shadow: rgba(219, 21, 22, 0.5) 0px 0px 55px 0px;
-
 }
 
 .fresh-chicken .heading {
@@ -154,6 +164,24 @@ color: var(--red-color);
   padding: 10px;
 }
 
+/* Card */
+/* ---------------------------------*/
+
+.heading-section span {
+  color: var(--black-color);
+}
+.card-icon {
+  background-color: var(--card-background-color);
+  width: 48%;
+  border-radius: 8px;
+  margin-top: 20px;
+  padding: 3px 0px;
+}
+.card-shadow {
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  border: none;
+  border-radius: 19px;
+}
 
 
 /* -------- Navbar------- */
