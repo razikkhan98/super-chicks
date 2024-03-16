@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "../Button/button";
+import Navbar from "../Navbar/navbar"
 
 const TopContent = ({ title, description, button, img }) => {
   return (
@@ -7,6 +8,7 @@ const TopContent = ({ title, description, button, img }) => {
       {/* <!--Top_content--> */}
       <div className="top-back-ground">
         <div className="container">
+          <Navbar/>
           <div className="top-content">
             <div className="row">
               <div className="col-lg-5 col-sm-7">
