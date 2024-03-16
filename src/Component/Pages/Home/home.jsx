@@ -5,7 +5,7 @@ import TopContent from "../../Common/TopContent/topContent";
 import Categories from "../../Common/Categories";
 import Card from "../../Common/Card/card";
 import Footer from "../../Common/Footer/footer";
-import About from "../About/about";
+import About from "../../Common/About/about";
 
 
 

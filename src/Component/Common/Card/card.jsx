@@ -9,7 +9,7 @@ const Card = ({image,title,kilogram,amount,button}) => {
       <div class="card card-shadow">
         <img src={image} class="card-img-top" alt="Loading" />
         <div class="card-body">
-          <h5 class="card-title fw-bolder">{title}</h5>
+          <h5 class="card-title fw-bold">{title}</h5>
           <div className="card-icon">
             <span className="ps-2">
               <svg
