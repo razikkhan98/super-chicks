@@ -10,12 +10,13 @@ body {
 :root {
   --red-color: #db1516;
   --black-color: #000000;
+  --gray-color: rgba(0, 0, 0, 0.6);
   --card-background-color: #d9d9d9;
 }
 #section-padding {
-  /* padding: 75px 0px; */
-  padding-top: 85px;
-  padding-bottom: 0px;
+  padding: 75px 0px;
+  /* padding-top: 95px;
+  padding-bottom: 0px; */
 }
 .back-img-main {
   background-image: url(./Component/asset/img/Home/back-img.png);
@@ -34,7 +35,7 @@ body {
 .heading-section p {
   text-align: center;
   font-size: 15px;
-  color: var(--black-color);
+  color: var(--gray-color);
 }
 a.order-now-button {
   padding: 8px 20px;
@@ -46,6 +47,22 @@ a.order-now-button {
   transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   -webkit-transition: all 0.2s ease-in-out;
+}
+a.order-now-button:hover{
+  background: #ffffff;
+  color: var(--red-color);
+}
+.text-color-red{
+color: var(--red-color);
+font-weight: 500;
+}
+.text-color-gray{
+  color: var(--gray-color);
+  font-weight: 500;
+}
+.text-color-black{
+  color: var(--black-color);
+  font-weight: 500;
 }
 
 /* Home Page*/
@@ -110,7 +127,7 @@ a.learn_more2:hover {
 }
 .about-content p {
   font-size: 16px;
-  color: var(--black-color);
+  color: var(--gray-color);
 }
 .hover-effect {
   display: block;
@@ -164,4 +181,45 @@ a.learn_more2:hover {
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
   border: none;
   border-radius: 19px;
+}
+
+/* Halal */
+/* ---------------------------------*/
+
+.halal-img {
+  width: 85%;
+  display: inline-block;
+}
+
+/* Footer */
+/* ---------------------------------*/
+.background-color-footer {
+  background-color: #ffe5e5;
+}
+.footer-logo {
+  width: 55%;
+}
+
+.text-color-gray span{
+  color: var(--red-color);
+  font-weight: 700;
+}
+.footer-icon{
+  color: var(--gray-color);
+}
+.footer span{
+  font-size: 14px;
+    margin-left: 8px;
+    color: var(--gray-color);
+
+}
+.social-media-icon{
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+}
+.hr{
+    background-color:var(--black-color) ;
+    height: 1px;
+    margin: 25px 30px;
 }
