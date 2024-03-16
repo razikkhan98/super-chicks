@@ -1,6 +1,5 @@
 import React from "react";
-
-
+import Button from "../Button/button";
 
 const TopContent = ({ title, description, button, img }) => {
   return (
@@ -14,10 +13,7 @@ const TopContent = ({ title, description, button, img }) => {
                 <div className="home-heading">
                   <h2 className="fw-medium">{title}</h2>
                   <p>{description}</p>
-                  <a href="/" className="order-now-button">
-                    {button}
-                    
-                  </a>
+                  <Button button={button} />
                 </div>
               </div>
               <div className="col-lg-7 col-sm-5">
