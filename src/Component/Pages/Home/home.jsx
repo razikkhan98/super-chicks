@@ -7,6 +7,8 @@ import Card from "../../Common/Card/card";
 import Footer from "../../Common/Footer/footer";
 import About from "../../Common/About/about";
 
+// Icons
+import { FaStar } from 'react-icons/fa';
 
 
 // Image
@@ -19,7 +21,10 @@ import HalalImage2 from "../../asset/img/HalalVerified/Halal-Verified-2.png";
 import HalalImage3 from "../../asset/img/HalalVerified/Halal-Verified-3.png";
 import HalalImage4 from "../../asset/img/HalalVerified/Halal-Verified-4.png";
 import HalalImage5 from "../../asset/img/HalalVerified/Halal-Verified-5.png";
-
+import team1 from "../../asset/img/costumer/costumer-1.png";
+import team2 from "../../asset/img/costumer/costumer-2.png";
+import team3 from "../../asset/img/costumer/costumer-3.png";
+import team4 from "../../asset/img/costumer/costumer-4.png";
 
 
 const Home = () => {
@@ -74,6 +79,41 @@ const Home = () => {
       title2: "PRICING",
     },
   ];
+
+  const CostumerImgfirst = [
+    {
+      name: "ABC",
+      description:
+        "There are many variations of the read passages available but the majority There are many variations of the read passages available but the majority There are many variations of the read passages available but the majority.",
+      img: team1,
+
+    },
+    {
+      name: "ABC",
+      description:
+        "There are many variations of the read passages available but the majority There are many variations of the read passages available but the majority There are many variations of the read passages available but the majority.",
+      img: team2,
+
+    },
+  ];
+
+  const CostumerImgsecond = [
+    {
+      name: "ABC",
+      description1:
+        "There are many variations of the read passages available but the majority There are many variations of the read passages available but the majority There are many variations of the read passages available but the majority.",
+
+      img1: team3,
+    },
+    {
+      name: "ABC",
+      description1:
+        "There are many variations of the read passages available but the majority There are many variations of the read passages available but the majority There are many variations of the read passages available but the majority.",
+      img1: team4,
+    },
+  ];
+
+
 
   return (
     <>
@@ -159,20 +199,93 @@ const Home = () => {
 
         {/* Customer Start */}
         <section id="section-padding">
-          <div className="heading-section mb-5">
-            <h3>
-              <span>Hear from our </span>
-            </h3>
-            <h3>Happy Customers</h3>
+          <div className="container">
+            <div className="heading-section mb-5">
+              <h3>
+                <span>Hear from our </span>
+              </h3>
+              <h3>Happy Customers</h3>
 
-            {/* This Section Continue Shumaila */}
+              <div id="carouselExampleIndicators"
+                className="carousel slide"
+                data-bs-ride="carousel" >
+                <div className="carousel-inner">
+                  <div className="carousel-item active">
+                    <div className="card-wrapper">
+
+                      {CostumerImgfirst.map((link, index) => (
+                        <>
+                          <div className="costumer-single position-relative costumer-card">
+                            <div className="costumer-content d-flex align-items-center">
+                              <div className="costumer-author-img">
+                                <img src={link.img} alt="Loading" />
+                              </div>
+                              <div className="costumer-author-info">
+                                <h4>{link.name}</h4>
+                                <div className="costumer-rate">
+                                  <FaStar />
+                                  <FaStar />
+                                  <FaStar />
+                                  <FaStar />
+                                  <FaStar />
+                                </div>
+                              </div>
+                            </div>
+                            <div className="costumer-quote">
+                              <p>
+                                {link.description}
+                              </p>
+                            </div>
+
+                          </div>
+                        </>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="carousel-item">
+                    <div className="card-wrapper">
+                      {CostumerImgsecond.map((link, index) => (
+                        <>
+                          <div className="costumer-single position-relative costumer-card">
+
+                            <div className="costumer-content d-flex align-items-center">
+                              <div className="costumer-author-img">
+                                <img src={link.img1} alt="Loading" />
+                              </div>
+                              <div className="costumer-author-info">
+                                <h4>{link.name}</h4>
+                                <div className="costumer-rate">
+                                  <FaStar />
+                                  <FaStar />
+                                  <FaStar />
+                                  <FaStar />
+                                  <FaStar />
+                                </div>
+                              </div>
+                            </div>
+                            <div className="costumer-quote">
+                              <p>
+                                {link.description1}
+                              </p>
+                            </div>
+
+                          </div>
+                        </>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* This Section Continue Shumaila */}
+            </div>
           </div>
         </section>
+
         {/* Customer End */}
 
         {/* Footer Start */}
 
-        <Footer/>
+        <Footer />
 
         {/* Footer End  */}
       </div>
