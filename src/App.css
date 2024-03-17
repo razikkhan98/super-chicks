@@ -40,10 +40,10 @@ body {
 a.order-now-button {
   padding: 8px 20px;
   font-size: 12px;
-  color: #ffffff;
+  color: #ffffff ;
   background: var(--red-color);
   border-radius: 50px;
-  text-decoration: none;
+  text-decoration: none !important;
   transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   -webkit-transition: all 0.2s ease-in-out;
@@ -185,7 +185,10 @@ a.learn_more2:hover {
 
 /* Halal */
 /* ---------------------------------*/
-
+.halal-img-grid{
+  display: flex;
+  justify-content: space-between;
+}
 .halal-img {
   width: 85%;
   display: inline-block;
@@ -220,7 +223,7 @@ a.learn_more2:hover {
 .hr {
   background-color: var(--black-color);
   height: 1px;
-  margin: 25px 30px;
+  margin: 25px 0px;
 }
 
 /* Order Page */
@@ -240,3 +243,37 @@ a.learn_more2:hover {
   padding: 25px 0px;
 
 }
+
+/* Media Query */
+/* --------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+@media screen and (max-width: 767px) {
+  .halal-img-grid{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    /* padding: 10px; */
+
+  }
+  .social-media-icon {
+    width: 100%;
+    display: flex;
+    /* justify-content: space-between; */
+    justify-content: space-around;
+  }
+  
+}
+@media screen and (max-width: 490px) {
+  .halal-img-grid{
+   display: block;
+   width: 40%;
+   margin: 0px auto;
+   
+
+  }
+  
+}
+

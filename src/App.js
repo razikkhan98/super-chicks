@@ -1,12 +1,24 @@
 import './App.css';
 import Home from './Component/Pages/Home/home';
 import OrderNow from './Component/Pages/OrderNow/order';
+import SingleProduct from './Component/Pages/SingleProduct/singleProduct';
+import ErrorPage from './Component/Pages/ErrorPage/errorPage';
+import Cart from './Component/Pages/Cart/cart';
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 
 function App() {
   return (
     <>
-    {/* <Home/> */}
-    <OrderNow/> 
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/order" element={<OrderNow/>}/>
+        <Route path="/singleproduct/:id" element={<SingleProduct/>}/>
+        <Route path="/cart" element={<Cart/>}/>
+        <Route path="*" element={<ErrorPage/>}/>
+      </Routes>
+    </Router>
+
     </>
   );
 }

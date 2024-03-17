@@ -135,9 +135,9 @@ const Home = () => {
                 registered, always fresh with fair pricing
               </p>
             </div>
-            <div className="d-flex justify-content-between">
+            <div className="halal-img-grid">
               {HalalImg.map((link, index) => (
-                <div>
+                <div className='my-2'>
                   <img
                     src={link.image}
                     alt="Loading"

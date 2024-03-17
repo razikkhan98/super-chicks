@@ -106,6 +106,7 @@ const OrderNow = () => {
     },
   ];
 
+
   return (
     <>
       {/* Top Content Start */}
@@ -175,6 +176,7 @@ const OrderNow = () => {
                       kilogram={link.kilogram}
                       amount={link.amount}
                       button={link.button}
+                      
                     />
                   </div>
                 </>

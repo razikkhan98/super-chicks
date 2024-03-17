@@ -3,10 +3,6 @@ import Button from "../Button/button";
 import Navbar from "../Navbar/navbar";
 
 const TopContent = ({ title, description, button, img }) => {
-  let x = button;
-  // let u = "Hello World"
-  let y = x.length;
-  console.log(y, 12333);
   return (
     <>
       {/* <!--Top_content--> */}
