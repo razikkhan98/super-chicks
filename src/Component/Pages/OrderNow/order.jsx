@@ -2,7 +2,7 @@ import React from "react";
 
 // Common
 import TopContent from "../../Common/TopContent/topContent";
-import Card from "../../Common/Card/card";
+import Card from "../../Common/Cart/card";
 
 // Image
 import Order1 from "../../asset/img/Order/order-1.png";
@@ -111,7 +111,9 @@ const OrderNow = () => {
     <>
       {/* Top Content Start */}
       <TopContent
-        title="Order raw meat & get it delivered at your door steps."
+        title="Order raw meat & "
+        title2='get it delivered at'
+        title3='your door steps.'
         description="Absolutely fresh Chicken 100% Natural & Chemical free"
         button=""
         img={Order1}

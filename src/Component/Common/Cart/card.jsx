@@ -2,8 +2,9 @@ import React from "react";
 
 // Common
 import Button from "../Button/button";
+import { NavLink } from "react-router-dom";
 
-const Card = ({image,title,kilogram,amount,button}) => {
+const Card = ({ image, title, kilogram, amount, button }) => {
   return (
     <>
       <div class="card card-shadow">
@@ -137,7 +138,19 @@ const Card = ({image,title,kilogram,amount,button}) => {
               <span className="pe-2">{amount} Amt</span>
             </div>
             <div>
-              <Button button={button} />
+              {button === "Add to Cart" ? (
+                <>
+                  <NavLink to="" className='text-decoration-none'>
+                    <Button button={button} />
+                  </NavLink>
+                </>
+              ) : (
+                <>
+                  <NavLink to="/order" className="text-decoration-none">
+                    <Button button={button} />
+                  </NavLink>
+                </>
+              )}
             </div>
           </div>
         </div>

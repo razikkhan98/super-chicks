@@ -3,11 +3,9 @@ import React from "react";
 // Common
 import TopContent from "../../Common/TopContent/topContent";
 import Categories from "../../Common/Categories";
-import Card from "../../Common/Card/card";
+import Card from "../../Common/Cart/card";
 import Footer from "../../Common/Footer/footer";
 import About from "../../Common/About/about";
-
-
 
 // Image
 import HomeIMG from "../../asset/img/Home/image1.png";
@@ -79,7 +77,9 @@ const Home = () => {
     <>
       {/* Top Content Start */}
       <TopContent
-        title=" We Deliver Fresh & Premium Meats Everyday."
+        title="We Deliver"
+        title2="Fresh & Premium"
+        title3="Meats Everyday."
         description="Why leave the house? Chicken delivery coming through."
         button="Order Now"
         img={HomeIMG}

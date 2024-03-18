@@ -11,7 +11,9 @@ body {
   --red-color: #db1516;
   --black-color: #000000;
   --gray-color: rgba(0, 0, 0, 0.6);
-  --card-background-color: #d9d9d9;
+  --white-color: #d9d9d9;
+  --green-color: #008000	
+
 }
 #section-padding {
   padding: 75px 0px;
@@ -63,6 +65,76 @@ a.order-now-button:hover {
 .text-color-black {
   color: var(--black-color);
   font-weight: 500;
+}
+
+/* Navbar Common */
+/* ---------------------------------*/
+
+.navbar {
+  position: fixed;
+  top: 10px;
+  left: 10%;
+  border-radius: 50px;
+  width: 80%;
+  background-color: #FFF2F2;
+  z-index: 1;
+}
+.logo-img img {
+  max-height: 54px;
+  padding-left: 15px;
+}
+.login-btn {
+  border: 2px solid black;
+  border-radius: 50px;
+  padding: 0px 30px;
+  margin: 0px 15px;
+}
+.nav-item{
+  padding: 0px 15px !important;
+}
+.nav-link{
+  padding: 0px;
+  color: var(--black-color);
+}
+.login-button{
+  padding: 5px 35px;  
+
+}
+.cart-trolley-link{
+ position: relative;
+ padding: 0px !important;
+ margin: 0px 27px;
+}
+.cart-trolley{
+  position: relative;
+  font-size: 25px;
+}
+.cart-total-item{
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  background-color: var(--red-color);
+  color: var(--gray-color);
+  border-radius: 50%;
+}
+.cart-total{
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  background-color :var(--green-color);
+  color: var(--white-color);
+  border-radius: 50%;
+  display: grid; 
+   place-items: center; 
+   top: -45%; 
+   left: 70%;
+}
+.login-btn:hover{
+  background-color: var(--red-color);
+}
+.login-button:hover{
+  color: var(--white-color) !important;
+
 }
 
 /* Home Page*/
@@ -243,13 +315,36 @@ a.learn_more2:hover {
   padding: 25px 0px;
 
 }
+/* Sign Up Page */
+/* ---------------------------------*/
+
+.sign-up-button{
+  padding: 10px 100px;
+  background-color: var(--red-color);
+  color: var(--white-color);
+  border-radius: 10px;
+  text-decoration: none;
+}
 
 /* Media Query */
 /* --------------------------------------------------------------------------------------------------*/
 
 
 
-
+@media screen and (max-width: 992px) {
+  .nav-item{
+     padding: 15px 0px!important;
+   }
+.cart-total{
+  top: 1px;
+  right: 18px;
+}
+.login-btn{
+  margin: 6px 15px;
+}
+  
+  
+}
 
 @media screen and (max-width: 767px) {
   .halal-img-grid{

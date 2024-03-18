@@ -4,7 +4,8 @@ import OrderNow from './Component/Pages/OrderNow/order';
 import SingleProduct from './Component/Pages/SingleProduct/singleProduct';
 import ErrorPage from './Component/Pages/ErrorPage/errorPage';
 import Cart from './Component/Pages/Cart/cart';
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
+import SignLogin from './Component/Pages/Login/signlogin';
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/order" element={<OrderNow/>}/>
         <Route path="/singleproduct/:id" element={<SingleProduct/>}/>
         <Route path="/cart" element={<Cart/>}/>
+        <Route path="/sign" element={<SignLogin/>}/>
         <Route path="*" element={<ErrorPage/>}/>
       </Routes>
     </Router>
