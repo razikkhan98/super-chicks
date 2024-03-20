@@ -3,7 +3,7 @@ import React from "react";
 // Common
 import TopContent from "../../Common/TopContent/topContent";
 import Categories from "../../Common/Categories";
-import Card from "../../Common/Card/card";
+import Card from "../../Common/Cart/card";
 import Footer from "../../Common/Footer/footer";
 import About from "../../Common/About/about";
 
@@ -119,7 +119,9 @@ const Home = () => {
     <>
       {/* Top Content Start */}
       <TopContent
-        title=" We Deliver Fresh & Premium Meats Everyday."
+        title="We Deliver"
+        title2="Fresh & Premium"
+        title3="Meats Everyday."
         description="Why leave the house? Chicken delivery coming through."
         button="Order Now"
         img={HomeIMG}
@@ -175,9 +177,9 @@ const Home = () => {
                 registered, always fresh with fair pricing
               </p>
             </div>
-            <div className="d-flex justify-content-between">
+            <div className="halal-img-grid">
               {HalalImg.map((link, index) => (
-                <div>
+                <div className='my-2'>
                   <img
                     src={link.image}
                     alt="Loading"
