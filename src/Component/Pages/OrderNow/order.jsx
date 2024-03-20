@@ -53,7 +53,7 @@ const OrderNow = () => {
       image: OrderChicken5,
       title: "Chicken Mince (Keema)",
       kilogram: "500gms | 1Kg",
-      amount: "Amt",
+      price: "Amt",
       button: "Add to Cart",
     },
     {

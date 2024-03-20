@@ -12,9 +12,8 @@ body {
   --red-color: #db1516;
   --black-color: #000000;
   --gray-color: rgba(0, 0, 0, 0.6);
-  --white-color: #d9d9d9;
-  --green-color: #008000	
-
+  --white-color: white;
+  --green-color: #008000;
 }
 
 #section-padding {
@@ -47,7 +46,7 @@ body {
 a.order-now-button {
   padding: 8px 20px;
   font-size: 12px;
-  color: #ffffff ;
+  color: #ffffff;
   background: var(--red-color);
   border-radius: 50px;
   text-decoration: none !important;
@@ -67,12 +66,12 @@ a.order-now-button:hover {
 }
 
 .text-color-gray {
-  color: var(--gray-color);
+  color: var(--gray-color) !important;
   font-weight: 500;
 }
 
 .text-color-black {
-  color: var(--black-color);
+  color: var(--black-color) !important;
   font-weight: 500;
 }
 
@@ -85,7 +84,7 @@ a.order-now-button:hover {
   left: 10%;
   border-radius: 50px;
   width: 80%;
-  background-color: #FFF2F2;
+  background-color: #fff2f2;
   z-index: 1;
 }
 .logo-img img {
@@ -98,27 +97,26 @@ a.order-now-button:hover {
   padding: 0px 30px;
   margin: 0px 15px;
 }
-.nav-item{
+.nav-item {
   padding: 0px 15px !important;
 }
-.nav-link{
+.nav-link {
   padding: 0px;
   color: var(--black-color);
 }
-.login-button{
-  padding: 5px 35px;  
-
+.login-button {
+  padding: 5px 35px;
 }
-.cart-trolley-link{
- position: relative;
- padding: 0px !important;
- margin: 0px 27px;
+.cart-trolley-link {
+  position: relative;
+  padding: 0px !important;
+  margin: 0px 27px;
 }
-.cart-trolley{
+.cart-trolley {
   position: relative;
   font-size: 25px;
 }
-.cart-total-item{
+.cart-total-item {
   width: 8px;
   height: 8px;
   position: absolute;
@@ -126,24 +124,23 @@ a.order-now-button:hover {
   color: var(--gray-color);
   border-radius: 50%;
 }
-.cart-total{
+.cart-total {
   width: 25px;
   height: 25px;
   position: absolute;
-  background-color :var(--green-color);
+  background-color: var(--green-color);
   color: var(--white-color);
   border-radius: 50%;
-  display: grid; 
-   place-items: center; 
-   top: -45%; 
-   left: 70%;
+  display: grid;
+  place-items: center;
+  top: -45%;
+  left: 70%;
 }
-.login-btn:hover{
+.login-btn:hover {
   background-color: var(--red-color);
 }
-.login-button:hover{
+.login-button:hover {
   color: var(--white-color) !important;
-
 }
 
 /* Home Page*/
@@ -219,7 +216,13 @@ a.learn_more2:hover {
   overflow: hidden;
   position: relative;
 }
-
+.text-about {
+  text-align: justify;
+}
+.about-page-img img {
+  width: 65%;
+  display: inline-block;
+}
 /* Categories */
 /* ---------------------------------*/
 
@@ -272,7 +275,7 @@ a.learn_more2:hover {
 
 /* Halal */
 /* ---------------------------------*/
-.halal-img-grid{
+.halal-img-grid {
   display: flex;
   justify-content: space-between;
 }
@@ -334,65 +337,17 @@ a.learn_more2:hover {
   width: 18%;
   justify-content: space-between;
   padding: 25px 0px;
-
 }
 /* Sign Up Page */
 /* ---------------------------------*/
 
-.sign-up-button{
+.sign-up-button {
   padding: 10px 100px;
   background-color: var(--red-color);
   color: var(--white-color);
   border-radius: 10px;
   text-decoration: none;
 }
-
-/* Media Query */
-/* --------------------------------------------------------------------------------------------------*/
-
-
-
-@media screen and (max-width: 992px) {
-  .nav-item{
-     padding: 15px 0px!important;
-   }
-.cart-total{
-  top: 1px;
-  right: 18px;
-}
-.login-btn{
-  margin: 6px 15px;
-}
-  
-  
-}
-
-@media screen and (max-width: 767px) {
-  .halal-img-grid{
-    display: grid;
-    grid-template-columns: auto auto auto;
-    /* padding: 10px; */
-
-  }
-  .social-media-icon {
-    width: 100%;
-    display: flex;
-    /* justify-content: space-between; */
-    justify-content: space-around;
-  }
-  
-}
-@media screen and (max-width: 490px) {
-  .halal-img-grid{
-   display: block;
-   width: 40%;
-   margin: 0px auto;
-   
-
-  }
-  
-}
-
 
 /* Customer  */
 /* ---------------------------------*/
@@ -427,5 +382,144 @@ a.learn_more2:hover {
   margin: 15px 0;
 }
 .costumer-rate {
-  color: #FF7900
+  color: #ff7900;
+}
+
+/* Account  */
+/* ---------------------------------*/
+
+.wrapper {
+  display: flex;
+}
+.indicator {
+  border-right: 1px solid var(--black-color);
+}
+.indicator li {
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--red-color);
+  margin: 25px 15px;
+  padding: 6px;
+  display: block;
+}
+
+.indicator li:hover {
+  border-radius: 8px;
+  color: var(--white-color);
+  background-color: var(--red-color);
+  padding: 6px;
+}
+.indicator li.active {
+  border-radius: 8px;
+  color: var(--white-color);
+  background-color: var(--red-color);
+  padding: 6px;
+}
+
+.content li {
+  display: none;
+}
+.content li.active {
+  display: block;
+}
+.content li h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--red-color);
+  margin-bottom: 0.75rem;
+}
+.content li p {
+  margin-bottom: 0.5rem;
+  color: var(--dark-grey);
+  font-size: 0.875rem;
+}
+.account-background-img {
+  background-image: url(./Component/asset/img/Account/account-1.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 155px;
+}
+.add-new-button {
+  /* background-color: var(--red-color); */
+  color: var(--red-color) !important;
+  border-radius: 10px;
+  padding: 6px 25px;
+}
+.add-new-button:hover {
+  color: var(--white-color) !important;
+  background-color: var(--red-color) !important;
+  /* border-color: var(--bs-btn-hover-border-color); */
+}
+.text {
+  color: var(--red-color) !important;
+  font-weight: 700;
+  font-size: 25px;
+}
+.modal-header {
+  border-bottom: none !important;
+}
+.modal-footer {
+  border-top: none !important;
+}
+.form-control {
+  /* border: none !important; */
+  font-size: 14px !important;
+}
+.form-label {
+  font-size: 16px !important;
+}
+.primary {
+  background-color: var(--red-color) !important;
+}
+.cancel {
+  background-color: #908e9b !important;
+}
+
+/* Media Query */
+/* --------------------------------------------------------------------------------------------------*/
+
+@media screen and (max-width: 992px) {
+  .nav-item {
+    padding: 15px 0px !important;
+  }
+  .cart-total {
+    top: 1px;
+    right: 18px;
+  }
+  .login-btn {
+    margin: 6px 15px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .halal-img-grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    /* padding: 10px; */
+  }
+  .social-media-icon {
+    width: 100%;
+    display: flex;
+    /* justify-content: space-between; */
+    justify-content: space-around;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .wrapper {
+    flex-direction: column;
+  }
+  .indicator {
+    border-right: none;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .halal-img-grid {
+    display: block;
+    width: 40%;
+    margin: 0px auto;
+  }
 }

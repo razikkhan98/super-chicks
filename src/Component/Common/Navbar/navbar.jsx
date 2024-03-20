@@ -45,14 +45,14 @@ const Navbar = () => {
               </li>
               <li className="nav-item">
                 {/* <a className="nav-link" aria-disabled="true" href="/"> */}
-                <NavLink to="" className="nav-link">
+                <NavLink to="/about" className="nav-link">
                   About
                 </NavLink>
 
                 {/* </a> */}
               </li>
               <li className="nav-item">
-                <NavLink to="" className="nav-link d-flex align-items-center">
+                <NavLink to="/account" className="nav-link d-flex align-items-center">
                   <FaRegUser className="mx-2" />
                   Account
                 </NavLink>
