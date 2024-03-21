@@ -213,67 +213,71 @@ const Home = () => {
                 data-bs-ride="carousel" >
                 <div className="carousel-inner">
                   <div className="carousel-item active">
-                    <div className="card-wrapper">
+                  <div className="card-slide">
 
-                      {CostumerImgfirst.map((link, index) => (
-                        <>
-                          <div className="costumer-single position-relative costumer-card">
-                            <div className="costumer-content d-flex align-items-center">
-                              <div className="costumer-author-img">
-                                <img src={link.img} alt="Loading" />
-                              </div>
-                              <div className="costumer-author-info">
-                                <h4>{link.name}</h4>
-                                <div className="costumer-rate">
-                                  <FaStar />
-                                  <FaStar />
-                                  <FaStar />
-                                  <FaStar />
-                                  <FaStar />
+                    <div className="costumer-wrapper">
+                        {CostumerImgfirst.map((link, index) => (
+                          <>
+                            <div className="costumer-single position-relative costumer-card">
+                              <div className="costumer-content d-flex align-items-center">
+                                <div className="costumer-author-img">
+                                  <img src={link.img} alt="Loading" />
+                                </div>
+                                <div className="costumer-author-info">
+                                  <h4>{link.name}</h4>
+                                  <div className="costumer-rate">
+                                    <FaStar />
+                                    <FaStar />
+                                    <FaStar />
+                                    <FaStar />
+                                    <FaStar />
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                            <div className="costumer-quote">
-                              <p>
-                                {link.description}
-                              </p>
-                            </div>
+                              <div className="costumer-quote">
+                                <p>
+                                  {link.description}
+                                </p>
+                              </div>
 
-                          </div>
-                        </>
-                      ))}
+                            </div>
+                          </>
+                        ))}
+                      </div>
                     </div>
                   </div>
                   <div className="carousel-item">
-                    <div className="card-wrapper">
-                      {CostumerImgsecond.map((link, index) => (
-                        <>
-                          <div className="costumer-single position-relative costumer-card">
+                    <div className="card-slide">
+                      <div className="costumer-wrapper">
+                        {CostumerImgsecond.map((link, index) => (
+                          <>
+                            <div className="costumer-single position-relative costumer-card">
 
-                            <div className="costumer-content d-flex align-items-center">
-                              <div className="costumer-author-img">
-                                <img src={link.img1} alt="Loading" />
-                              </div>
-                              <div className="costumer-author-info">
-                                <h4>{link.name}</h4>
-                                <div className="costumer-rate">
-                                  <FaStar />
-                                  <FaStar />
-                                  <FaStar />
-                                  <FaStar />
-                                  <FaStar />
+                              <div className="costumer-content d-flex align-items-center">
+                                <div className="costumer-author-img">
+                                  <img src={link.img1} alt="Loading" />
+                                </div>
+                                <div className="costumer-author-info">
+                                  <h4>{link.name}</h4>
+                                  <div className="costumer-rate">
+                                    <FaStar />
+                                    <FaStar />
+                                    <FaStar />
+                                    <FaStar />
+                                    <FaStar />
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                            <div className="costumer-quote">
-                              <p>
-                                {link.description1}
-                              </p>
-                            </div>
+                              <div className="costumer-quote">
+                                <p>
+                                  {link.description1}
+                                </p>
+                              </div>
 
-                          </div>
-                        </>
-                      ))}
+                            </div>
+                          </>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>

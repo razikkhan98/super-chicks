@@ -22,6 +22,7 @@ import Footer from "../../Common/Footer/footer";
 const OrderNow = () => {
   const OrderData = [
     {
+      
       image: OrderChicken1,
       title: "Chicken mixed with bone",
       kilogram: "500gms | 1Kg",

@@ -23,6 +23,7 @@ function App() {
         <Route path="/sign" element={<SignLogin/>}/>
         <Route path="/account" element={<Account/>}/>
         <Route path="*" element={<ErrorPage/>}/>
+      
       </Routes>
     </Router>
 
