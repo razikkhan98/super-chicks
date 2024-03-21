@@ -1,15 +1,13 @@
 import React from "react";
 import Footer from "../../../Common/Footer/footer";
-import Navbar from "../../../Common/Navbar/navbar";
 import { Button } from "react-bootstrap";
 import { CiCreditCard1 } from "react-icons/ci";
+import NavbarGround from "../../../Common/Navbar/navbground";
 
 const FinallPayment = () => {
   return (
     <>
-      <div className="account-background-img">
-        <Navbar />
-      </div>
+      <NavbarGround />
       <div className="back-img-main">
         <section id="section-padding">
           <div className="container px-5">
@@ -30,12 +28,12 @@ const FinallPayment = () => {
                   <label htmlFor="" className="form-label">
                     CARD NUMBER
                   </label>
-                    <input
-                      type="text"
-                      className="form-control my-2"
-                      placeholder="--- --- --- ---"
-                    />
-                    <CiCreditCard1  className="card-payment-icon"/>
+                  <input
+                    type="text"
+                    className="form-control my-2"
+                    placeholder="--- --- --- ---"
+                  />
+                  <CiCreditCard1 className="card-payment-icon" />
                 </div>
                 <div className="col-lg-6 my-4">
                   <label htmlFor="" className="form-label">

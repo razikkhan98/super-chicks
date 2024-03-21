@@ -466,13 +466,9 @@ a.learn_more2:hover {
   color: var(--dark-grey);
   font-size: 0.875rem;
 }
-
-.account-background-img {
-  background-image: url(./Component/asset/img/Account/account-1.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  height: 155px;
+.background-color-main{
+  background-color: #ffe5e5;
+  padding-top: 6%;
 }
 
 .add-new-button {
