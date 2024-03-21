@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Navbar from "../../Common/Navbar/navbar";
 import Footer from "../../Common/Footer/footer";
 import { Button, Modal } from "react-bootstrap";
+import NavbarGround from "../../Common/Navbar/navbground";
 
 const Account = () => {
   const [activeTab, setActiveTab] = useState("Dashboard");
@@ -15,9 +16,7 @@ const Account = () => {
   const handleShow = () => setShowModal(true);
   return (
     <>
-      <div className="account-background-img">
-        <Navbar />
-      </div>
+      <NavbarGround/>
       <div className="back-img-main">
         <section id="section-padding">
           <div className="container px-5">

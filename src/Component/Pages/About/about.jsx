@@ -1,14 +1,12 @@
 import React from "react";
 import AboutImg from "../../asset/img/About/about-img.png";
-import Navbar from "../../Common/Navbar/navbar";
 import Footer from "../../Common/Footer/footer";
+import NavbarGround from "../../Common/Navbar/navbground";
 
 const About = () => {
   return (
     <>
-      <div className="account-background-img">
-        <Navbar />
-      </div>
+      <NavbarGround/>
       <div className="back-img-main">
         <section id="section-padding">
           <div className="container px-5">
@@ -79,7 +77,8 @@ const About = () => {
               </div>
               <div className="col-lg-12">
                 <p className="fs-6 text-color-red mt-5">
-                Choose SuperChicks for your meat and fish needs, and we guarantee your satisfaction with every order.
+                  Choose SuperChicks for your meat and fish needs, and we
+                  guarantee your satisfaction with every order.
                 </p>
               </div>
             </div>
@@ -87,7 +86,7 @@ const About = () => {
         </section>
       </div>
       {/* Footer Start*/}
-      <Footer/>
+      <Footer />
       {/* Footer End */}
     </>
   );

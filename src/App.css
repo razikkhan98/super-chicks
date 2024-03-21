@@ -445,13 +445,17 @@ a.learn_more2:hover {
   color: var(--dark-grey);
   font-size: 0.875rem;
 }
-.account-background-img {
+.background-color-main{
+  background-color: #ffe5e5;
+  padding-top: 8%;
+}
+/* .account-background-img {
   background-image: url(./Component/asset/img/Account/account-1.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   height: 155px;
-}
+} */
 .add-new-button {
   /* background-color: var(--red-color); */
   color: var(--red-color) !important;
