@@ -15,8 +15,6 @@ body {
   --white-color: white;
   --green-color: #008000;
 
-
-
 }
 
 #section-padding {
@@ -356,7 +354,6 @@ a.learn_more2:hover {
   justify-content: space-between;
   padding: 25px 0px;
 }
-
 /* Sign Up Page */
 /* ---------------------------------*/
 
@@ -579,6 +576,8 @@ a.learn_more2:hover {
     margin: 0px auto;
   }
 }
+
+
 
 
 
