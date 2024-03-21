@@ -218,10 +218,8 @@ const Account = () => {
                 </li>
                 <li
                   className={activeTab === "Account" ? "active" : ""}
-                  id="contact"
-                >
+                  id="contact">
                   <h1 className="mt-5">Account Details</h1>
-
                   <form action="">
                     <div className="row mb-3">
                       <div className="col-lg-6 px-3">
@@ -272,14 +270,10 @@ const Account = () => {
                       </div>
                     </div>
                     <div className="row">
-                      <div className="col-lg-7">
-
+                      <div className="col-lg-7"></div>
+                      <div className="col-lg-5">
+                        <Button variant=" btn-danger px-5">Submit</Button>
                       </div>
-                      <div className="col-lg-5"> 
-                      <Button variant=" btn-danger px-5">Submit</Button>
-
-                      </div>
-
                     </div>
                   </form>
                 </li>
