@@ -138,15 +138,15 @@ const Card = ({ image, title, kilogram, amount, button }) => {
               <span className="pe-2">{amount} Amt</span>
             </div>
             <div>
-              {button === "Add to Cart" ? (
+              {button === "Add to Cart" || button === 'Order Now' ? (
                 <>
-                  <NavLink to="" className='text-decoration-none'>
+                  <NavLink to="/order" className='text-decoration-none'>
                     <Button button={button} />
                   </NavLink>
                 </>
               ) : (
                 <>
-                  <NavLink to="/order" className="text-decoration-none">
+                  <NavLink to="/singleproduct/:id" className="text-decoration-none">
                     <Button button={button} />
                   </NavLink>
                 </>

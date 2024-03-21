@@ -4,10 +4,10 @@ import OrderNow from './Component/Pages/OrderNow/order';
 import SingleProduct from './Component/Pages/SingleProduct/singleProduct';
 import ErrorPage from './Component/Pages/ErrorPage/errorPage';
 import Cart from './Component/Pages/Cart/cart';
+import About from './Component/Pages/About/about';
 import SignLogin from './Component/Pages/Login/signlogin';
 import Account from './Component/Pages/Account/account';
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import About from './Component/Pages/About/about';
 
 function App() {
 
