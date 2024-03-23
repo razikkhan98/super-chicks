@@ -7,6 +7,7 @@ import Cart from './Component/Pages/Cart/cart';
 import About from './Component/Pages/About/about';
 import SignLogin from './Component/Pages/Login/signlogin';
 import Account from './Component/Pages/Account/account';
+import Contact from './Component/Pages/ContactUs/contact';
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="/cart" element={<Cart/>}/>
         <Route path="/sign" element={<SignLogin/>}/>
         <Route path="/account" element={<Account/>}/>
+        <Route path="/contact" element={<Contact/>}/>
         <Route path="*" element={<ErrorPage/>}/>
       
       </Routes>

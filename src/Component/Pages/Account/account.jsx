@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Navbar from "../../Common/Navbar/navbar";
 import Footer from "../../Common/Footer/footer";
 import { Button, Modal } from "react-bootstrap";
 import NavbarGround from "../../Common/Navbar/navbground";
