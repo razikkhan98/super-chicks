@@ -30,6 +30,7 @@ import team4 from "../../asset/img/costumer/costumer-4.png";
 const Home = () => {
   const CardData = [
     {
+      
       image: Products1,
       title: "Fresh Chicken",
       kilogram: "500gms | 1Kg",
@@ -151,11 +152,12 @@ const Home = () => {
                 <>
                   <div className="col-lg-4 col-md-6 col-sm-12 my-2">
                     <Card
-                      image={link.image}
-                      title={link.title}
-                      kilogram={link.kilogram}
-                      amount={link.amount}
-                      button={link.button}
+                      // image={link.image}
+                      // title={link.title}
+                      // kilogram={link.kilogram}
+                      // amount={link.amount}
+                      // button={link.button}
+                      key = {link.id} {...link}
                     />
                   </div>
                 </>
