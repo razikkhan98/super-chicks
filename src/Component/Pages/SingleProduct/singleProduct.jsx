@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 // Common
 import Footer from "../../Common/Footer/footer";
@@ -24,7 +25,13 @@ import product3 from "../../asset/img/Products/products-1.png";
 import product4 from "../../asset/img/Order/Order-Chicken-5.png";
 import NavbarGround from "../../Common/Navbar/navbground";
 
+import OrderChicken1 from "../../asset/img/Order/Order-Chicken-1.png";
+import OrderChicken2 from "../../asset/img/Order/Order-Chicken-2.png";
+import { useParams } from "react-router-dom";
+
 const SingleProduct = () => {
+ 
+
   const images = [
     { image: image1 },
     { image: image2 },
@@ -35,30 +42,64 @@ const SingleProduct = () => {
 
   const ProductData = [
     {
+      id:1,
       img: product1,
       title: "Chicken Drumstick",
       amt: "Rs250",
       delamt: "Rs350",
     },
     {
+      id:2,
       img: product2,
       title: "Chicken Wings",
       amt: "Rs250",
       delamt: "Rs350",
     },
     {
+      id:3,
       img: product3,
       title: "Chicken Breast",
       amt: "Rs250",
       delamt: "Rs350",
     },
     {
+      id:4,
       img: product4,
       title: "Chicken Keema",
       amt: "Rs250",
       delamt: "Rs350",
     },
   ];
+
+  const [data, setData] = useState();
+
+  console.log(data);
+
+  const apiUrl = "http://localhost:3005/api/data";
+
+  const { id } = useParams();
+
+  console.log("id", id);
+
+const {id:rrr , title , price , description } = ProductData
+
+  // Api Function
+
+  
+  const SingleProductAPiGET = async () => {
+    try {
+      const res = await axios.get(apiUrl);
+      setData(res.data);
+      console.log(res.data);
+    } catch (error) { 
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    SingleProductAPiGET(`${apiUrl}/${id}`);
+  });
+
   return (
     <>
       {/* Description Start */}
@@ -77,8 +118,7 @@ const SingleProduct = () => {
                     <div className="button-img ">
                       {images.map((link, index) => (
                         <img
-
-                        src={link.image}
+                          src={link.image}
                           alt={"Slide" + (index + 1)}
                           key={index}
                           type="button"
@@ -88,7 +128,6 @@ const SingleProduct = () => {
                           aria-current={index === 0 ? "true" : "false"}
                           aria-label={"Slide" + (index + 1)}
                         />
-                        
                       ))}
                       ;
                     </div>
@@ -175,7 +214,7 @@ const SingleProduct = () => {
 
               <div class="col-lg-6">
                 <div className="description-heading">
-                  <h1>Chicken Mixed With Bones</h1>
+                  <h1>Chicken Mixed With Bones  {title}</h1>
                 </div>
                 <div className="product-price d-flex">
                   <h1 className="price-1">Rs200</h1>

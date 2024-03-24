@@ -4,7 +4,8 @@ import React from "react";
 import Button from "../Button/button";
 import { NavLink } from "react-router-dom";
 
-const Card = ({ image, title, kilogram, amount, button }) => {
+const Card = (link) => {
+  const { id, title, kilogram, amount , button , image } = link
   return (
     <>
       <div class="card card-shadow">
@@ -138,7 +139,7 @@ const Card = ({ image, title, kilogram, amount, button }) => {
               <span className="pe-2">{amount} Amt</span>
             </div>
             <div>
-              {button === "Add to Cart" || button === 'Order Now' ? (
+              {button === 'Order Now' ? (
                 <>
                   <NavLink to="/order" className='text-decoration-none'>
                     <Button button={button} />
@@ -146,7 +147,7 @@ const Card = ({ image, title, kilogram, amount, button }) => {
                 </>
               ) : (
                 <>
-                  <NavLink to="/singleproduct/:id" className="text-decoration-none">
+                  <NavLink to={`/singleproduct/${id}`} className="text-decoration-none">
                     <Button button={button} />
                   </NavLink>
                 </>
