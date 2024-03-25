@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { NavLink, useParams } from "react-router-dom";
 
-
 // Common
 import Footer from "../../Common/Footer/footer";
 import MyImage from "../../Common/MyImage/myImage";
@@ -20,10 +19,7 @@ import product2 from "../../asset/img/Order/Order-Chicken-4.png";
 import product3 from "../../asset/img/Products/products-1.png";
 import product4 from "../../asset/img/Order/Order-Chicken-5.png";
 
-
-
 const SingleProduct = () => {
-
   const { addToCart } = useCartContext();
 
   const ProductData = [
@@ -56,7 +52,6 @@ const SingleProduct = () => {
       delamt: "Rs350",
     },
   ];
-
 
   const { id } = useParams();
   const [singleProduct, setSingleProduct] = useState([]);

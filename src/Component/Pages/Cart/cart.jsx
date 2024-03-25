@@ -1,11 +1,26 @@
-import React from 'react'
+import React from "react";
+import { useCartContext } from "../../Context/cartContext";
+import CartItem from "./CartItem/cartItem";
 
-const cart = () => {
+const Cart = () => {
+  const { cart } = useCartContext();
+  // console.log("🚀 ~ file: Cart.js ~ line 6 ~ Cart ~ cart", cart);
   return (
-    <section>
-        Add to cart
-    </section>
-  )
-}
+    <>
+      <div className="d-flex justify-content-between">
+        <div>Item</div>
+        <div>Price</div>
+        <div>Quantity</div>
+        <div>SubTotal</div>
+      </div>
+      <hr />
+      <div className="cart-item">
+          {cart.map((curElem) => {
+            return <CartItem key={curElem.id} {...curElem} />;
+          })}
+        </div>
+    </>
+  );
+};
 
-export default cart
+export default Cart;
