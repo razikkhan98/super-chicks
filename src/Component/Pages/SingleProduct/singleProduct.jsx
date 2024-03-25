@@ -1,38 +1,31 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { NavLink, useParams } from "react-router-dom";
+
 
 // Common
 import Footer from "../../Common/Footer/footer";
+import MyImage from "../../Common/MyImage/myImage";
+import { useCartContext } from "../../Context/cartContext";
+import NavbarGround from "../../Common/Navbar/navbground";
 
-// icons
-// import { FaCircleChevronLeft, FaCircleChevronRight } from "react-icons/fa6";
-import {
-  IoChevronBackCircleOutline,
-  IoChevronForwardCircleOutline,
-} from "react-icons/io5";
+//React icons
+
 import { BsHandbag } from "react-icons/bs";
 import { FaMinus, FaPlus } from "react-icons/fa";
 
-// images
-import image1 from "../../asset/img/Description/description-1.jpg";
-import image2 from "../../asset/img/Description/description-2.jpg";
-import image3 from "../../asset/img/Description/description-3.jpg";
-import image4 from "../../asset/img/Description/description-4.jpg";
-import image5 from "../../asset/img/Description/description-5.jpg";
-
+// Image
 import product1 from "../../asset/img/Order/Order-Chicken-3.png";
 import product2 from "../../asset/img/Order/Order-Chicken-4.png";
 import product3 from "../../asset/img/Products/products-1.png";
 import product4 from "../../asset/img/Order/Order-Chicken-5.png";
-import NavbarGround from "../../Common/Navbar/navbground";
 
-import OrderChicken1 from "../../asset/img/Order/Order-Chicken-1.png";
-import OrderChicken2 from "../../asset/img/Order/Order-Chicken-2.png";
-import { NavLink, useParams } from "react-router-dom";
-import MyImage from "../../Common/MyImage/myImage";
+
 
 const SingleProduct = () => {
-  
+
+  const { addToCart } = useCartContext();
+
   const ProductData = [
     {
       id: 1,
@@ -64,12 +57,12 @@ const SingleProduct = () => {
     },
   ];
 
+
   const { id } = useParams();
   const [singleProduct, setSingleProduct] = useState([]);
   const [amount, setAmount] = useState(1);
 
-  const { id: alias, name, price, description, stock , image} = singleProduct;
-
+  const { id: alias, name, price, description, stock, image } = singleProduct;
 
   const setDecrease = () => {
     amount > 1 ? setAmount(amount - 1) : setAmount(1);
@@ -199,14 +192,20 @@ const SingleProduct = () => {
                     </div>
                   </div>
                 </div>
-                <div className="d-flex justify-content-end">
-                  {/* <a className="add-to-cart-button mt-4" href="/">
-                    <BsHandbag /> Add to Cart
-                  </a> */}
-                  <NavLink to='/cart' className="add-to-cart-button mt-4">
-                  <BsHandbag /> Add to Cart
-                  </NavLink>
-                </div>
+                {stock > 0 && (
+                  <div className="d-flex justify-content-end">
+                    {/* <a className="add-to-cart-button mt-4" href="/">
+                   <BsHandbag /> Add to Cart
+                 </a> */}
+                    <NavLink
+                      to="/cart"
+                      className="add-to-cart-button mt-4"
+                      onClick={() => addToCart(id, amount, singleProduct)}
+                    >
+                      <BsHandbag /> Add to Cart
+                    </NavLink>
+                  </div>
+                )}
               </div>
 
               <div class="col-lg-6">
@@ -237,10 +236,7 @@ const SingleProduct = () => {
                 </div>
 
                 <h4 className="price-heading">Raw Chicken Mince with Bone</h4>
-                <p className="description">
-                  {description}
-                </p>
-
+                <p className="description">{description}</p>
                 <div className="product-offer">Offers</div>
                 <div className="product-offer-card d-flex mt-3 mb-3">
                   <div className="offer-card-1 me-2 p-2">
@@ -249,7 +245,6 @@ const SingleProduct = () => {
                       Terms & Conditions
                     </a>
                   </div>
-
                   <div className="offer-card-2 me-2 p-2  ">
                     <p>Get upto 30% Off on order value above Rs100</p>
                     <a href="/" className="offer-card-terms">
@@ -265,12 +260,13 @@ const SingleProduct = () => {
                     </a>
                   </div>
                 </div>
-
-                <div className="d-flex justify-content-start">
-                  <a className="sign-up-button mt-4" href="/">
-                    Buy Now
-                  </a>
-                </div>
+                {stock > 0 && (
+                  <div className="d-flex justify-content-start">
+                    <a className="sign-up-button mt-4" href="/">
+                      Buy Now
+                    </a>
+                  </div>
+                )}
               </div>
             </div>
 
