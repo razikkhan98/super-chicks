@@ -11,6 +11,7 @@ import {
   IoChevronForwardCircleOutline,
 } from "react-icons/io5";
 import { BsHandbag } from "react-icons/bs";
+import { FaMinus, FaPlus } from "react-icons/fa";
 
 // images
 import image1 from "../../asset/img/Description/description-1.jpg";
@@ -27,43 +28,35 @@ import NavbarGround from "../../Common/Navbar/navbground";
 
 import OrderChicken1 from "../../asset/img/Order/Order-Chicken-1.png";
 import OrderChicken2 from "../../asset/img/Order/Order-Chicken-2.png";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
+import MyImage from "../../Common/MyImage/myImage";
 
 const SingleProduct = () => {
- 
-
-  const images = [
-    { image: image1 },
-    { image: image2 },
-    { image: image3 },
-    { image: image4 },
-    { image: image5 },
-  ];
-
+  
   const ProductData = [
     {
-      id:1,
+      id: 1,
       img: product1,
       title: "Chicken Drumstick",
       amt: "Rs250",
       delamt: "Rs350",
     },
     {
-      id:2,
+      id: 2,
       img: product2,
       title: "Chicken Wings",
       amt: "Rs250",
       delamt: "Rs350",
     },
     {
-      id:3,
+      id: 3,
       img: product3,
       title: "Chicken Breast",
       amt: "Rs250",
       delamt: "Rs350",
     },
     {
-      id:4,
+      id: 4,
       img: product4,
       title: "Chicken Keema",
       amt: "Rs250",
@@ -71,34 +64,35 @@ const SingleProduct = () => {
     },
   ];
 
-  const [data, setData] = useState();
-
-  console.log(data);
-
-  const apiUrl = "http://localhost:3005/api/data";
-
   const { id } = useParams();
+  const [singleProduct, setSingleProduct] = useState([]);
+  const [amount, setAmount] = useState(1);
 
-  console.log("id", id);
+  const { id: alias, name, price, description, stock , image} = singleProduct;
 
-const {id:rrr , title , price , description } = ProductData
 
-  // Api Function
+  const setDecrease = () => {
+    amount > 1 ? setAmount(amount - 1) : setAmount(1);
+  };
 
-  
-  const SingleProductAPiGET = async () => {
-    try {
-      const res = await axios.get(apiUrl);
-      setData(res.data);
-      console.log(res.data);
-    } catch (error) { 
-      console.log(error);
-    }
+  const setIncrease = () => {
+    amount < 10 ? setAmount(amount + 1) : setAmount(10);
+  };
+
+  //   Api Function single Product Id
+
+  const api = "https://api.pujakaitem.com/api/products";
+
+  const getSingleProduct = async (id) => {
+    const response = await axios.get(`${api}/${id}`);
+    return response.data;
   };
 
   useEffect(() => {
-    SingleProductAPiGET(`${apiUrl}/${id}`);
-  });
+    getSingleProduct(id).then((data) => {
+      setSingleProduct(data);
+    });
+  }, [id]);
 
   return (
     <>
@@ -109,14 +103,14 @@ const {id:rrr , title , price , description } = ProductData
           <div class="container">
             <div class="row">
               <div className="col-md-6">
-                <div
+                {/* <div
                   id="carouselExampleDark"
                   className="carousel carousel-dark slide"
                   data-bs-ride="carousel"
                 >
                   <div className="carousel-indicators">
                     <div className="button-img ">
-                      {images.map((link, index) => (
+                      {image.map((link, index) => (
                         <img
                           src={link.image}
                           alt={"Slide" + (index + 1)}
@@ -134,7 +128,7 @@ const {id:rrr , title , price , description } = ProductData
                   </div>
 
                   <div className="carousel-inner">
-                    {images.map((link, index) => (
+                    {image.map((link, index) => (
                       <div
                         className={
                           "carousel-item " + (index === 0 ? "active" : "")
@@ -175,8 +169,8 @@ const {id:rrr , title , price , description } = ProductData
                     />
                     <span className="visually-hidden">Next</span>
                   </button>
-                </div>
-
+                </div> */}
+                <MyImage imgs={image} />
                 <div className="row d-flex justify-content-center">
                   <div className="col-lg-6">
                     <div className="description-text ms-5">
@@ -206,43 +200,45 @@ const {id:rrr , title , price , description } = ProductData
                   </div>
                 </div>
                 <div className="d-flex justify-content-end">
-                  <a className="add-to-cart-button mt-4" href="/">
+                  {/* <a className="add-to-cart-button mt-4" href="/">
                     <BsHandbag /> Add to Cart
-                  </a>
+                  </a> */}
+                  <NavLink to='/cart' className="add-to-cart-button mt-4">
+                  <BsHandbag /> Add to Cart
+                  </NavLink>
                 </div>
               </div>
 
               <div class="col-lg-6">
                 <div className="description-heading">
-                  <h1>Chicken Mixed With Bones  {title}</h1>
+                  <h1>{name}</h1>
                 </div>
                 <div className="product-price d-flex">
-                  <h1 className="price-1">Rs200</h1>
+                  <h1 className="price-1">Rs {price}</h1>
                   <h3 className="price-2">
                     <del> Rs400</del>
                   </h3>
                   <h1 className="price-off"> 50%OFF</h1>
                 </div>
                 <div className="hr"></div>
-                {/* <div className="Product-quantity d-flex">Quantity:
-                                    <div className="product-quantity-btn d-flex">
-                                        <button className="btn">-</button>
-                                        <span> 1 </span>
-                                        <button className="btn">+</button>
-                                    </div>
-                                </div> */}
+                <div className="Product-quantity d-flex">
+                  Quantity:
+                  <div className="product-quantity-btn d-flex">
+                    {/* <button className="btn">-</button> */}
+                    <button className="btn" onClick={() => setDecrease()}>
+                      <FaMinus />
+                    </button>
+                    <div>{amount}</div>
+                    {/* <button className="btn">+</button> */}
+                    <button className="btn" onClick={() => setIncrease()}>
+                      <FaPlus />
+                    </button>
+                  </div>
+                </div>
 
                 <h4 className="price-heading">Raw Chicken Mince with Bone</h4>
                 <p className="description">
-                  This wholesome chicken mince features a well balanced ratio of
-                  cage-free, farm raised, hormone-free & antibiotic-free
-                  chickens and ground gristle. It is highly suitable for animals
-                  with sensitivities or allergies to other protein sources.
-                  Thanks to the very finely minced consistency, this product is
-                  ideal for small dogs or cats. The raw chicken mince is
-                  specifically intended for experienced raw feeders who are
-                  confident in their know-how to create tasty, complete and
-                  balanced meals at home.
+                  {description}
                 </p>
 
                 <div className="product-offer">Offers</div>

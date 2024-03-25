@@ -22,7 +22,7 @@ import Footer from "../../Common/Footer/footer";
 const OrderNow = () => {
   const OrderData = [
     {
-      id:1,
+      id:'thapaserialnoa',
       image: OrderChicken1,
       title: "Chicken mixed with bone",
       kilogram: "500gms | 1Kg",
@@ -30,7 +30,7 @@ const OrderNow = () => {
       button: "Add to Cart",
     },
     {
-      id:2,
+      id:'thapaserialnob',
       image: OrderChicken2,
       title: "Chicken (Boneless)",
       kilogram: "500gms | 1Kg",
@@ -38,7 +38,7 @@ const OrderNow = () => {
       button: "Add to Cart",
     },
     {
-      id:3,
+      id:'thapaserialnoc',
       image: OrderChicken3,
       title: "Chicken Drumstick",
       kilogram: "500gms | 1Kg",
@@ -46,7 +46,7 @@ const OrderNow = () => {
       button: "Add to Cart",
     },
     {
-      id:4,
+      id:'thapaserialnod',
       image: OrderChicken4,
       title: "Chicken Wings",
       kilogram: "500gms | 1Kg",
@@ -54,7 +54,7 @@ const OrderNow = () => {
       button: "Add to Cart",
     },
     {
-      id:5,
+      id:'thapaserialnof',
       image: OrderChicken5,
       title: "Chicken Mince (Keema)",
       kilogram: "500gms | 1Kg",
@@ -62,7 +62,7 @@ const OrderNow = () => {
       button: "Add to Cart",
     },
     {
-      id:6,
+      id:'thapaserialnog',
       image: OrderChicken6,
       title: "Chicken Breast",
       kilogram: "500gms | 1Kg",
