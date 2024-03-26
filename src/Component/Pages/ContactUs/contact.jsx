@@ -12,10 +12,9 @@ const Contact = () => {
     <>
       {/* Contact Start */}
       <NavbarGround />
-
       <div className="back-img-main">
         <section id="section-padding">
-          <div class="container">
+          <div class="container px-5">
             <h1 className="fw-bold text-color-red">Contact Us</h1>
             <div className="contact-info d-flex justify-content-evenly rounded border border-secondary mt-5 p-4">
               <div class="row">
@@ -88,8 +87,9 @@ const Contact = () => {
                   // rows="3"
                 ></textarea>
               </div>
-              <Button variant=" btn-danger text-light bg-danger px-5 mt-5">Submit</Button>
-
+              <Button variant=" btn-danger text-light bg-danger px-5 mt-5">
+                Submit
+              </Button>
             </form>
           </div>
         </section>
