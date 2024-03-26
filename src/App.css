@@ -781,48 +781,9 @@ a.learn_more2:hover {
 }
 
 
-/* login */
-
-/* ---------------------------------*/
-.navbclase {
-  position: fixed;
-  top: 0;
-  right: 0;
-  height: 100%;
-  background-color: #ffe5e5;
-  width: 280px;
-  padding: 1.6rem;
-  transform: translateX(100%);
-  transition: all 0.5s ease;
+/* Cart Page */
+/* ---------s ----------- */
+.cart-img{
+  height: 104px;
+  width: 153px;
 }
-
-.btn-close {
-  background-color: #252525;
-  display: block;
-  width: 33px;
-  height: 33px;
-  font-size: 1.6rem;
-  display: flex;
-  align-items: center;
-  margin-left: auto;
-  justify-content: center;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: color 0.5s ease;
-}
-
-.btn-close:hover {
-  color: #39b54a;
-}
-
-
-
-/* === show menu ===  */
-.showMenu {
-  transform: translateX(0);
-}
-
-
-
-
-
