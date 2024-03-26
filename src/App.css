@@ -515,70 +515,6 @@ a.learn_more2:hover {
   background-color: #908e9b !important;
 }
 
-/* Media Query */
-/* --------------------------------------------------------------------------------------------------*/
-
-@media screen and (max-width: 992px) {
-  .nav-item {
-    padding: 15px 0px !important;
-  }
-
-  .cart-total {
-    top: 1px;
-    right: 18px;
-  }
-
-  .login-btn {
-    margin: 6px 15px;
-  }
-  .button-img {
-    display: flex;
-    margin-right: 5px;
-  }
-
-}
-
-@media screen and (max-width: 767px) {
-  .halal-img-grid {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    /* padding: 10px; */
-  }
-
-  .social-media-icon {
-    width: 100%;
-    display: flex;
-    /* justify-content: space-between; */
-    justify-content: space-around;
-  }
-}
-
-@media screen and (max-width: 576px) {
-  .wrapper {
-    flex-direction: column;
-  }
-
-  .indicator {
-    border-right: none;
-  }
-
-  
-}
-
-@media screen and (max-width: 490px) {
-  .halal-img-grid {
-    display: block;
-    width: 40%;
-    margin: 0px auto;
-  }
-}
-
-
-
-
-
-
-
 
 /* Description  */
 /* ---------------------------------*/
@@ -787,3 +723,76 @@ a.learn_more2:hover {
   height: 104px;
   width: 153px;
 }
+.shopping-empty {
+  text-align: center;
+}
+.shopping-empt-icon {
+  display: flex;
+  justify-content: center;
+}
+
+/* Media Query */
+/* --------------------------------------------------------------------------------------------------*/
+
+@media screen and (max-width: 992px) {
+  .nav-item {
+    padding: 15px 0px !important;
+  }
+
+  .cart-total {
+    top: 1px;
+    right: 18px;
+  }
+
+  .login-btn {
+    margin: 6px 15px;
+  }
+  .button-img {
+    display: flex;
+    margin-right: 5px;
+  }
+
+}
+
+@media screen and (max-width: 767px) {
+  .halal-img-grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    /* padding: 10px; */
+  }
+
+  .social-media-icon {
+    width: 100%;
+    display: flex;
+    /* justify-content: space-between; */
+    justify-content: space-around;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .wrapper {
+    flex-direction: column;
+  }
+
+  .indicator {
+    border-right: none;
+  }
+
+  
+}
+
+@media screen and (max-width: 490px) {
+  .halal-img-grid {
+    display: block;
+    width: 40%;
+    margin: 0px auto;
+  }
+}
+
+
+
+
+
+
+
+

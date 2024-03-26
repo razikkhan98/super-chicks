@@ -4,11 +4,13 @@ import FormatPrice from "../../../Helpers/FormatPrice";
 import { FaTrash } from "react-icons/fa";
 import { useCartContext } from "../../../Context/cartContext";
 import { FaMinus, FaPlus } from "react-icons/fa";
+// Icons
+import { CiCircleMinus, CiCirclePlus } from "react-icons/ci";
+import { RiDeleteBin6Line } from "react-icons/ri";
 
 const CartItem = ({ id, name, image, color, price, amount }) => {
-  const { removeItem , setDecrement, setIncrement } = useCartContext();
+  const { removeItem, setDecrement, setIncrement } = useCartContext();
 
-  
   // const setDecrease = () => {
   //   // amount > 1 ? setAmount(amount - 1) : setAmount(1);
   // };
@@ -19,56 +21,30 @@ const CartItem = ({ id, name, image, color, price, amount }) => {
 
   return (
     <>
-      <div className="d-flex justify-content-between">
-        <div>
-          <figure>
-            <img src={image} alt={id} width={100} height={100} />
-          </figure>
+      <div className="row">
+        <div className="col-lg-4">
+          <img src={image} className="cart-img rounded ps-3 me-3" alt="Loading" />
+          {name}
         </div>
-        <div>
-          <p>{name}</p>
-          {/* <div className="color-div">
-            <p>color:</p>
-            <div
-              className="color-style"
-              style={{ backgroundColor: color, color: color }}></div>
-          </div> */}
+        <div className="col-lg-2 ps-3 fw-bold d-flex align-items-center">
+        <FormatPrice price={price}/>
         </div>
-        {/* price   */}
-        <div className="cart-hide">
-          <p>
-            <FormatPrice price={price} />
-          </p>
+        <div className="col-lg-2 ps-3 fw-bold d-flex align-items-center">
+          <CiCircleMinus className="fs-3" onClick={() => setDecrement(id)}/>
+          <span> {amount}</span>
+          <CiCirclePlus className="fs-3" onClick={() => setIncrement(id)}/>
         </div>
-        {/* Quantity  */}
-        <div className="Product-quantity d-flex">
-          <div className="product-quantity-btn d-flex">
-            {/* <button className="btn">-</button> */}
-            <button className="btn" onClick={() => setDecrement(id)}>
-              <FaMinus />
-            </button>
-            <div>{amount}</div>
-            {/* <button className="btn">+</button> */}
-            <button className="btn" onClick={() => setIncrement(id)}>
-              <FaPlus />
-            </button>
-          </div>
+        <div className="col-lg-2 ps-3 fw-bold d-flex align-items-center">
+        <FormatPrice price={price * amount}/>
         </div>
-        {/* <CartAmountToggle
-        amount={amount}
-        setDecrease={setDecrease}
-        setIncrease={setIncrease}
-      /> */}
-        {/* //Subtotal */}
-        <div className="cart-hide">
-          <p>
-            <FormatPrice price={price * amount} />
-          </p>
-        </div>
-        <div>
-          <FaTrash className="remove_icon" onClick={() => removeItem(id)} />
+        {/* <div className="fs-3 d-flex justify-content-end  align-items-center  text-color-red pe-5">
+          <RiDeleteBin6Line onClick={() => removeItem(id)} />
+        </div> */}
+        <div className="col-lg-2 ps-3 fw-bold d-flex align-items-center text-color-red fs-3">
+          <RiDeleteBin6Line onClick={() => removeItem(id)} />
         </div>
       </div>
+      
     </>
   );
 };
