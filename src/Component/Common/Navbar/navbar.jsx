@@ -7,9 +7,14 @@ import Logo from "../../asset/img/Logo/logo.png";
 import { FaRegUser } from "react-icons/fa6";
 import { FiShoppingCart } from "react-icons/fi";
 import { RiMenu2Line } from "react-icons/ri";
+import { useCartContext } from "../../Context/cartContext";
 
 const Navbar = () => {
-  let size = 0;
+  const { cart , total_item } = useCartContext();
+
+ 
+
+  let size = cart.length;
   return (
     <>
       <nav className="navbar navbar-expand-lg">
@@ -74,9 +79,9 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li className="login-btn">
-                <NavLink to="/sign" className="nav-link login-button">
+                <div className="nav-link login-button ">
                   Login
-                </NavLink>
+                </div>
               </li>
             </ul>
           </div>

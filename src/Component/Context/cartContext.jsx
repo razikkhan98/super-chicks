@@ -5,7 +5,7 @@ const CartContext = createContext();
 
 const getLocalCartData = () => {
   let localCartData = localStorage.getItem("superChicks");
-  if (localCartData == []) {
+  if (localCartData == null || localCartData.length === 0) {
     return [];
   } else {
     return JSON.parse(localCartData);
@@ -18,7 +18,7 @@ const initialState = {
   cart:getLocalCartData(),
   total_item: "",
   total_amount: "",
-  shipping_fee: 50000,
+  shipping_fee: 500,
 };
 
 const CartProvider = ({ children }) => {
@@ -26,6 +26,17 @@ const CartProvider = ({ children }) => {
 
   const addToCart = (id, amount, singleProduct) => {
     dispatch({ type: "ADD_TO_CART", payload: { id, amount, singleProduct } });
+  };
+
+
+  // increment and decrement the product
+
+  const setDecrement = (id) => {
+    dispatch({ type: "SET_DECREMENT", payload: id });
+  };
+
+  const setIncrement = (id) => {
+    dispatch({ type: "SET_INCREMENT", payload: id });
   };
 
     // to remove the individual item from cart
@@ -38,13 +49,13 @@ const CartProvider = ({ children }) => {
   // get vs set
 
   useEffect(() => {
-    // dispatch({ type: "CART_TOTAL_ITEM" });
-    // dispatch({ type: "CART_TOTAL_PRICE" });
+    dispatch({ type: "CART_TOTAL_ITEM" });
+    dispatch({ type: "CART_TOTAL_PRICE" });
     localStorage.setItem("superChicks", JSON.stringify(state.cart));
   }, [state.cart]);
 
   return (
-    <CartContext.Provider value={{ ...state, addToCart, removeItem }}>
+    <CartContext.Provider value={{ ...state, addToCart, removeItem,setDecrement ,setIncrement }}>
       {children}
     </CartContext.Provider>
   );

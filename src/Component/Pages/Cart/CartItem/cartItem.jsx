@@ -6,14 +6,16 @@ import { useCartContext } from "../../../Context/cartContext";
 import { FaMinus, FaPlus } from "react-icons/fa";
 
 const CartItem = ({ id, name, image, color, price, amount }) => {
-  const { removeItem } = useCartContext();
-  const setDecrease = () => {
-    // amount > 1 ? setAmount(amount - 1) : setAmount(1);
-  };
+  const { removeItem , setDecrement, setIncrement } = useCartContext();
 
-  const setIncrease = () => {
-    // amount < stock ? setAmount(amount + 1) : setAmount(stock);
-  };
+  
+  // const setDecrease = () => {
+  //   // amount > 1 ? setAmount(amount - 1) : setAmount(1);
+  // };
+
+  // const setIncrease = () => {
+  //   // amount < stock ? setAmount(amount + 1) : setAmount(stock);
+  // };
 
   return (
     <>
@@ -42,12 +44,12 @@ const CartItem = ({ id, name, image, color, price, amount }) => {
         <div className="Product-quantity d-flex">
           <div className="product-quantity-btn d-flex">
             {/* <button className="btn">-</button> */}
-            <button className="btn" onClick={() => setDecrease()}>
+            <button className="btn" onClick={() => setDecrement(id)}>
               <FaMinus />
             </button>
             <div>{amount}</div>
             {/* <button className="btn">+</button> */}
-            <button className="btn" onClick={() => setIncrease()}>
+            <button className="btn" onClick={() => setIncrement(id)}>
               <FaPlus />
             </button>
           </div>
