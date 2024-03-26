@@ -781,4 +781,9 @@ a.learn_more2:hover {
 }
 
 
-
+/* Cart Page */
+/* -------------------- */
+.cart-img{
+  height: 104px;
+  width: 153px;
+}

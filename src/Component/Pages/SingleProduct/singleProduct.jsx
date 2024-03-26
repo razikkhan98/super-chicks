@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+// import axios from "axios";
 
 // Common
 import Footer from "../../Common/Footer/footer";
@@ -86,19 +86,19 @@ const {id:rrr , title , price , description } = ProductData
   // Api Function
 
   
-  const SingleProductAPiGET = async () => {
-    try {
-      const res = await axios.get(apiUrl);
-      setData(res.data);
-      console.log(res.data);
-    } catch (error) { 
-      console.log(error);
-    }
-  };
+  // const SingleProductAPiGET = async () => {
+  //   try {
+  //     const res = await axios.get(apiUrl);
+  //     setData(res.data);
+  //     console.log(res.data);
+  //   } catch (error) { 
+  //     console.log(error);
+  //   }
+  // };
 
-  useEffect(() => {
-    SingleProductAPiGET(`${apiUrl}/${id}`);
-  });
+  // useEffect(() => {
+  //   SingleProductAPiGET(`${apiUrl}/${id}`);
+  // });
 
   return (
     <>
