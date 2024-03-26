@@ -22,7 +22,7 @@ import Footer from "../../Common/Footer/footer";
 const OrderNow = () => {
   const OrderData = [
     {
-      id:1,
+      id: "thapaserialnoa",
       image: OrderChicken1,
       title: "Chicken mixed with bone",
       kilogram: "500gms | 1Kg",
@@ -30,7 +30,7 @@ const OrderNow = () => {
       button: "Add to Cart",
     },
     {
-      id:2,
+      id: "thapaserialnob",
       image: OrderChicken2,
       title: "Chicken (Boneless)",
       kilogram: "500gms | 1Kg",
@@ -38,7 +38,7 @@ const OrderNow = () => {
       button: "Add to Cart",
     },
     {
-      id:3,
+      id: "thapaserialnoc",
       image: OrderChicken3,
       title: "Chicken Drumstick",
       kilogram: "500gms | 1Kg",
@@ -46,7 +46,7 @@ const OrderNow = () => {
       button: "Add to Cart",
     },
     {
-      id:4,
+      id: "thapaserialnod",
       image: OrderChicken4,
       title: "Chicken Wings",
       kilogram: "500gms | 1Kg",
@@ -54,7 +54,7 @@ const OrderNow = () => {
       button: "Add to Cart",
     },
     {
-      id:5,
+      id: "thapaserialnof",
       image: OrderChicken5,
       title: "Chicken Mince (Keema)",
       kilogram: "500gms | 1Kg",
@@ -62,7 +62,7 @@ const OrderNow = () => {
       button: "Add to Cart",
     },
     {
-      id:6,
+      id: "thapaserialnog",
       image: OrderChicken6,
       title: "Chicken Breast",
       kilogram: "500gms | 1Kg",
@@ -73,7 +73,7 @@ const OrderNow = () => {
 
   const DesiChicken = [
     {
-      id:7,
+      id: 7,
       image: OrderChicken7,
       title: "Chicken Mince (Keema)",
       kilogram: "500gms | 1Kg",
@@ -81,7 +81,7 @@ const OrderNow = () => {
       button: "Add to Cart",
     },
     {
-      id:9,
+      id: 9,
       image: OrderChicken8,
       title: "Chicken Breast",
       kilogram: "500gms | 1Kg",
@@ -92,7 +92,7 @@ const OrderNow = () => {
 
   const Mutton = [
     {
-      id:13,
+      id: 13,
       image: OrderChicken3,
       title: "Mutton mixed with bone",
       kilogram: "500gms | 1Kg",
@@ -100,7 +100,7 @@ const OrderNow = () => {
       button: "Add to Cart",
     },
     {
-      id:43,
+      id: 43,
       image: OrderChicken4,
       title: "Mutton (Boneless)",
       kilogram: "500gms | 1Kg",
@@ -108,7 +108,7 @@ const OrderNow = () => {
       button: "Add to Cart",
     },
     {
-      id:73,
+      id: 73,
       image: OrderChicken2,
       title: "Mutton Mince (Keema)",
       kilogram: "500gms | 1Kg",
@@ -117,14 +117,13 @@ const OrderNow = () => {
     },
   ];
 
-
   return (
     <>
       {/* Top Content Start */}
       <TopContent
         title="Order raw meat & "
-        title2='get it delivered at'
-        title3='your door steps.'
+        title2="get it delivered at"
+        title3="your door steps."
         description="Absolutely fresh Chicken 100% Natural & Chemical free"
         button=""
         img={Order1}
@@ -160,7 +159,8 @@ const OrderNow = () => {
                       // kilogram={link.kilogram}
                       // amount={link.amount}
                       // button={link.button}
-                      key = {link.id} {...link}
+                      key={link.id}
+                      {...link}
                     />
                   </div>
                 </>
@@ -190,8 +190,8 @@ const OrderNow = () => {
                       // kilogram={link.kilogram}
                       // amount={link.amount}
                       // button={link.button}
-                      key = {link.id} {...link}
-                      
+                      key={link.id}
+                      {...link}
                     />
                   </div>
                 </>
@@ -220,7 +220,8 @@ const OrderNow = () => {
                       // kilogram={link.kilogram}
                       // amount={link.amount}
                       // button={link.button}
-                      key = {link.id} {...link}
+                      key={link.id}
+                      {...link}
                     />
                   </div>
                 </>
@@ -228,16 +229,13 @@ const OrderNow = () => {
             </div>
 
             {/* Mutton End */}
-
-            
           </div>
-          
         </section>
         {/* Footer Start  */}
 
         <Footer />
 
-{/* Footer End */}
+        {/* Footer End */}
       </div>
     </>
   );

@@ -25,9 +25,11 @@ function App() {
         <Route path="/account" element={<Account/>}/>
         <Route path="/contact" element={<Contact/>}/>
         <Route path="*" element={<ErrorPage/>}/>
-      
       </Routes>
     </Router>
+
+
+
 
     </>
   );
