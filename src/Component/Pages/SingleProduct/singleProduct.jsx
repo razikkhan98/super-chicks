@@ -90,7 +90,7 @@ const SingleProduct = () => {
         <section id="section-padding">
           <div class="container">
             <div class="row">
-              <div className="col-md-6">
+              <div className="col-md-7">
                 <MyImage imgs={image} />
                 <div className="row d-flex justify-content-center">
                   <div className="col-lg-6">
@@ -127,7 +127,7 @@ const SingleProduct = () => {
                  </a> */}
                     <NavLink
                       to="/cart"
-                      className="add-to-cart-button mt-4"
+                      className="add-to-cart-button mt-5"
                       onClick={() => addToCart(id, amount, singleProduct)}
                     >
                       <BsHandbag /> Add to Cart
@@ -136,7 +136,7 @@ const SingleProduct = () => {
                 )}
               </div>
 
-              <div class="col-lg-6">
+              <div class="col-lg-5">
                 <div className="description-heading">
                   <h1>{name}</h1>
                 </div>
@@ -152,12 +152,12 @@ const SingleProduct = () => {
                   Quantity:
                   <div className="product-quantity-btn d-flex align-items-center ms-3 mb-3">
                     {/* <button className="btn">-</button> */}
-                    <button className="btn bg-white m-0" onClick={() => setDecrease()}>
+                    <button className="btn bg-white m-1" onClick={() => setDecrease()}>
                       <FaMinus />
                     </button>
                     <div>{amount}</div>
                     {/* <button className="btn">+</button> */}
-                    <button className="btn bg-white m-0" onClick={() => setIncrease()}>
+                    <button className="btn bg-white m-1" onClick={() => setIncrease()}>
                       <FaPlus />
                     </button>
                   </div>
@@ -190,7 +190,7 @@ const SingleProduct = () => {
                 </div>
                 {stock > 0 && (
                   <div className="d-flex justify-content-star">
-                    <a className="sign-up-button py-2 mt-5" href="/">
+                    <a className="sign-up-button py-2 mt-4" href="/">
                       Buy Now
                     </a>
                   </div>
