@@ -1,3 +1,4 @@
+
 const cartReducer = (state, action) => {
   if (action.type === "ADD_TO_CART") {
     let {amount, singleProduct } = action.payload;
@@ -5,6 +6,9 @@ const cartReducer = (state, action) => {
       //   // "🚀 ~ file: cartReducer.js ~ line 4 ~ cartReducer ~ product",
       //   singleProduct
     // );
+
+
+
 
     // tackle the existing product
 

@@ -22,6 +22,11 @@ import product4 from "../../asset/img/Order/Order-Chicken-5.png";
 const SingleProduct = () => {
   const { addToCart } = useCartContext();
 
+  // react-toastify Add to cart
+  
+
+
+
   const ProductData = [
     {
       id: 1,

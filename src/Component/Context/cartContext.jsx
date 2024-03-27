@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import reducer from "../Reducer/cartReducer";
+import { toast } from "react-toastify";
 
 const CartContext = createContext();
 
@@ -26,6 +27,8 @@ const CartProvider = ({ children }) => {
 
   const addToCart = (id, amount, singleProduct) => {
     dispatch({ type: "ADD_TO_CART", payload: { id, amount, singleProduct } });
+
+
   };
 
 
