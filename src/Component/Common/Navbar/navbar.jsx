@@ -40,7 +40,7 @@ const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarScroll">
             <ul className="navbar-nav ms-auto d-flex align-items-center mx-3">
               <li className="nav-item">
-                <NavLink to="/" className="nav-link">
+                <NavLink to="/" className="nav-link" activeclassname = "active" >
                   Home
                 </NavLink>
               </li>
@@ -79,10 +79,17 @@ const Navbar = () => {
                   )}
                 </NavLink>
               </li>
-              <li className="login-btn">
+              {/* <li className="login-btn">
                 <div className="nav-link login-button ">
                   Sign
                 </div>
+              </li> */}
+              <li className="nav-item mx-2">
+                <NavLink to="/sign" className="nav-link d-flex align-items-center">
+                  Sign
+                </NavLink>
+
+                {/* </a> */}
               </li>
               <li>
               <RightPanel/>
