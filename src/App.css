@@ -517,6 +517,79 @@ a.learn_more2:hover {
   background-color: #908e9b !important;
 }
 
+/* Media Query */
+/* --------------------------------------------------------------------------------------------------*/
+
+@media screen and (max-width: 992px) {
+  .nav-item {
+    padding: 15px 0px !important;
+  }
+
+  .cart-total {
+    top: 1px;
+    right: 18px;
+  }
+
+  .login-btn {
+    margin: 6px 15px;
+  }
+  .button-img {
+    display: flex;
+    margin-right: 5px;
+  }
+  
+  .description-heading{
+    margin-top: 20px;
+  }
+  
+}
+
+@media screen and (max-width: 767px) {
+  .halal-img-grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    /* padding: 10px; */
+  }
+
+  .social-media-icon {
+    width: 100%;
+    display: flex;
+    /* justify-content: space-between; */
+    justify-content: space-around;
+  }
+  .description-text{
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .wrapper {
+    flex-direction: column;
+  }
+
+  .indicator {
+    border-right: none;
+  }
+
+  
+}
+
+@media screen and (max-width: 490px) {
+  .halal-img-grid {
+    display: block;
+    width: 40%;
+    margin: 0px auto;
+  }
+}
+
+
+
+
+
+
+
+
 /* Description  */
 /* ---------------------------------*/
 
@@ -840,7 +913,9 @@ a.learn_more2:hover {
 
 
 .gradient-custom-2 {
-  background: linear-gradient(90deg, #87ceeb, #dd3675, #dd3675, #ee7724);}
+  background: linear-gradient(90deg, #ffe5e5,#d0a6a6 );}
+  /* background-color: #ffe5e5; */
+
 
   .product-detail-head{
     display: flex;

@@ -121,7 +121,7 @@ const SingleProduct = () => {
                   </div>
                 </div>
                 {stock > 0 && (
-                  <div className="d-flex justify-content-end">
+                  <div className="cart-button d-flex justify-content-end">
                     {/* <a className="add-to-cart-button mt-4" href="/">
                    <BsHandbag /> Add to Cart
                  </a> */}
@@ -150,14 +150,14 @@ const SingleProduct = () => {
                 <div className="hr"></div>
                 <div className="Product-quantity d-flex">
                   Quantity:
-                  <div className="product-quantity-btn d-flex">
+                  <div className="product-quantity-btn d-flex align-items-center ms-3 mb-3">
                     {/* <button className="btn">-</button> */}
-                    <button className="btn" onClick={() => setDecrease()}>
+                    <button className="btn bg-white m-0" onClick={() => setDecrease()}>
                       <FaMinus />
                     </button>
                     <div>{amount}</div>
                     {/* <button className="btn">+</button> */}
-                    <button className="btn" onClick={() => setIncrease()}>
+                    <button className="btn bg-white m-0" onClick={() => setIncrease()}>
                       <FaPlus />
                     </button>
                   </div>
@@ -166,7 +166,7 @@ const SingleProduct = () => {
                 <h4 className="price-heading">Raw Chicken Mince with Bone</h4>
                 <p className="description">{description}</p>
                 <div className="product-offer">Offers</div>
-                <div className="product-offer-card d-flex mt-3 mb-3">
+                <div className="product-offer-card d-flex justify-content-evenly my-3">
                   <div className="offer-card-1 me-2 p-2">
                     <p>Rs125 cashback & Rs475 welcome rewards</p>
                     <a href="/" className="offer-card-terms">
@@ -189,8 +189,8 @@ const SingleProduct = () => {
                   </div>
                 </div>
                 {stock > 0 && (
-                  <div className="d-flex justify-content-start">
-                    <a className="sign-up-button mt-4" href="/">
+                  <div className="d-flex justify-content-star">
+                    <a className="sign-up-button py-2 mt-5" href="/">
                       Buy Now
                     </a>
                   </div>
