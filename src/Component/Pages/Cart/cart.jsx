@@ -32,8 +32,8 @@ const Cart = () => {
               <div className="row pe-4">
                 <div className="col-lg-12">
                   <h1 className="fw-bold text-color-red mb-5">Your Cart</h1>
-                  <hr />
-                  <div className="row">
+                  <hr className="product-detail-hr"/>
+                  <div className="row product-detail-head">
                     <div className="col-lg-4 ps-3 fw-bold d-flex justify-content-center">
                       Product
                     </div>
@@ -78,7 +78,7 @@ const Cart = () => {
             <>
             <div>
                 <div>
-                  <h3 className="shopping-empty">Your Basket is Empty</h3>
+                  <h3 className="shopping-empty">- : Your Basket is Empty : -</h3>
                 </div>
                 <div className="shopping-empt-icon">
                   <h5>

@@ -8,6 +8,7 @@ import { FaRegUser } from "react-icons/fa6";
 import { FiShoppingCart } from "react-icons/fi";
 import { RiMenu2Line } from "react-icons/ri";
 import { useCartContext } from "../../Context/cartContext";
+import RightPanel from "../Modal/rightPanel";
 
 const Navbar = () => {
   const { cart , total_item } = useCartContext();
@@ -80,13 +81,19 @@ const Navbar = () => {
               </li>
               <li className="login-btn">
                 <div className="nav-link login-button ">
-                  Login
+                  Sign
                 </div>
+              </li>
+              <li>
+              <RightPanel/>
+
               </li>
             </ul>
           </div>
         </div>
+
       </nav>
+
     </>
   );
 };

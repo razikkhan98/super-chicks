@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   IoChevronBackCircleOutline,
   IoChevronForwardCircleOutline,
 } from "react-icons/io5";
 
 const MyImage = ({ imgs = [{ url: "" }] }) => {
-  const [mainImage, setMainImage] = useState(imgs[0]);
 
   return (
     <>

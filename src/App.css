@@ -14,7 +14,6 @@ body {
   --gray-color: rgba(0, 0, 0, 0.6);
   --white-color: white;
   --green-color: #008000;
-
 }
 
 #section-padding {
@@ -74,6 +73,10 @@ a.order-now-button:hover {
 .text-color-black {
   color: var(--black-color) !important;
   font-weight: 500;
+}
+.fs-7{
+font-size: 13px;
+
 }
 
 /* Navbar Common */
@@ -365,7 +368,6 @@ a.learn_more2:hover {
   text-decoration: none;
 }
 
-
 /* Customer  */
 /* ---------------------------------*/
 .costumer-wrapper {
@@ -466,7 +468,7 @@ a.learn_more2:hover {
   color: var(--dark-grey);
   font-size: 0.875rem;
 }
-.background-color-main{
+.background-color-main {
   background-color: #ffe5e5;
   padding-top: 6%;
 }
@@ -515,10 +517,8 @@ a.learn_more2:hover {
   background-color: #908e9b !important;
 }
 
-
 /* Description  */
 /* ---------------------------------*/
-
 
 .description-carousel-img {
   margin-left: auto;
@@ -546,7 +546,6 @@ a.learn_more2:hover {
 .carousel-control-next-icon,
 .carousel-control-prev-icon {
   background-image: none;
-  
 }
 
 .description-text h5 {
@@ -566,7 +565,6 @@ a.learn_more2:hover {
   border-radius: 10px;
   text-decoration: none;
   background-color: var(--white-color);
-
 }
 
 .add-to-cart-button:hover {
@@ -577,14 +575,14 @@ a.learn_more2:hover {
 .btn {
   margin-top: 10px;
   border: 0;
-  background-color: #F1F1F1;
-  color: #DB1516;
+  background-color: #f1f1f1;
+  color: #db1516;
 }
 
 .form-control {
   border: 0;
   margin-top: 10px;
-  background-color: #F1F1F1;
+  background-color: #f1f1f1;
 }
 
 .description-heading {
@@ -613,7 +611,7 @@ a.learn_more2:hover {
   font-weight: 600;
   color: var(--red-color);
 }
-.product-quantity-btn{
+.product-quantity-btn {
   border: 1px solid var(--red-color);
   border-radius: 10px;
 }
@@ -621,7 +619,6 @@ a.learn_more2:hover {
   font-size: 20px;
   font-family: karma;
   font-weight: 600;
-
 }
 
 .description {
@@ -663,8 +660,6 @@ a.learn_more2:hover {
   border-radius: 10px;
   font-weight: 500;
   font-size: 15px;
-  
-
 }
 
 .offer-card-3 {
@@ -678,7 +673,7 @@ a.learn_more2:hover {
   font: Arial;
   font-size: 16px;
 }
-.offer-card-terms{
+.offer-card-terms {
   text-decoration: none;
   color: var(--red-color);
   font-size: 14px;
@@ -694,7 +689,7 @@ a.learn_more2:hover {
   font-size: 24px;
   font-weight: 500;
 }
-.similar-product-price{
+.similar-product-price {
   font-weight: 600;
   font-size: 20px;
 }
@@ -716,10 +711,9 @@ a.learn_more2:hover {
   height: 439.59px;
 }
 
-
 /* Cart Page */
 /* ---------s ----------- */
-.cart-img{
+.cart-img {
   height: 104px;
   width: 153px;
 }
@@ -751,7 +745,6 @@ a.learn_more2:hover {
     display: flex;
     margin-right: 5px;
   }
-
 }
 
 @media screen and (max-width: 767px) {
@@ -777,8 +770,6 @@ a.learn_more2:hover {
   .indicator {
     border-right: none;
   }
-
-  
 }
 
 @media screen and (max-width: 490px) {
@@ -792,7 +783,73 @@ a.learn_more2:hover {
 
 
 
+/* Test */
+.right-panel-img{
+  display: flex;
+  justify-content: center;
+}
+.right-panel-img img{
+  max-height: 100px;
+  padding-left: 15px;
+
+}
+
+.right-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 350px;
+  height: 100%;
+  background-color: #ffe5e5;
+  border-left: 1px solid #dee2e6;
+  z-index: 999;
+}
+
+.panel-content {
+  padding: 20px;
+}
+.login-panel{
+  background-color: #fff;
+}
+
+.login-panel{
+  border-radius: 6px;
+  background-color: #fbfbfb;
+  bottom: 0;
+  position: fixed;
+  width: 97%;
+  margin: 0 6px;
+  display: block;
+  min-height: 65%;
+}
+.form-control{
+  /* border: none !important;; */
+  /* background-color: var(--white-color); */
+}
+.btn-login-icon{
+  margin-top: 0px !important;
+  background-color: #fff2f2 !important;
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.btn-login-icon:hover{
+  background-color: #fff2f2 !important;
+  color: var(--red-color);
+}
 
 
+.gradient-custom-2 {
+  background: linear-gradient(90deg, #87ceeb, #dd3675, #dd3675, #ee7724);}
 
-
+  .product-detail-head{
+    display: flex;
+  }
+  .product-detail-hr{
+    display: block;
+  }
+  @media only screen and (min-width: 320px) and (max-width: 768px) {  
+    .product-detail-head,.product-detail-hr{
+      display: none !important;
+    }  
+  }

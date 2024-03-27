@@ -2,18 +2,21 @@ import './App.css';
 import Home from './Component/Pages/Home/home';
 import OrderNow from './Component/Pages/OrderNow/order';
 import SingleProduct from './Component/Pages/SingleProduct/singleProduct';
-import ErrorPage from './Component/Pages/ErrorPage/errorPage';
+import ErrorPage from './Component/Common/404page/index';
 import Cart from './Component/Pages/Cart/cart';
 import About from './Component/Pages/About/about';
 import SignLogin from './Component/Pages/Login/signlogin';
 import Account from './Component/Pages/Account/account';
 import Contact from './Component/Pages/ContactUs/contact';
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 
 function App() {
 
   return (
     <>
+          <ToastContainer />
+
     <Router>
       <Routes>
         <Route path="/" element={<Home/>}/>
@@ -28,8 +31,11 @@ function App() {
       </Routes>
     </Router>
 
+    {/* <Test/> */}
 
 
+
+    <ToastContainer />
 
     </>
   );
