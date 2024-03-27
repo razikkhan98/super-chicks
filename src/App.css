@@ -535,7 +535,11 @@ a.learn_more2:hover {
     display: flex;
     margin-right: 5px;
   }
-
+  
+  .description-heading{
+    margin-top: 20px;
+  }
+  
 }
 
 @media screen and (max-width: 767px) {
@@ -550,6 +554,10 @@ a.learn_more2:hover {
     display: flex;
     /* justify-content: space-between; */
     justify-content: space-around;
+  }
+  .description-text{
+    display: flex;
+    justify-content: center;
   }
 }
 
@@ -677,7 +685,7 @@ a.learn_more2:hover {
   font-weight: 600;
   color: var(--red-color);
 }
-.product-quantity-btn{
+.product-quantity-btn {
   border: 1px solid var(--red-color);
   border-radius: 10px;
 }
