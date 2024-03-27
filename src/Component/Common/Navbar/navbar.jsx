@@ -79,10 +79,17 @@ const Navbar = () => {
                   )}
                 </NavLink>
               </li>
-              <li className="login-btn">
+              {/* <li className="login-btn">
                 <div className="nav-link login-button ">
                   Sign
                 </div>
+              </li> */}
+              <li className="nav-item mx-2">
+                <NavLink to="/sign" className="nav-link d-flex align-items-center">
+                  Sign
+                </NavLink>
+
+                {/* </a> */}
               </li>
               <li>
               <RightPanel/>

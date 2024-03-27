@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { AiOutlineLogin } from "react-icons/ai";
 
 // Images
 import logo from "../../asset/img/Logo/logo.png";
@@ -9,7 +10,6 @@ const RightPanel = () => {
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
   } = useForm();
 
@@ -20,7 +20,7 @@ const RightPanel = () => {
 
   return (
     <>
-      <button onClick={() => setShowModal(true)}>Click</button>
+      <div className="text-color-red fs-3 d-flex" onClick={() => setShowModal(true)}><AiOutlineLogin/></div>
       <Modal
         show={showModal} // Show modal based on state
         onHide={() => setShowModal(false)}
