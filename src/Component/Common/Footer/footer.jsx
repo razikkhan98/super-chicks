@@ -11,6 +11,7 @@ import { MdEmail } from "react-icons/md";
 import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa6";
+import { NavLink } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -67,24 +68,25 @@ const Footer = () => {
                   Important Links
                 </h5>
                 <p>
-                  <a class="text-color-gray text-decoration-none" href="/">
-                    Home
-                  </a>
+                <NavLink to='/' className='text-decoration-none text-color-gray'>
+                Home
+                </NavLink>
+
                 </p>
                 <p>
-                  <a class="text-color-gray text-decoration-none" href="/">
+                <NavLink to='/contact' className='text-decoration-none text-color-gray'>
                     ContactUs
-                  </a>
+                  </NavLink>
                 </p>
                 <p>
-                  <a class="text-color-gray text-decoration-none" href="/">
+                <NavLink to='/about' className='text-decoration-none text-color-gray'>
                     About
-                  </a>
+                  </NavLink>
                 </p>
                 <p>
-                  <a class="text-color-gray text-decoration-none" href="/">
+                <NavLink to='/account' className='text-decoration-none text-color-gray'>
                     Account
-                  </a>
+                  </NavLink>
                 </p>
               </div>
 

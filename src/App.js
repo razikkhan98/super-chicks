@@ -9,12 +9,11 @@ import SignLogin from "./Component/Pages/Login/signlogin";
 import Account from "./Component/Pages/Account/account";
 import Contact from "./Component/Pages/ContactUs/contact";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
 
 function App() {
+ 
   return (
     <>
-      <ToastContainer />
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -23,7 +22,7 @@ function App() {
           <Route path="/singleproduct/:id" element={<SingleProduct />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/sign" element={<SignLogin />} />
-          <Route path="/account" element={<Account />} />
+          {/* <Route path="/account" element={<Account />} /> */}
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>

@@ -4,7 +4,23 @@ import {
   IoChevronForwardCircleOutline,
 } from "react-icons/io5";
 
+import image1 from "../../asset/img/Description/description-1.jpg";
+import image2 from "../../asset/img/Description/description-2.jpg";
+import image3 from "../../asset/img/Description/description-3.jpg";
+import image4 from "../../asset/img/Description/description-4.jpg";
+import image5 from "../../asset/img/Description/description-5.jpg";
+
 const MyImage = ({ imgs = [{ url: "" }] }) => {
+
+  const images = [
+    { image: image1, },
+    { image: image2, },
+    { image: image3, },
+    { image: image4, },
+    { image: image5, },
+
+
+];
 
   return (
     <>
@@ -15,9 +31,9 @@ const MyImage = ({ imgs = [{ url: "" }] }) => {
       >
         <div className="carousel-indicators">
           <div className="button-img ">
-            {imgs.map((curElm, index) => (
+            {images.map((curElm, index) => (
               <img
-                src={curElm.url}
+                src={curElm.image}
                 alt={"Slide" + (index + 1)}
                 key={index}
                 type="button"
@@ -33,14 +49,14 @@ const MyImage = ({ imgs = [{ url: "" }] }) => {
         </div>
 
         <div className="carousel-inner">
-          {imgs.map((link, index) => (
+          {images.map((link, index) => (
             <div
               className={"carousel-item " + (index === 0 ? "active" : "")}
               key={index}
             >
               <div className="description-carousel-img">
                 <img
-                  src={link.url}
+                  src={link.image}
                   className="d-block w-100"
                   alt={"Slide " + (index + 1)}
                 />

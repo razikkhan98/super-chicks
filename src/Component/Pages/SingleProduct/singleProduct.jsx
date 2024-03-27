@@ -23,7 +23,7 @@ const SingleProduct = () => {
   const { addToCart } = useCartContext();
 
   // react-toastify Add to cart
-  
+
 
 
 
@@ -78,6 +78,8 @@ const SingleProduct = () => {
 
   const getSingleProduct = async (id) => {
     const response = await axios.get(`${api}/${id}`);
+    console.log(response.data);
+
     return response.data;
   };
 
