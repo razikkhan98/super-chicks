@@ -4,6 +4,9 @@ import { Button } from "react-bootstrap";
 import { CiCreditCard1 } from "react-icons/ci";
 import NavbarGround from "../../../Common/Navbar/navbground";
 
+// Icons
+import { IoMdCheckmarkCircle } from "react-icons/io";
+
 const FinallPayment = () => {
   return (
     <>
@@ -59,7 +62,22 @@ const FinallPayment = () => {
                   <Button variant=" btn-danger px-5">Done</Button>
                 </div>
               </div>
-            </form>
+              </form>
+
+              <div class="alert bg-light position-relative w-50" role="alert">
+                <div className="position-absoulte top-0 start-50 alert-icon d-flex justify-content-center">
+                  <IoMdCheckmarkCircle class="alert-heading fs-1" />
+                </div>
+                <h3 className="fw-bold  text-center">Success</h3>
+                <p className="text-center">
+                  Check your email for a booking confirmation.We’ll see you soon
+                  You can always track your orders in the “Orders” section under
+                  profile{" "}
+                </p>
+                <div className="d-flex justify-content-center">
+                  <button className="btn alert-button">HOME</button>
+                </div>
+              </div>
           </div>
         </section>
       </div>
