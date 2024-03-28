@@ -32,7 +32,7 @@ const About = () => {
           <div className="col-lg-7">
               <div className="row">
                 <div className="col-sm-6 offset-sm-1 align-self-center mt-4 ">
-                  <span className="hover-effect ">
+                  <span className="hover-effect mb-2">
                     <img
                       className="img-fluid w-100"
                       src={About4}

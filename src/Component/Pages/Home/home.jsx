@@ -8,8 +8,7 @@ import Footer from "../../Common/Footer/footer";
 import About from "../../Common/About/about";
 
 // Icons
-import { FaStar } from 'react-icons/fa';
-
+import { FaStar } from "react-icons/fa";
 
 // Image
 import HomeIMG from "../../asset/img/Home/image1.png";
@@ -26,11 +25,9 @@ import team2 from "../../asset/img/costumer/costumer-2.png";
 import team3 from "../../asset/img/costumer/costumer-3.png";
 import team4 from "../../asset/img/costumer/costumer-4.png";
 
-
 const Home = () => {
   const CardData = [
     {
-      
       image: Products1,
       title: "Fresh Chicken",
       kilogram: "500gms | 1Kg",
@@ -47,9 +44,10 @@ const Home = () => {
     {
       image: Products3,
       title: "Fresh Mutton",
-      kilogram: "500gms | 1Kg",
-      amount: "Amt",
-      button: "Order Now",
+      comingsoon: "Coming Soon"
+      // kilogram: "500gms | 1Kg",
+      // amount: "Amt",
+      // button: "Order Now",
     },
   ];
 
@@ -87,14 +85,12 @@ const Home = () => {
       description:
         "There are many variations of the read passages available but the majority There are many variations of the read passages available but the majority There are many variations of the read passages available but the majority.",
       img: team1,
-
     },
     {
       name: "ABC",
       description:
         "There are many variations of the read passages available but the majority There are many variations of the read passages available but the majority There are many variations of the read passages available but the majority.",
       img: team2,
-
     },
   ];
 
@@ -113,8 +109,6 @@ const Home = () => {
       img1: team4,
     },
   ];
-
-
 
   return (
     <>
@@ -157,7 +151,8 @@ const Home = () => {
                       // kilogram={link.kilogram}
                       // amount={link.amount}
                       // button={link.button}
-                      key = {link.id} {...link}
+                      key={link.id}
+                      {...link}
                     />
                   </div>
                 </>
@@ -181,7 +176,7 @@ const Home = () => {
             </div>
             <div className="halal-img-grid">
               {HalalImg.map((link, index) => (
-                <div className='my-2'>
+                <div className="my-2">
                   <img
                     src={link.image}
                     alt="Loading"
@@ -210,14 +205,15 @@ const Home = () => {
               </h3>
               <h3>Happy Customers</h3>
 
-              <div id="carouselExampleIndicators"
+              <div
+                id="carouselExampleIndicators"
                 className="carousel slide"
-                data-bs-ride="carousel" >
+                data-bs-ride="carousel"
+              >
                 <div className="carousel-inner">
                   <div className="carousel-item active">
-                  <div className="card-slide">
-
-                    <div className="costumer-wrapper">
+                    <div className="card-slide">
+                      <div className="costumer-wrapper">
                         {CostumerImgfirst.map((link, index) => (
                           <>
                             <div className="costumer-single position-relative costumer-card">
@@ -237,11 +233,8 @@ const Home = () => {
                                 </div>
                               </div>
                               <div className="costumer-quote">
-                                <p>
-                                  {link.description}
-                                </p>
+                                <p>{link.description}</p>
                               </div>
-
                             </div>
                           </>
                         ))}
@@ -254,7 +247,6 @@ const Home = () => {
                         {CostumerImgsecond.map((link, index) => (
                           <>
                             <div className="costumer-single position-relative costumer-card">
-
                               <div className="costumer-content d-flex align-items-center">
                                 <div className="costumer-author-img">
                                   <img src={link.img1} alt="Loading" />
@@ -271,11 +263,8 @@ const Home = () => {
                                 </div>
                               </div>
                               <div className="costumer-quote">
-                                <p>
-                                  {link.description1}
-                                </p>
+                                <p>{link.description1}</p>
                               </div>
-
                             </div>
                           </>
                         ))}

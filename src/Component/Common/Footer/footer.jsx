@@ -28,7 +28,7 @@ const Footer = () => {
             {/* <!--Grid row--> */}
             <div class="row">
               {/* <!-- Grid column --> */}
-              <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+              <div class="col-md-3 col-lg-3 col-xl-3 mx-auto">
                 <h6 class="text-uppercase mb-4 font-weight-bold">
                   <img
                     src={Logo}
@@ -44,7 +44,7 @@ const Footer = () => {
               </div>
               {/* <!-- Grid column --> */}
 
-              <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+              <div class="col-md-4 col-lg-3 col-xl-3 mx-auto">
                 <h5 class="mb-4 text-color-red">Address</h5>
                 <div className="footer my-2">
                   <MdLocationPin className="footer-icon" />
@@ -63,7 +63,7 @@ const Footer = () => {
               {/* <!-- Grid column --> */}
 
               {/* <!-- Grid column --> */}
-              <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+              <div class="col-md-2 col-lg-2 col-xl-2 mx-auto">
                 <h5 class="mb-4 text-color-red text-decoration-none">
                   Important Links
                 </h5>
@@ -91,7 +91,7 @@ const Footer = () => {
               </div>
 
               {/* <!-- Grid column --> */}
-              <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+              <div class="col-md-3 col-lg-2 col-xl-2 mx-auto">
                 <h5 class="mb-4 text-color-red text-decoration-none">
                   Social Media
                 </h5>

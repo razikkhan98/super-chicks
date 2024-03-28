@@ -43,7 +43,7 @@ const OrderCheckoutPayment = () => {
                         <span className="text-color-red">*</span>
                       </label>
                       <input
-                        type="Emnai"
+                        type="email"
                         className="form-control my-2"
                         placeholder="Email Address"
                       />

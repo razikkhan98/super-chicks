@@ -29,8 +29,8 @@ const Contact = () => {
                       100% Halal Raw Fresh Chicken , Raw Fresh Mutton & Raw
                       Fresh Fish delivery
                     </p>
-                    <h5>Order online from our website</h5>
-                    <h4>www.SuperChicks.online</h4>
+                    <h5 className=" fw-bold">Order online from our website</h5>
+                    <h6 className="fw-semibold">www.SuperChicks.online</h6>
                   </div>
                 </div>
                 <div class="col-md-3 col-lg-3">
