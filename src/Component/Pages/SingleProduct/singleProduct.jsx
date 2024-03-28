@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { NavLink, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 // Common
 import Footer from "../../Common/Footer/footer";
 import MyImage from "../../Common/MyImage/myImage";
 import { useCartContext } from "../../Context/cartContext";
 import NavbarGround from "../../Common/Navbar/navbground";
+import RightPanel from "../../Common/Modal/rightPanel";
 
 //React icons
 
@@ -18,14 +19,10 @@ import product1 from "../../asset/img/Order/Order-Chicken-3.png";
 import product2 from "../../asset/img/Order/Order-Chicken-4.png";
 import product3 from "../../asset/img/Products/products-1.png";
 import product4 from "../../asset/img/Order/Order-Chicken-5.png";
+import { toast } from "react-toastify";
 
 const SingleProduct = () => {
   const { addToCart } = useCartContext();
-
-  // react-toastify Add to cart
-  
-
-
 
   const ProductData = [
     {
@@ -61,6 +58,8 @@ const SingleProduct = () => {
   const { id } = useParams();
   const [singleProduct, setSingleProduct] = useState([]);
   const [amount, setAmount] = useState(1);
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  const { loggedInUser } = useCartContext();
 
   const { id: alias, name, price, description, stock, image } = singleProduct;
 
@@ -78,6 +77,8 @@ const SingleProduct = () => {
 
   const getSingleProduct = async (id) => {
     const response = await axios.get(`${api}/${id}`);
+    console.log(response.data);
+
     return response.data;
   };
 
@@ -86,6 +87,25 @@ const SingleProduct = () => {
       setSingleProduct(data);
     });
   }, [id]);
+
+  const AddToCart = () => {
+    if (loggedInUser === 'Success') {
+      addToCart(id, amount, singleProduct);
+    } else {
+      console.log("login first");
+      setShowLoginModal(!showLoginModal);
+      toast.warn("Please Login", {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
+  };
 
   return (
     <>
@@ -125,20 +145,6 @@ const SingleProduct = () => {
                     </div>
                   </div>
                 </div>
-                {stock > 0 && (
-                  <div className="cart-button d-flex justify-content-end">
-                    {/* <a className="add-to-cart-button mt-4" href="/">
-                   <BsHandbag /> Add to Cart
-                 </a> */}
-                    <NavLink
-                      to="/cart"
-                      className="add-to-cart-button mt-5"
-                      onClick={() => addToCart(id, amount, singleProduct)}
-                    >
-                      <BsHandbag /> Add to Cart
-                    </NavLink>
-                  </div>
-                )}
               </div>
 
               <div class="col-lg-5">
@@ -157,12 +163,18 @@ const SingleProduct = () => {
                   Quantity:
                   <div className="product-quantity-btn d-flex align-items-center ms-3 mb-3">
                     {/* <button className="btn">-</button> */}
-                    <button className="btn bg-white m-1" onClick={() => setDecrease()}>
+                    <button
+                      className="btn bg-white m-1"
+                      onClick={() => setDecrease()}
+                    >
                       <FaMinus />
                     </button>
                     <div>{amount}</div>
                     {/* <button className="btn">+</button> */}
-                    <button className="btn bg-white m-1" onClick={() => setIncrease()}>
+                    <button
+                      className="btn bg-white m-1"
+                      onClick={() => setIncrease()}
+                    >
                       <FaPlus />
                     </button>
                   </div>
@@ -193,14 +205,31 @@ const SingleProduct = () => {
                     </a>
                   </div>
                 </div>
-                {stock > 0 && (
-                  <div className="d-flex justify-content-star">
-                    <a className="sign-up-button py-2 mt-4" href="/">
+              </div>
+              {stock > 0 && (
+                <div className="col-lg-7 col-sm-12">
+                  <div
+                    className=" d-flex justify-content-end"
+                    onClick={AddToCart}
+                  >
+                    <div className="add-to-cart-button mt-2">
+                      <BsHandbag /> Add to Cart
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {stock > 0 && (
+                <div className="col-lg-5 col-sm-12">
+                  {/* {stock > 0 && ( */}
+                  <div className="d-flex justify-content-star mt-2">
+                    <a className="sign-up-button" href="/">
                       Buy Now
                     </a>
                   </div>
-                )}
-              </div>
+                  {/* )} */}
+                </div>
+              )}
             </div>
 
             <div className="hr"></div>
@@ -235,6 +264,7 @@ const SingleProduct = () => {
       {/* Footer Start */}
       <Footer />
       {/* Footer End  */}
+      <RightPanel showModal={showLoginModal} setShowModal={setShowLoginModal} />
 
       {/* Description End */}
     </>

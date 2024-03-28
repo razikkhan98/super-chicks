@@ -19,7 +19,8 @@ const Account = () => {
       <div className="back-img-main">
         <section id="section-padding">
           <div className="container px-5">
-            <div className="wrapper">
+            <div className="row">
+              <div className="col-lg-3 col-sm-12">
               <ul className="indicator">
                 <li
                   // className={activeTab === "Dashboard" ? "active" : ""}
@@ -72,6 +73,8 @@ const Account = () => {
                   Logout
                 </li>
               </ul>
+              </div>
+              <div className="col-lg-9 col-sm-12">
               <ul className="content">
                 <li
                   className={activeTab === "Dashboard" ? "active" : ""}
@@ -90,16 +93,41 @@ const Account = () => {
                   className={activeTab === "MyOrder" ? "active" : ""}
                   id="profile"
                 >
-                  <h1 className="mt-5">Profile</h1>
-                  <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Quidem esse perspiciatis inventore. Modi, nostrum debitis
-                    eum placeat suscipit veniam adipisci explicabo est natus,
-                    doloribus reprehenderit dolor maiores ut asperiores quam
-                    voluptas iure a doloremque vel odio ipsam molestias nihil
-                    blanditiis nam, in. Soluta doloribus iste repellendus quos
-                    hic itaque eaque.
-                  </p>
+                  <h1 className="mt-5">MyOrder</h1>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Order Details</th>
+                        <th scope="col">Shipping Details</th>
+                        <th scope="col">Product Details</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>order 1</td>
+                        <td>indore</td>
+                        <td>Fish</td>
+                        <td>125</td>
+                        <td>success</td>
+                      </tr>
+                      <tr>
+                        <td>order 1</td>
+                        <td>indorenton</td>
+                        <td>Fish</td>
+                        <td>125</td>
+                        <td>pending</td>
+                      </tr>
+                      <tr>
+                        <td>order 1</td>
+                        <td>indoreBird</td>
+                        <td>Fishtter</td>
+                        <td>125</td>
+                        <td>success</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </li>
                 <li
                   className={activeTab === "AddressList" ? "active" : ""}
@@ -114,7 +142,7 @@ const Account = () => {
                     Add New
                   </button>
 
-                  <Modal show={showModal} onHide={handleClose}>
+                  <Modal show={showModal} onHide={handleClose} size="lg">
                     <Modal.Header>
                       <Modal.Title className="text">
                         Add New Address
@@ -268,9 +296,9 @@ const Account = () => {
                       </div>
                     </div>
                     <div className="row">
-                      <div className="col-lg-7"></div>
-                      <div className="col-lg-5">
-                        <Button variant=" btn-danger px-5">Submit</Button>
+                      <div className="col-lg-9"></div>
+                      <div className="col-lg-3">
+                        <Button variant="btn-danger text-white primary px-5">Submit</Button>
                       </div>
                     </div>
                   </form>
@@ -283,6 +311,9 @@ const Account = () => {
                   <h1>Logout</h1>
                 </li>
               </ul>
+              </div>
+             
+              
             </div>
           </div>
         </section>

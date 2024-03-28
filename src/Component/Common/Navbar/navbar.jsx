@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 // Image
@@ -9,11 +9,11 @@ import { FiShoppingCart } from "react-icons/fi";
 import { RiMenu2Line } from "react-icons/ri";
 import { useCartContext } from "../../Context/cartContext";
 import RightPanel from "../Modal/rightPanel";
+import { AiOutlineLogin } from "react-icons/ai";
 
 const Navbar = () => {
-  const { cart , total_item } = useCartContext();
-
- 
+  const { cart, total_item } = useCartContext();
+  const [showModal, setShowModal] = useState(false);
 
   let size = cart.length;
   return (
@@ -40,7 +40,7 @@ const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarScroll">
             <ul className="navbar-nav ms-auto d-flex align-items-center mx-3">
               <li className="nav-item">
-                <NavLink to="/" className="nav-link" activeclassname = "active" >
+                <NavLink to="/" className="nav-link" activeclassname="active">
                   Home
                 </NavLink>
               </li>
@@ -58,7 +58,10 @@ const Navbar = () => {
                 {/* </a> */}
               </li>
               <li className="nav-item">
-                <NavLink to="/account" className="nav-link d-flex align-items-center">
+                <NavLink
+                  to="/account"
+                  className="nav-link d-flex align-items-center"
+                >
                   <FaRegUser className="mx-2" />
                   Account
                 </NavLink>
@@ -85,22 +88,29 @@ const Navbar = () => {
                 </div>
               </li> */}
               <li className="nav-item mx-2">
-                <NavLink to="/sign" className="nav-link d-flex align-items-center">
+                <NavLink
+                  to="/sign"
+                  className="nav-link d-flex align-items-center"
+                >
                   Sign
                 </NavLink>
 
                 {/* </a> */}
               </li>
               <li>
-              <RightPanel/>
-
+                {/* <RightPanel/> */}
+                <div
+                  className="text-color-red fs-3 d-flex"
+                  onClick={() => setShowModal(true)}
+                >
+                  <AiOutlineLogin />
+                </div>
+                <RightPanel showModal={showModal} setShowModal={setShowModal} />
               </li>
             </ul>
           </div>
         </div>
-
       </nav>
-
     </>
   );
 };

@@ -9,20 +9,22 @@ const Categories = () => {
   const Categories = [
     {
       heading: "Fresh Chicken",
-      description:
-        "Lorem ipsum dolor sit abet consectetur adipisicing elis. Nescient, incident!",
+      
       image: Logo1,
     },
     {
       heading: "Alive Desi Chicken",
-      description:
-        "Lorem ipsum dolor sit abet consectetur adipisicing elis. Nescient, incident!",
+      
       image: Logo2,
     },
     {
       heading: "Mutton Meat",
-      description:
-        "Lorem ipsum dolor sit abet consectetur adipisicing elis. Nescient, incident!",
+     
+      image: Logo3,
+    },
+    {
+      heading: "Fish",
+      
       image: Logo3,
     },
   ];
@@ -36,7 +38,7 @@ const Categories = () => {
         <div className="row">
           {Categories.map((link, index) => (
             <>
-              <div className="col-lg-4 col-md-6 col-sm-12 py-2" key={index}>
+              <div className="col-lg-3 col-md-6 col-sm-12 py-2" key={index}>
                 <div className="d-flex justify-content-center">
                   <div className="circle">
                     <img src={link.image} alt="Loading"  className="img-fluid"/>
@@ -44,7 +46,7 @@ const Categories = () => {
                 </div>
                 <div className="fresh-chicken">
                   <div className="heading">{link.heading}</div>
-                  <div className="description">{link.description}</div>
+                  {/* <div className="description">{link.description}</div> */}
                 </div>
               </div>
             </>

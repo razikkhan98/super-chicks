@@ -37,10 +37,10 @@ const Cart = () => {
                     <div className="col-lg-4 ps-3 fw-bold d-flex justify-content-center">
                       Product
                     </div>
-                    <div className="col-lg-2 ps-3 fw-bold">Price</div>
-                    <div className="col-lg-2 ps-3 fw-bold">Quantity</div>
-                    <div className="col-lg-2 pe-5 fw-bold">Total</div>
-                    <div  className="col-lg-2 pe-5 fw-bold">Remove</div>
+                    <div className="col-lg-2 ps-3 fw-bold text-center">Price</div>
+                    <div className="col-lg-2 ps-3 fw-bold text-center">Quantity</div>
+                    <div className="col-lg-2 pe-5 fw-bold text-center">Total</div>
+                    <div  className="col-lg-2 pe-5 fw-bold text-center">Remove</div>
                   </div>
                   <hr />
                   {cart.map((curElem) => {
@@ -64,7 +64,7 @@ const Cart = () => {
                   <hr />
                   <div className="row">
                     <div className="col-lg-8 fw-bold ps-5">Subtotal</div>
-                    <div className="col-lg-4 pe-5 fw-bold text-end"><FormatPrice price={total_price}/></div>
+                    <div className="col-lg-4 pe-5 fw-bold text-end"><FormatPrice price={total_price + shipping_fee}/></div>
                   </div>
                 </div>
               </div>

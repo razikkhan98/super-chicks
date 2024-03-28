@@ -24,7 +24,7 @@ const SignLogin = () => {
             <div className="fs-4 fw-bold">Sign in /Sign up to your Account</div>
             <div className="my-4">
               <div className="my-3">
-                <label htmlFor="">Phone Number or Email ID</label>
+                <label htmlFor="" className="fw-bold">Phone Number or Email ID</label>
               </div>
               <div>
                 <input type="text" name="" className="w-100" />
@@ -32,7 +32,7 @@ const SignLogin = () => {
             </div>
             <div className="my-4">
               <div className="my-3">
-                <label htmlFor="">Password</label>
+                <label htmlFor="" className="fw-bold">Password</label>
               </div>
               <div>
                 <input type="password" name="" className="w-100" />

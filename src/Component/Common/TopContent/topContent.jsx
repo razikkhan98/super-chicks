@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "../Button/button";
 import Navbar from "../Navbar/navbar";
+import { NavLink } from "react-router-dom";
 
 const TopContent = ({ title,title2,title3, description, button, img }) => {
   return (
@@ -18,7 +19,9 @@ const TopContent = ({ title,title2,title3, description, button, img }) => {
                   <h2 className="fw-medium fw-bold">{title3}</h2>
 
                   <p>{description}</p>
+                  <NavLink to='/order'  className='text-decoration-none'>
                   {button.length === 0 ? null : <Button button={button} />}
+                </NavLink>
                 </div>
               </div>
               <div className="col-lg-6 col-sm-12 text-end">

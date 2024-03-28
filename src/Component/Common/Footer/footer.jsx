@@ -11,6 +11,7 @@ import { MdEmail } from "react-icons/md";
 import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa6";
+import { NavLink } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -27,7 +28,7 @@ const Footer = () => {
             {/* <!--Grid row--> */}
             <div class="row">
               {/* <!-- Grid column --> */}
-              <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+              <div class="col-md-3 col-lg-3 col-xl-3 mx-auto">
                 <h6 class="text-uppercase mb-4 font-weight-bold">
                   <img
                     src={Logo}
@@ -43,7 +44,7 @@ const Footer = () => {
               </div>
               {/* <!-- Grid column --> */}
 
-              <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+              <div class="col-md-4 col-lg-3 col-xl-3 mx-auto">
                 <h5 class="mb-4 text-color-red">Address</h5>
                 <div className="footer my-2">
                   <MdLocationPin className="footer-icon" />
@@ -62,34 +63,35 @@ const Footer = () => {
               {/* <!-- Grid column --> */}
 
               {/* <!-- Grid column --> */}
-              <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+              <div class="col-md-2 col-lg-2 col-xl-2 mx-auto">
                 <h5 class="mb-4 text-color-red text-decoration-none">
                   Important Links
                 </h5>
                 <p>
-                  <a class="text-color-gray text-decoration-none" href="/">
-                    Home
-                  </a>
+                <NavLink to='/' className='text-decoration-none text-color-gray'>
+                Home
+                </NavLink>
+
                 </p>
                 <p>
-                  <a class="text-color-gray text-decoration-none" href="/">
+                <NavLink to='/contact' className='text-decoration-none text-color-gray'>
                     ContactUs
-                  </a>
+                  </NavLink>
                 </p>
                 <p>
-                  <a class="text-color-gray text-decoration-none" href="/">
+                <NavLink to='/about' className='text-decoration-none text-color-gray'>
                     About
-                  </a>
+                  </NavLink>
                 </p>
                 <p>
-                  <a class="text-color-gray text-decoration-none" href="/">
+                <NavLink to='/account' className='text-decoration-none text-color-gray'>
                     Account
-                  </a>
+                  </NavLink>
                 </p>
               </div>
 
               {/* <!-- Grid column --> */}
-              <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+              <div class="col-md-3 col-lg-2 col-xl-2 mx-auto">
                 <h5 class="mb-4 text-color-red text-decoration-none">
                   Social Media
                 </h5>

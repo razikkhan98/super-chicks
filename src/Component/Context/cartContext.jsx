@@ -1,6 +1,5 @@
-import { createContext, useContext, useEffect, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer, useState } from "react";
 import reducer from "../Reducer/cartReducer";
-import { toast } from "react-toastify";
 
 const CartContext = createContext();
 
@@ -23,6 +22,8 @@ const initialState = {
 };
 
 const CartProvider = ({ children }) => {
+  const [loggedInUser, setLoggedInUser] = useState(null);
+
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const addToCart = (id, amount, singleProduct) => {
@@ -58,7 +59,7 @@ const CartProvider = ({ children }) => {
   }, [state.cart]);
 
   return (
-    <CartContext.Provider value={{ ...state, addToCart, removeItem,setDecrement ,setIncrement }}>
+    <CartContext.Provider value={{ ...state, addToCart, removeItem,setDecrement ,setIncrement,loggedInUser,setLoggedInUser }}>
       {children}
     </CartContext.Provider>
   );

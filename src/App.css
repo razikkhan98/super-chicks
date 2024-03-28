@@ -337,7 +337,7 @@ a.learn_more2:hover {
 .hr {
   background-color: var(--black-color);
   height: 1px;
-  margin: 25px 0px;
+  margin: 10px 0px;
 }
 
 /* Order Page */
@@ -562,7 +562,7 @@ a.learn_more2:hover {
 }
 
 .add-to-cart-button {
-  padding: 10px 100px;
+  padding: 9px 100px;
   color: var(--red-color);
   border: 2px solid red;
   border-radius: 10px;
@@ -787,6 +787,10 @@ a.learn_more2:hover {
     display: flex;
     justify-content: center;
   }
+  .costumer-wrapper{
+    display: block;
+  }
+  
 }
 
 @media screen and (max-width: 576px) {
@@ -796,6 +800,9 @@ a.learn_more2:hover {
 
   .indicator {
     border-right: none;
+  }
+  .costumer-card{
+    margin-right: 0px !important;
   }
 }
 
@@ -807,13 +814,8 @@ a.learn_more2:hover {
   }
 }
 
-/* .nav-link:focus,
-.nav-link:hover {
-  color: #ADFF2F !important;
-} */
 
  .nav-link.active{
-  /* color: #ADFF2F !important; */
   border-bottom:  1.5px solid var(--red-color);
   padding: 4px;
   
