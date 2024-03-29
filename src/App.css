@@ -61,7 +61,7 @@ a.order-now-button:hover {
 }
 
 .text-color-red {
-  color: var(--red-color);
+  color: var(--red-color) !important;
   font-weight: 500;
 }
 
@@ -206,6 +206,10 @@ a.learn_more2:hover {
 .back-ground-ch {
   width: 70%;
   display: inline-block;
+}
+
+.header-img{
+  filter: drop-shadow(0 3.2rem 2.25rem rgba(219, 21, 22, 0.5));
 }
 
 /* About Page */

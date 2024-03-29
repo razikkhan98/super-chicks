@@ -6,6 +6,11 @@ import { NavLink } from "react-router-dom";
 
 const Card = (link) => {
   const { id, title, kilogram, amount, button, image, comingsoon} = link;
+
+
+  const handlechange = (link) => {
+
+  }
   return (
     <>
       <div class="card card-shadow">
@@ -168,6 +173,7 @@ const Card = (link) => {
                   <NavLink
                     to={`/singleproduct/${id}`}
                     className="text-decoration-none"
+                    onClick={() => handlechange(link)}
                   >
                     <Button button={button} />
                   </NavLink>

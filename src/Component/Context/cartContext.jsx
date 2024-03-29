@@ -23,6 +23,7 @@ const initialState = {
 
 const CartProvider = ({ children }) => {
   const [loggedInUser, setLoggedInUser] = useState(null);
+  const [totalCartPrice , setTotalCartPrice] = useState(null)
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -59,7 +60,7 @@ const CartProvider = ({ children }) => {
   }, [state.cart]);
 
   return (
-    <CartContext.Provider value={{ ...state, addToCart, removeItem,setDecrement ,setIncrement,loggedInUser,setLoggedInUser }}>
+    <CartContext.Provider value={{ ...state, addToCart, removeItem,setDecrement ,setIncrement,loggedInUser,setLoggedInUser,totalCartPrice ,setTotalCartPrice}}>
       {children}
     </CartContext.Provider>
   );

@@ -57,7 +57,7 @@ const Navbar = () => {
 
                 {/* </a> */}
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <NavLink
                   to="/"
                   className="nav-link d-flex align-items-center"
@@ -66,8 +66,7 @@ const Navbar = () => {
                   Account
                 </NavLink>
 
-                {/* </a> */}
-              </li>
+              </li> */}
               <li className="nav-item cart-trolley-link">
                 <NavLink to="/cart" className="nav-link">
                   <FiShoppingCart className="cart-trolley" />

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 // Common
 import TopContent from "../../Common/TopContent/topContent";
@@ -18,6 +18,7 @@ import Goat from "../../asset/img/Order/Goat.svg";
 import Hen from "../../asset/img/Order/Hen.svg";
 import Chicken from "../../asset/img/Order/Chicken.svg";
 import Footer from "../../Common/Footer/footer";
+import axios from "axios";
 
 const OrderNow = () => {
   const OrderData = [
@@ -76,17 +77,21 @@ const OrderNow = () => {
       id: 7,
       image: OrderChicken7,
       title: "Chicken Mince (Keema)",
-      kilogram: "500gms | 1Kg",
-      amount: "Amt",
-      button: "Add to Cart",
+      // kilogram: "500gms | 1Kg",
+      // amount: "Amt",
+      // button: "Add to Cart",
+      comingsoon: "Coming Soon"
+ 
     },
     {
       id: 9,
       image: OrderChicken8,
       title: "Chicken Breast",
-      kilogram: "500gms | 1Kg",
-      amount: "Amt",
-      button: "Add to Cart",
+      // kilogram: "500gms | 1Kg",
+      // amount: "Amt",
+      // button: "Add to Cart",
+      comingsoon: "Coming Soon"
+
     },
   ];
 
@@ -95,27 +100,37 @@ const OrderNow = () => {
       id: 13,
       image: OrderChicken3,
       title: "Mutton mixed with bone",
-      kilogram: "500gms | 1Kg",
-      amount: "Amt",
-      button: "Add to Cart",
+      // kilogram: "500gms | 1Kg",
+      // amount: "Amt",
+      // button: "Add to Cart",
+      comingsoon: "Coming Soon"
+
     },
     {
       id: 43,
       image: OrderChicken4,
       title: "Mutton (Boneless)",
-      kilogram: "500gms | 1Kg",
-      amount: "Amt",
-      button: "Add to Cart",
+      // kilogram: "500gms | 1Kg",
+      // amount: "Amt",
+      // button: "Add to Cart",
+      comingsoon: "Coming Soon"
+
     },
     {
       id: 73,
       image: OrderChicken2,
       title: "Mutton Mince (Keema)",
-      kilogram: "500gms | 1Kg",
-      amount: "Amt",
-      button: "Add to Cart",
+      // kilogram: "500gms | 1Kg",
+      // amount: "Amt",
+      // button: "Add to Cart",
+      comingsoon: "Coming Soon"
+
     },
   ];
+
+
+  
+
 
   return (
     <>

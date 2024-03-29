@@ -8,6 +8,7 @@ import MyImage from "../../Common/MyImage/myImage";
 import { useCartContext } from "../../Context/cartContext";
 import NavbarGround from "../../Common/Navbar/navbground";
 import RightPanel from "../../Common/Modal/rightPanel";
+import ReactWhatsapp from "react-whatsapp";
 
 //React icons
 
@@ -55,7 +56,7 @@ const SingleProduct = () => {
     },
   ];
 
-  const { id } = useParams();
+  const { pid } = useParams();
   const [singleProduct, setSingleProduct] = useState([]);
   const [amount, setAmount] = useState(1);
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -75,24 +76,24 @@ const SingleProduct = () => {
 
   //   Api Function single Product Id
 
-  const api = "https://api.pujakaitem.com/api/products";
+  const api = "http://192.168.1.4:8000/products";
 
   const getSingleProduct = async (id) => {
-    const response = await axios.get(`${api}/${id}`);
+    const response = await axios.get(`${api}/${pid}`);
     console.log(response.data,1222222);
 
     return response.data;
   };
 
   useEffect(() => {
-    getSingleProduct(id).then((data) => {
+    getSingleProduct(pid).then((data) => {
       setSingleProduct(data);
     });
-  }, [id]);
+  }, [pid]);
 
   const AddToCart = () => {
     if (loggedInUser === 'Success') {
-      addToCart(id, amount, singleProduct);
+      addToCart(pid, amount, singleProduct);
     } else {
       console.log("login first");
       setShowLoginModal(!showLoginModal);
@@ -180,6 +181,9 @@ const SingleProduct = () => {
                       <FaPlus />
                     </button>
                   </div>
+                  <ReactWhatsapp className="border-0 bg-white text-decoration-underline text-danger" number="91 9244276667" message="please mention your order">
+                  For more than 20kg click here
+                  </ReactWhatsapp>
                 </div>
 
                 <h4 className="price-heading">Raw Chicken Mince with Bone</h4>
@@ -212,7 +216,8 @@ const SingleProduct = () => {
                 <div className="col-lg-7 col-sm-12">
                   <div
                     className=" d-flex justify-content-end"
-                    onClick={() => addToCart(id, amount, singleProduct)}
+                    onClick={() => addToCart(pid, amount, singleProduct)}
+                    // onAbort={AddToCart}
                   >
                     <div className="add-to-cart-button mt-2">
                       <BsHandbag /> Add to Cart
