@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 // Common
 import TopContent from "../../Common/TopContent/topContent";
@@ -21,9 +21,60 @@ import Footer from "../../Common/Footer/footer";
 import axios from "axios";
 
 const OrderNow = () => {
+  // const OrderData = [
+  //   {
+  //     pid: "ch-721",
+  //     image: OrderChicken1,
+  //     title: "Chicken mixed with bone",
+  //     kilogram: "500gms | 1Kg",
+  //     amount: "Amt",
+  //     button: "Add to Cart",
+  //   },
+  //   {
+  //     pid: "ch-722",
+  //     image: OrderChicken2,
+  //     title: "Chicken (Boneless)",
+  //     kilogram: "500gms | 1Kg",
+  //     amount: "Amt",
+  //     button: "Add to Cart",
+  //   },
+  //   {
+  //     pid: "ch-723",
+  //     image: OrderChicken3,
+  //     title: "Chicken Drumstick",
+  //     kilogram: "500gms | 1Kg",
+  //     amount: "Amt",
+  //     button: "Add to Cart",
+  //   },
+  //   {
+  //     pid: "ch-724",
+  //     image: OrderChicken4,
+  //     title: "Chicken Wings",
+  //     kilogram: "500gms | 1Kg",
+  //     amount: "Amt",
+  //     button: "Add to Cart",
+  //   },
+  //   {
+  //     id: "ch-724",
+  //     image: OrderChicken5,
+  //     title: "Chicken Mince (Keema)",
+  //     kilogram: "500gms | 1Kg",
+  //     price: "Amt",
+  //     button: "Add to Cart",
+  //   },
+  //   {
+  //    pid: "ch-724",
+  //     image: OrderChicken6,
+  //     title: "Chicken Breast",
+  //     kilogram: "500gms | 1Kg",
+  //     amount: "Amt",
+  //     button: "Add to Cart",
+  //   },
+  // ];
+
   const OrderData = [
     {
-      id: "thapaserialnoa",
+      id:'thapaserialnoa',
       image: OrderChicken1,
       title: "Chicken mixed with bone",
       kilogram: "500gms | 1Kg",
@@ -31,7 +82,7 @@ const OrderNow = () => {
       button: "Add to Cart",
     },
     {
-      id: "thapaserialnob",
+      id:'thapaserialnob',
       image: OrderChicken2,
       title: "Chicken (Boneless)",
       kilogram: "500gms | 1Kg",
@@ -39,7 +90,7 @@ const OrderNow = () => {
       button: "Add to Cart",
     },
     {
-      id: "thapaserialnoc",
+      id:'thapaserialnoc',
       image: OrderChicken3,
       title: "Chicken Drumstick",
       kilogram: "500gms | 1Kg",
@@ -47,7 +98,7 @@ const OrderNow = () => {
       button: "Add to Cart",
     },
     {
-      id: "thapaserialnod",
+      id:'thapaserialnod',
       image: OrderChicken4,
       title: "Chicken Wings",
       kilogram: "500gms | 1Kg",
@@ -55,7 +106,7 @@ const OrderNow = () => {
       button: "Add to Cart",
     },
     {
-      id: "thapaserialnof",
+      id:'thapaserialnof',
       image: OrderChicken5,
       title: "Chicken Mince (Keema)",
       kilogram: "500gms | 1Kg",
@@ -63,7 +114,7 @@ const OrderNow = () => {
       button: "Add to Cart",
     },
     {
-      id: "thapaserialnog",
+      id:'thapaserialnog',
       image: OrderChicken6,
       title: "Chicken Breast",
       kilogram: "500gms | 1Kg",

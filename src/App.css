@@ -577,6 +577,7 @@ a.learn_more2:hover {
   border-radius: 10px;
   text-decoration: none;
   background-color: var(--white-color);
+  cursor: pointer;
 }
 
 .add-to-cart-button:hover {
@@ -673,7 +674,7 @@ a.learn_more2:hover {
 
 .offer-card-3 {
   width: 145px;
-  /* height: 97px; */
+  height: 122px;
   border: 1px solid var(--red-color);
   border-radius: 10px;
   color: var(--black-color);

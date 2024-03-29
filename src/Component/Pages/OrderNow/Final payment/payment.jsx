@@ -1,18 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import Footer from "../../../Common/Footer/footer";
 import { Button } from "react-bootstrap";
-import { CiCreditCard1 } from "react-icons/ci";
 import NavbarGround from "../../../Common/Navbar/navbground";
 import { useForm } from "react-hook-form";
 
 // Icons
-import { IoMdCheckmarkCircle } from "react-icons/io";
 import { useCartContext } from "../../../Context/cartContext";
 
+// Image
+import Upi from "../../../asset/img/Order/UPI.jpg";
+import SuccesModel from "../../../Common/Modal/succesModel";
+import { toast } from "react-toastify";
+
 const FinallPayment = () => {
+  const [finallPayment, setFinallPayment] = useState();
 
-  const {totalCartPrice } = useCartContext();
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
+
+  const { cart, orderPayment, total_price, shipping_fee,clearCart } = useCartContext();
+
+  // cart Null
+
+
+
+  const fullData = { cart, orderPayment, finallPayment };
 
   const {
     register,
@@ -20,14 +32,26 @@ const FinallPayment = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = (data ,cart) => {
     console.log(data, 12233);
+    setFinallPayment(data);
+    console.log(fullData, 12233);
+    setShowSuccessModal(true);
+    toast.success("Order is successfully", {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+    clearCart()
   };
 
-
-
   return (
-    // <>
+// <>
     //   <NavbarGround />
     //   <div className="back-img-main">
     //     <section id="section-padding">
@@ -111,9 +135,20 @@ const FinallPayment = () => {
           <div className="container px-5">
             <h2 className="fw-bold text-color-red">Payment</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="justify-content-end d-flex">
-                <div className="w-25 text-center shadow rounded py-2 background-color-footer">
+              {/* <div className="justify-content-end d-flex">
+                <div className="w-50 text-center shadow rounded py-2 background-color-footer">
+
                   <h3>UPI NO : 9876543210</h3> <h3>UPI ID :Chicks@Kotak</h3>
+                </div>
+              </div> */}
+              <div className="row ">
+                <div className="col-lg-6 py-3 text-center py-3">
+                  <img src={Upi} alt="Upi" className="img-fluid w-50 rounded" />
+                </div>
+                <div className="col-lg-5 py-3">
+                  <div className="text-center shadow rounded py-2 background-color-footer">
+                    <h3>UPI NO : 9876543210</h3> <h3>UPI ID :Chicks@Kotak</h3>
+                  </div>
                 </div>
               </div>
               <div className="row justify-content-center">
@@ -146,9 +181,7 @@ const FinallPayment = () => {
                     })}
                   />
                   {errors.number && (
-                    <div className="text-danger">
-                      {errors.number.message}
-                    </div>
+                    <div className="text-danger">{errors.number.message}</div>
                   )}
                   {/* <CiCreditCard1 className="card-payment-icon" /> */}
                 </div>
@@ -160,15 +193,8 @@ const FinallPayment = () => {
                     type="text"
                     className="form-control my-2"
                     placeholder="Transaction ID"
-                    {...register("transaction", {
-                      required: "Transaction ID required",
-                    })}
+                    {...register("transaction", {})}
                   />
-                  {errors.transaction && (
-                    <div className="text-danger">
-                      {errors.transaction.message}
-                    </div>
-                  )}
                 </div>
                 <div className="col-lg-5 my-4">
                   <label htmlFor="" className="form-label">
@@ -177,20 +203,15 @@ const FinallPayment = () => {
                   <input
                     type="text"
                     className="form-control my-2"
-                    defaultValue={totalCartPrice}
+                    value={total_price + shipping_fee}
                   />
-                  {errors.amount && (
-                    <div className="text-danger">
-                      {errors.amount.message}
-                    </div>
-                  )}
                 </div>
                 <div className="col-lg-5 d-flex justify-content-center">
                   <Button
                     variant=" btn-danger text-light bg-danger px-5 mt-1"
                     type="submit"
                   >
-                  Done
+                    Done
                   </Button>
                 </div>
               </div>
@@ -198,6 +219,12 @@ const FinallPayment = () => {
           </div>
         </section>
       </div>
+
+      {/* Modal Succes Start */}
+
+      <SuccesModel showModal={showSuccessModal} setShowModal={setShowSuccessModal}/>
+      
+      {/* Modal Succes End */}
 
       {/* Footer Start*/}
       <Footer />
