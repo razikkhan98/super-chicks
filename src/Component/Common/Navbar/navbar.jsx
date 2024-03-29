@@ -59,7 +59,7 @@ const Navbar = () => {
               </li>
               <li className="nav-item">
                 <NavLink
-                  to="/account"
+                  to="/"
                   className="nav-link d-flex align-items-center"
                 >
                   <FaRegUser className="mx-2" />

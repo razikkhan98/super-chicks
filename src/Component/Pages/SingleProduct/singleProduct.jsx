@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 
 // Common
 import Footer from "../../Common/Footer/footer";
@@ -63,6 +63,8 @@ const SingleProduct = () => {
 
   const { id: alias, name, price, description, stock, image } = singleProduct;
 
+  console.log(singleProduct,'singleProduct')
+
   const setDecrease = () => {
     amount > 1 ? setAmount(amount - 1) : setAmount(1);
   };
@@ -77,7 +79,7 @@ const SingleProduct = () => {
 
   const getSingleProduct = async (id) => {
     const response = await axios.get(`${api}/${id}`);
-    console.log(response.data);
+    console.log(response.data,1222222);
 
     return response.data;
   };
@@ -206,30 +208,30 @@ const SingleProduct = () => {
                   </div>
                 </div>
               </div>
-              {stock > 0 && (
+              {/* {stock > 0 && ( */}
                 <div className="col-lg-7 col-sm-12">
                   <div
                     className=" d-flex justify-content-end"
-                    onClick={AddToCart}
+                    onClick={() => addToCart(id, amount, singleProduct)}
                   >
                     <div className="add-to-cart-button mt-2">
                       <BsHandbag /> Add to Cart
                     </div>
                   </div>
                 </div>
-              )}
+              {/* )} */}
 
-              {stock > 0 && (
+              {/* {stock > 0 && ( */}
                 <div className="col-lg-5 col-sm-12">
-                  {/* {stock > 0 && ( */}
                   <div className="d-flex justify-content-star mt-2">
-                    <a className="sign-up-button" href="/">
-                      Buy Now
-                    </a>
+                    {/* <a className="sign-up-button" href="/"> */}
+                    <NavLink to='/orderPayment' className="sign-up-button">
+                    Buy Now
+                    </NavLink>
+                    {/* </a> */}
                   </div>
-                  {/* )} */}
                 </div>
-              )}
+              {/* )} */}
             </div>
 
             <div className="hr"></div>

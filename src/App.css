@@ -166,10 +166,8 @@ font-size: 13px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 115vh;
-  position: relative;
-  display: flex;
-  align-items: center;
+  height: 160vh;
+
 }
 
 .white_pad {
@@ -185,7 +183,8 @@ font-size: 13px;
 }
 
 .home-heading {
-  padding: 110px 0px;
+  padding-top: 100px;
+  align-items: center;
 }
 
 .home-heading h2 {
@@ -367,6 +366,12 @@ a.learn_more2:hover {
   border-radius: 10px;
   text-decoration: none;
 }
+
+/* Login */
+/* ---------------------------------*/
+.gradient-custom-2 {
+  background: linear-gradient(90deg, #ffe5e5,#d0a6a6 );}
+  /* background-color: #ffe5e5; */
 
 /* Customer  */
 /* ---------------------------------*/
@@ -664,7 +669,7 @@ a.learn_more2:hover {
 
 .offer-card-3 {
   width: 145px;
-  height: 97px;
+  /* height: 97px; */
   border: 1px solid var(--red-color);
   border-radius: 10px;
   color: var(--black-color);
@@ -822,83 +827,6 @@ a.learn_more2:hover {
 }
 
 
-
-
-
-
-
-
-
-/* Test */
-.right-panel-img{
-  display: flex;
-  justify-content: center;
-}
-.right-panel-img img{
-  max-height: 100px;
-  padding-left: 15px;
-
-}
-
-.right-panel {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 350px;
-  height: 100%;
-  background-color: #ffe5e5;
-  border-left: 1px solid #dee2e6;
-  z-index: 999;
-}
-
-.panel-content {
-  padding: 20px;
-}
-.login-panel{
-  background-color: #fff;
-}
-
-.login-panel{
-  border-radius: 6px;
-  background-color: #fbfbfb;
-  bottom: 0;
-  position: fixed;
-  width: 97%;
-  margin: 0 6px;
-  display: block;
-  min-height: 65%;
-}
-/* .form-control{ */
-  /* border: none !important;; */
-  /* background-color: var(--white-color); */
-/* } */
-.btn-login-icon{
-  margin-top: 0px !important;
-  background-color: #fff2f2 !important;
-  font-size: 20px;
-  margin-left: 10px;
-}
-
-.btn-login-icon:hover{
-  background-color: #fff2f2 !important;
-  color: var(--red-color);
-}
-
-
-.gradient-custom-2 {
-  background: linear-gradient(90deg, #ffe5e5,#d0a6a6 );}
-  /* background-color: #ffe5e5; */
-
-
-  .product-detail-head{
-    display: flex;
-  }
-  .product-detail-hr{
-    display: block;
-  }
-
-
-
   @media only screen and (min-width: 320px) and (max-width: 768px) {  
     .product-detail-head,.product-detail-hr{
       display: none !important;
@@ -909,7 +837,7 @@ a.learn_more2:hover {
   /* 404 error page */
   
 .error-pg {
-  background: #000;
+  background: #ffe5e5;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -931,7 +859,7 @@ justify-content: center;
 
 .error__wrapper h1,
 .error__wrapper p {
-  color: #fff;
+  color: var(--black-color);
 }
 
 .error__wrapper p {
@@ -956,7 +884,7 @@ justify-content: center;
 }
 
 .error__wrapper a:hover {
-  background: #000;
+  background: var(--red-color);
   color: #fff;
 }
 
