@@ -21,7 +21,7 @@ const CartItem = ({ id, name, image, color, price, amount }) => {
           {name}
         </div>
         <div className="col-lg-2 text-center justify-content-center my-2 ps-3 fw-bold d-flex align-items-center">
-        <FormatPrice price={price}/>
+        <FormatPrice price={price} />
         </div>
         <div className="col-lg-2 text-center justify-content-center my-2 ps-3 fw-bold d-flex align-items-center">
           <CiCircleMinus className="fs-3" onClick={() => setDecrement(id)}/>

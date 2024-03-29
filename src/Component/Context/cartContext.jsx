@@ -23,7 +23,7 @@ const initialState = {
 
 const CartProvider = ({ children }) => {
   const [loggedInUser, setLoggedInUser] = useState(null);
-
+  const [orderPayment, setOrderPayment] = useState()
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const addToCart = (id, amount, singleProduct) => {
@@ -49,6 +49,12 @@ const CartProvider = ({ children }) => {
     dispatch({ type: "REMOVE_ITEM", payload: id });
   };
 
+
+  // to clear the cart
+  const clearCart = () => {
+    dispatch({ type: "CLEAR_CART" });
+  };
+
   // to add the data in localStorage
   // get vs set
 
@@ -59,7 +65,7 @@ const CartProvider = ({ children }) => {
   }, [state.cart]);
 
   return (
-    <CartContext.Provider value={{ ...state, addToCart, removeItem,setDecrement ,setIncrement,loggedInUser,setLoggedInUser }}>
+    <CartContext.Provider value={{ ...state, addToCart, removeItem,setDecrement ,setIncrement,loggedInUser,setLoggedInUser,orderPayment,setOrderPayment ,clearCart}}>
       {children}
     </CartContext.Provider>
   );

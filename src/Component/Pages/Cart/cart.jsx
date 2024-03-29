@@ -18,7 +18,13 @@ import { useCartContext } from "../../Context/cartContext";
 import { NavLink } from "react-router-dom";
 
 const Cart = () => {
-  const { cart, total_item,total_price ,shipping_fee } = useCartContext();
+  const { cart, total_item,total_price ,shipping_fee  } = useCartContext();
+
+
+  // console.log(cart[1].name,"cart")
+
+
+
 
   let saltlength = cart.length;
 
@@ -65,7 +71,7 @@ const Cart = () => {
                   <hr />
                   <div className="row">
                     <div className="col-lg-8 fw-bold ps-5">Subtotal</div>
-                    <div className="col-lg-4 pe-5 fw-bold text-end"><FormatPrice price={total_price + shipping_fee}/></div>
+                    <div className="col-lg-4 pe-5 fw-bold text-end"><FormatPrice price={total_price}/></div>
                   </div>
                 </div>
               </div>

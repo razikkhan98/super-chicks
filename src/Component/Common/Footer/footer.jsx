@@ -12,6 +12,7 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
+import ReactWhatsapp from "react-whatsapp";
 
 const Footer = () => {
   return (
@@ -84,9 +85,9 @@ const Footer = () => {
                   </NavLink>
                 </p>
                 <p>
-                <NavLink to='/account' className='text-decoration-none text-color-gray'>
+                {/* <NavLink to='/account' className='text-decoration-none text-color-gray'>
                     Account
-                  </NavLink>
+                  </NavLink> */}
                 </p>
               </div>
 
@@ -98,17 +99,17 @@ const Footer = () => {
 
                 <div className="social-media-icon ">
                   {/* <!-- Facebook --> */}
-                  <a href="#!">
+                  <a href="https://www.facebook.com/profile.php?id=61556895375689&mibextid=ZbWKwL" target="_">
                     <FaFacebookF className="footer-icon" />
                   </a>
 
                   {/* <!-- Twitter --> */}
-                  <a href="#!">
-                    <FaTwitter className="footer-icon" />
-                  </a>
+                  <ReactWhatsapp className="bg-transparent border-0 " number="91 9244276667" message="Hello">
+                    <FaWhatsapp className="footer-icon" />
+                  </ReactWhatsapp>
 
                   {/* <!-- Instagram --> */}
-                  <a href="#!">
+                  <a href="https://www.instagram.com/superchicks.online?igsh=aGM0Zmw3Mmx6MzJo" target="_">
                     <FaInstagram className="footer-icon" />
                   </a>
                 </div>

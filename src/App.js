@@ -14,6 +14,10 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from "react-route
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect } from "react";
+import ScrollToTop from "./Component/Common/ScrollToTop/scroll";
+
+import Text from "./Component/Pages/SingleProduct/text";
+
 
 function App() {
   // const location = useLocation();
@@ -80,6 +84,7 @@ function App() {
     <>
     <ToastContainer/>
       <Router>
+      <ScrollToTop /> {/* Place the ScrollToTop component here */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -87,7 +92,8 @@ function App() {
           <Route path="/orderPayment" element={<OrderNowPayment />} />
           <Route path="/orderFinal" element={<OrderNowFinal />} />
           <Route path="/sign" element={<SignLogin />} />
-          <Route path="/singleproduct/:id" element={<SingleProduct />} />
+          {/* <Route path="/singleproduct/:pid" element={<SingleProduct />} /> */}
+          <Route path="/singleproduct/:id" element={<Text />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/contact" element={<Contact />} />
           {/* <Route path="/account" element={< Account/>} /> */}

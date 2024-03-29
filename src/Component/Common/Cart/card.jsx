@@ -5,7 +5,8 @@ import Button from "../Button/button";
 import { NavLink } from "react-router-dom";
 
 const Card = (link) => {
-  const { id, title, kilogram, amount, button, image, comingsoon} = link;
+  const { id, title, kilogram, amount, button, image, comingsoon } = link;
+
   return (
     <>
       <div class="card card-shadow">
@@ -132,7 +133,7 @@ const Card = (link) => {
 
             <span className="ps-3">{kilogram}</span>
           </div>
-          
+
           <div className="d-flex justify-content-between align-items-baseline">
             <div className="card-icon d-flex justify-content-between">
               {kilogram ? (
@@ -156,24 +157,39 @@ const Card = (link) => {
                 </>
               ) : null}
             </div>
-            {button ? <> <div>
-              {button === "Order Now" ? (
-                <>
-                  <NavLink to="/order" className="text-decoration-none">
-                    <Button button={button} />
-                  </NavLink>
-                </>
-              ) : (
-                <>
-                  <NavLink
-                    to={`/singleproduct/${id}`}
-                    className="text-decoration-none"
-                  >
-                    <Button button={button} />
-                  </NavLink>
-                </>
-              )}
-            </div></> : null }
+            {button ? (
+              <>
+                {" "}
+                <div>
+                  {button === "Order Now" ? (
+                    <>
+                      <NavLink
+                        to="/order"
+                        className="text-decoration-none"
+                        // onClick={() => handlechange()}
+                      >
+                        <Button button={button} />
+                      </NavLink>
+                    </>
+                  ) : (
+                    <>
+                      {/* <NavLink
+                        to={`/singleproduct/${pid}`}
+                        className="text-decoration-none"
+                      >
+                        <Button button={button} />
+                      </NavLink> */}
+                      <NavLink
+                        to={`/singleproduct/${id}`}
+                        className="text-decoration-none"
+                      >
+                        <Button button={button} />
+                      </NavLink>
+                    </>
+                  )}
+                </div>
+              </>
+            ) : null}
             {/* <div>
               {button === "Order Now" ? (
                 <>

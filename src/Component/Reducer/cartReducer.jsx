@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 
 const cartReducer = (state, action) => {
   if (action.type === "ADD_TO_CART") {
@@ -6,6 +7,16 @@ const cartReducer = (state, action) => {
         // "🚀 ~ file: cartReducer.js ~ line 4 ~ cartReducer ~ product",
         singleProduct
     );
+    toast.success("Add to cart in successfully", {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
 
 
 
@@ -113,8 +124,15 @@ const cartReducer = (state, action) => {
     };
   }
 
-    // to Cart Total Price
+   // to empty or to clear to cart
+   if (action.type === "CLEAR_CART") {
+    return {
+      ...state,
+      cart: [],
+    };
+  }
 
+    // to Cart Total Price
 
   if (action.type === "CART_TOTAL_PRICE") {
     let total_price = state.cart.reduce((initialVal, curElem) => {
@@ -137,10 +155,21 @@ const cartReducer = (state, action) => {
     let updatedCart = state.cart.filter(
       (curItem) => curItem.id !== action.payload
     );
+    toast.success("Card has been deleted", {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
     return {
       ...state,
       cart: updatedCart,
     };
+    
   }
 
   return state;

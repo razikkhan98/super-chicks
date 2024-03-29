@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import Footer from "../../../Common/Footer/footer";
 import NavbarGround from "../../../Common/Navbar/navbground";
-import { NavLink } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { useCartContext } from "../../../Context/cartContext";
+import FormatPrice from "../../../Helpers/FormatPrice";
+import { useNavigate } from "react-router-dom";
 
 const OrderCheckoutPayment = () => {
+  const { setOrderPayment ,total_price ,shipping_fee} = useCartContext();
+
+  const navigate = useNavigate();
+
+
+
   const {
     register,
     handleSubmit,
@@ -14,6 +22,23 @@ const OrderCheckoutPayment = () => {
 
   const onSubmit = (data) => {
     console.log(data, 12233);
+    setOrderPayment(data);
+    navigate('/orderFinal')
+  };
+
+  const [enteredZipcode, setEnteredZipcode] = useState("");
+  const pincode = [
+    451010, 452001, 452002, 452003, 452004, 452005, 452006, 452007, 452008,
+    452009, 452010, 452011, 452012, 452013, 452014, 452015, 452016, 452018,
+    452020, 453111, 453112, 453331, 453332, 453555, 453556, 453771, 456015
+  ];
+
+  const handleZipcodeChange = (event) => {
+    const { value } = event.target;
+    setEnteredZipcode(value);
+    if (pincode.includes(parseInt(value))) {
+      console.log("Matching Pin:", value);
+    }
   };
 
   return (
@@ -149,15 +174,9 @@ const OrderCheckoutPayment = () => {
                         type="text"
                         className="form-control my-2"
                         placeholder="Zipcode"
-                        {...register("zipcode", {
-                          required: "Zipcode is required",
-                        })}
+                        value={enteredZipcode}
+                    onChange={handleZipcodeChange}
                       />
-                      {errors.zipcode && (
-                        <div className="text-danger">
-                          {errors.zipcode.message}
-                        </div>
-                      )}
                     </div>
                   </div>
                 </div>
@@ -242,6 +261,8 @@ const OrderCheckoutPayment = () => {
                   <div className="row">
                     <div className="col-lg-8 text-color-gray">
                       Chicken (Boneless) - Net Wt:500 Grams{" "}
+
+                      
                       <span className="ps-5 fw-bold text-color-black">x2</span>
                     </div>
                     <div className="col-lg-4 pe-5 fw-bold text-end">-----</div>
@@ -257,26 +278,25 @@ const OrderCheckoutPayment = () => {
                   <hr />
                   <div className="row">
                     <div className="col-lg-8 fw-bold">Subtotal</div>
-                    <div className="col-lg-4 pe-5 fw-bold text-end">-----</div>
+                    <div className="col-lg-4 pe-5 fw-bold text-end"><FormatPrice price={total_price}/></div>
                   </div>
                   <hr />
                   <div className="row">
                     <div className="col-lg-8 fw-bold">Shipping Charge</div>
-                    <div className="col-lg-4 pe-5 fw-bold text-end">-----</div>
+                    <div className="col-lg-4 pe-5 fw-bold text-end"><FormatPrice price={shipping_fee}/></div>
                   </div>
                   <hr />
                   <div className="row">
                     <div className="col-lg-8 fw-bold">Promo Discount</div>
-                    <div className="col-lg-4 pe-5 fw-bold text-end">-----</div>
+                    <div className="col-lg-4 pe-5 fw-bold text-end">{}</div>
                   </div>
                   <hr />
                   <div className="row">
                     <div className="col-lg-8 text-color-gray">Order Total</div>
-                    <div className="col-lg-4 pe-5 fw-bold text-end">-----</div>
+                    <div className="col-lg-4 pe-5 fw-bold text-end"><FormatPrice price={total_price + shipping_fee}/></div>
                   </div>
                 </div>
 
-                <div className="col-lg-4 ps-4 ">Payment Method</div>
                 {/* <NavLink to="/orderFinal" className="text-decoration-none"> */}
                 <div className="d-flex justify-content-end">
                   <Button
