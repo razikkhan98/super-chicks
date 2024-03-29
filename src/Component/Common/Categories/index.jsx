@@ -9,22 +9,18 @@ const Categories = () => {
   const Categories = [
     {
       heading: "Fresh Chicken",
-      
       image: Logo1,
     },
     {
       heading: "Alive Desi Chicken",
-      
       image: Logo2,
     },
     {
       heading: "Mutton Meat",
-     
       image: Logo3,
     },
     {
       heading: "Fish",
-      
       image: Logo3,
     },
   ];
@@ -41,7 +37,7 @@ const Categories = () => {
               <div className="col-lg-3 col-md-6 col-sm-12 py-2" key={index}>
                 <div className="d-flex justify-content-center">
                   <div className="circle">
-                    <img src={link.image} alt="Loading"  className="img-fluid"/>
+                    <img src={link.image} alt="Loading" className="img-fluid" />
                   </div>
                 </div>
                 <div className="fresh-chicken">

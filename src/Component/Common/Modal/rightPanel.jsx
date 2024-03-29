@@ -84,7 +84,7 @@ const RightPanel = ({ showModal, setShowModal }) => {
       const Status = response.data.status;
 
 
-      if (msg === "Success" || Status === "True") {
+      if (msg === "Success" && Status === "True") {
         setShowModal(false);
         toast.info("Login Successful", {
           position: "top-center",
@@ -112,19 +112,7 @@ const RightPanel = ({ showModal, setShowModal }) => {
     }
 
 
-    // if(otpdata === data){
-    //   setShowModal(false);
-    //   toast.info("Login Successful", {
-    //     position: "top-center",
-    //     autoClose: 2000,
-    //     hideProgressBar: false,
-    //     closeOnClick: true,
-    //     pauseOnHover: true,
-    //     draggable: true,
-    //     progress: undefined,
-    //     theme: "light",
-    //   });
-    // }
+  
 
 
     

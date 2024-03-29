@@ -15,6 +15,7 @@ import EmptyCart from "../../asset/img/Order/cart.png"
 
 
 import { useCartContext } from "../../Context/cartContext";
+import { NavLink } from "react-router-dom";
 
 const Cart = () => {
   const { cart, total_item,total_price ,shipping_fee } = useCartContext();
@@ -68,11 +69,14 @@ const Cart = () => {
                   </div>
                 </div>
               </div>
+              <NavLink to='/orderPayment' className='text-decoration-none'>
               <div className="d-flex justify-content-end">
                 <Button variant=" btn-danger text-light bg-danger px-5 mt-5">
                   Proceed To Checkout
                 </Button>
               </div>
+              </NavLink>
+             
             </div>
           ) : (
             <>
@@ -83,7 +87,7 @@ const Cart = () => {
                 <div className="shopping-empt-icon">
                   <h5>
                     {/* <FontAwesomeIcon icon={faCartShopping} /> */}
-                    <img src={EmptyCart} alt="Loading" className="rounded mx-auto d-block w-75" />
+                    <img src={EmptyCart}  alt="Loading" className="rounded mx-auto d-block w-75" />
 
                   </h5>
                 </div>
