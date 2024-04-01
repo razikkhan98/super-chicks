@@ -23,6 +23,8 @@ const Cart = () => {
 
   // console.log(cart[1].name,"cart")
 
+  console.log(cart,'cart')
+
 
 
 
@@ -71,7 +73,7 @@ const Cart = () => {
                   <hr />
                   <div className="row">
                     <div className="col-lg-8 fw-bold ps-5">Subtotal</div>
-                    <div className="col-lg-4 pe-5 fw-bold text-end"><FormatPrice price={total_price}/></div>
+                    <div className="col-lg-4 pe-5 fw-bold text-end"><FormatPrice price={total_price + shipping_fee}/></div>
                   </div>
                 </div>
               </div>

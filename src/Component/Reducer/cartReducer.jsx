@@ -3,10 +3,7 @@ import { toast } from "react-toastify";
 const cartReducer = (state, action) => {
   if (action.type === "ADD_TO_CART") {
     let {amount, singleProduct } = action.payload;
-    console.log(
-        // "🚀 ~ file: cartReducer.js ~ line 4 ~ cartReducer ~ product",
-        singleProduct
-    );
+  
     toast.success("Add to cart in successfully", {
       position: "top-center",
       autoClose: 2000,

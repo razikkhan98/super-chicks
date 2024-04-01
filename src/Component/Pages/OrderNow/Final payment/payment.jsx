@@ -11,9 +11,10 @@ import { useCartContext } from "../../../Context/cartContext";
 import Upi from "../../../asset/img/Order/UPI.jpg";
 import SuccesModel from "../../../Common/Modal/succesModel";
 import { toast } from "react-toastify";
+import axios from "axios";
 
 const FinallPayment = () => {
-  const [finallPayment, setFinallPayment] = useState();
+
 
   const [showSuccessModal, setShowSuccessModal] = useState(false);
 
@@ -24,7 +25,6 @@ const FinallPayment = () => {
 
 
 
-  const fullData = { cart, orderPayment, finallPayment };
 
   const {
     register,
@@ -32,102 +32,50 @@ const FinallPayment = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data ,cart) => {
-    console.log(data, 12233);
-    setFinallPayment(data);
+  
+ 
+ 
+
+  const onSubmit = async (finalPayment) => {
+
+
+    const fullData = { cart, orderPayment, finalPayment };
+
+
+
+
+    const res = await axios.post(
+      "http://192.168.1.9:8000/order_data",
+      fullData
+    );
+    console.log(res);
+    if (res.data.status === 200) {
+      setShowSuccessModal(true);
+
+      toast.success("Order is successfully", {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      clearCart()
+
+
+    } else {
+      toast.error(res.data.message);
+    }
+
+    
     console.log(fullData, 12233);
-    setShowSuccessModal(true);
-    toast.success("Order is successfully", {
-      position: "top-center",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
-    clearCart()
+    
   };
 
   return (
-// <>
-    //   <NavbarGround />
-    //   <div className="back-img-main">
-    //     <section id="section-padding">
-    //       <div className="container px-5">
-    //         <h2 className="fw-bold text-color-red">Payment</h2>
-    //         <form action="">
-    //           <div className="row">
-    //             <div className="col-lg-12 my-4">
-    //               <label htmlFor="" className="form-label">
-    //                 CARDHOLDER’S NAME
-    //               </label>
-    //               <input
-    //                 type="text"
-    //                 className="form-control my-2"
-    //                 placeholder="Name on card"
-    //               />
-    //             </div>
-    //             <div className="col-lg-12 my-4 position-relative">
-    //               <label htmlFor="" className="form-label">
-    //                 CARD NUMBER
-    //               </label>
-    //               <input
-    //                 type="text"
-    //                 className="form-control my-2"
-    //                 placeholder="--- --- --- ---"
-    //               />
-    //               <CiCreditCard1 className="card-payment-icon" />
-    //             </div>
-    //             <div className="col-lg-6 my-4">
-    //               <label htmlFor="" className="form-label">
-    //                 EXPIRY DATE
-    //               </label>
-    //               <input
-    //                 type="text"
-    //                 className="form-control my-2"
-    //                 placeholder="MM/YYYY"
-    //               />
-    //             </div>
-    //             <div className="col-lg-6 my-4">
-    //               <label htmlFor="" className="form-label">
-    //                 EXPIRY DATE
-    //               </label>
-    //               <input
-    //                 type="text"
-    //                 className="form-control my-2"
-    //                 placeholder="Code"
-    //               />
-    //             </div>
-    //             <div className="col-lg-5">
-    //               <Button variant=" btn-danger px-5">Done</Button>
-    //             </div>
-    //           </div>
-    //           </form>
 
-    //           <div class="alert bg-light position-relative w-50" role="alert">
-    //             <div className="position-absoulte top-0 start-50 alert-icon d-flex justify-content-center">
-    //               <IoMdCheckmarkCircle class="alert-heading fs-1" />
-    //             </div>
-    //             <h3 className="fw-bold  text-center">Success</h3>
-    //             <p className="text-center">
-    //               Check your email for a booking confirmation.We’ll see you soon
-    //               You can always track your orders in the “Orders” section under
-    //               profile{" "}
-    //             </p>
-    //             <div className="d-flex justify-content-center">
-    //               <button className="btn alert-button">HOME</button>
-    //             </div>
-    //           </div>
-    //       </div>
-    //     </section>
-    //   </div>
-
-    //   {/* Footer Start*/}
-    //   <Footer />
-    //   {/* Footer End */}
-    // </>
     <>
       <NavbarGround />
       <div className="back-img-main">
@@ -204,6 +152,9 @@ const FinallPayment = () => {
                     type="text"
                     className="form-control my-2"
                     value={total_price + shipping_fee}
+                    {...register("amount", {
+                      required: "Amount is required",
+                    })}
                   />
                 </div>
                 <div className="col-lg-5 d-flex justify-content-center">

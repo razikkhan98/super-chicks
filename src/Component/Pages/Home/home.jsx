@@ -118,7 +118,7 @@ const Home = () => {
         title2="Fresh & Premium"
         title3="Meats Everyday."
         description="Why leave the house? Chicken delivery coming through."
-        button="Order Now"
+        button="Categories"
         img={HomeIMG}
       />
       {/* Top Content End */}
