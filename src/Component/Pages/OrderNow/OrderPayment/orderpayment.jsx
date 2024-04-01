@@ -8,7 +8,7 @@ import FormatPrice from "../../../Helpers/FormatPrice";
 import { useNavigate } from "react-router-dom";
 
 const OrderCheckoutPayment = () => {
-  const { setOrderPayment ,total_price ,shipping_fee} = useCartContext();
+  const { setOrderPayment ,total_price ,shipping_fee , cart} = useCartContext();
 
   const navigate = useNavigate();
 
@@ -258,24 +258,21 @@ const OrderCheckoutPayment = () => {
                     </div>
                   </div>
                   <hr />
-                  <div className="row">
-                    <div className="col-lg-8 text-color-gray">
-                      Chicken (Boneless) - Net Wt:500 Grams{" "}
+                  {cart.map((link) => (
+                    <div className="row">
+                   
+                   <div className="col-lg-8 text-color-gray">
+                     {link.name}
 
-                      
-                      <span className="ps-5 fw-bold text-color-black">x2</span>
-                    </div>
-                    <div className="col-lg-4 pe-5 fw-bold text-end">-----</div>
-                  </div>
+                     
+                     <span className="ps-5 fw-bold text-color-black">{link.amount}</span>
+                   </div>
+                   <div className="col-lg-4 pe-5 fw-bold text-end"><FormatPrice price={link.price * link.amount}/></div>
+                 </div>
+))}
+                  
                   <hr />
-                  <div className="row">
-                    <div className="col-lg-8 text-color-gray">
-                      Mutton Mince (Keema) - Net Wt:500 Grams{" "}
-                      <span className="ps-5 fw-bold text-color-black">x2</span>
-                    </div>
-                    <div className="col-lg-4 pe-5 fw-bold text-end">-----</div>
-                  </div>
-                  <hr />
+                 
                   <div className="row">
                     <div className="col-lg-8 fw-bold">Subtotal</div>
                     <div className="col-lg-4 pe-5 fw-bold text-end"><FormatPrice price={total_price}/></div>

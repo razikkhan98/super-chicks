@@ -56,7 +56,9 @@ const SingleProduct = () => {
     },
   ];
 
-  const { pid } = useParams();
+  const { id } = useParams();
+
+  console.log(id,"id");
   
   const [singleProduct, setSingleProduct] = useState([]);
   const [amount, setAmount] = useState(1);
@@ -64,9 +66,9 @@ const SingleProduct = () => {
   const { loggedInUser } = useCartContext();
 
 
-  console.log(pid,122322)
+  console.log(id,122322)
 
-  const { pid: alias, name, price, description, stock, image ,offers,discount} = singleProduct;
+  const { id:alias, name, price, description, stock, image ,offers,discount} = singleProduct;
 
   console.log(singleProduct,'singleProduct')
 
@@ -80,24 +82,24 @@ const SingleProduct = () => {
 
   //   Api Function single Product Id
 
-  const api = "http://192.168.1.4:8000/product?pid=";
+  const api = "http://192.168.1.9:8000/product?id=";
 
   const getSingleProduct = async (id) => {
-    const response = await axios.get(`${api}${pid}`);
+    const response = await axios.get(`${api}${id}`);
     console.log(response.data,1222222);
 
     return response.data;
   };
 
   useEffect(() => {
-    getSingleProduct(pid).then((data) => {
+    getSingleProduct(id).then((data) => {
       setSingleProduct(data);
     });
-  }, [pid]);
+  }, [id]);
 
   const AddToCart = () => {
     if (loggedInUser === 'Success') {
-      addToCart(pid, amount, singleProduct);
+      addToCart(id, amount, singleProduct);
     } else {
       console.log("login first");
       setShowLoginModal(!showLoginModal);
@@ -220,7 +222,7 @@ const SingleProduct = () => {
                 <div className="col-lg-7 col-sm-12">
                   <div
                     className=" d-flex justify-content-end"
-                    onClick={() => addToCart(pid, amount, singleProduct)}
+                    onClick={() => addToCart(id, amount, singleProduct)}
                     // onAbort={AddToCart}
                   >
                     <div className="add-to-cart-button mt-2">

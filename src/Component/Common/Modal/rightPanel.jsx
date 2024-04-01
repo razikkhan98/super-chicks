@@ -12,23 +12,33 @@ import { toast } from "react-toastify";
 const RightPanel = ({ showModal, setShowModal }) => {
   const [active, setActive] = useState(false);
   const [count, setCount] = useState(30);
+  console.log(count);
+
   const [isCounting, setIsCounting] = useState(false);
+  const [numerate, setNumerate] = useState();
+
+  const [otpdata, setOtpdata] = useState();
   const { setLoggedInUser } = useCartContext();
-  const [ otpdata, setOtpdata] = useState()
 
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
   const onSubmit = async (data) => {
-    console.log(data,12222);
+    console.log(data, 12222);
+    setNumerate(data, 12222);
+    const mobiledata = { msg: "f", num: data.num };
+
+    console.log(mobiledata, "Otp messages in not send");
 
     try {
-      const response = await axios.post("https://a167-2401-4900-1c08-2d04-94db-8c05-61e6-1171.ngrok-free.app/sign_m", data);
-
-      console.log("Login successful:", response.data);
+      const response = await axios.post(
+        "http://192.168.1.9:8000/sign_m",
+        mobiledata
+      );
       const datasets = response.data.msg;
       if (datasets === "Success") {
         setActive(true);
@@ -44,20 +54,10 @@ const RightPanel = ({ showModal, setShowModal }) => {
           progress: undefined,
           theme: "light",
         });
-      } else {
-        toast.error(datasets, {
-          position: "top-center",
-          autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
+        reset();
       }
     } catch (error) {
-      toast.error(error, {
+      toast.error("Otp messages in not send", {
         position: "top-center",
         autoClose: 2000,
         hideProgressBar: false,
@@ -67,26 +67,28 @@ const RightPanel = ({ showModal, setShowModal }) => {
         progress: undefined,
         theme: "light",
       });
+      reset();
     }
   };
 
-
-  
   const ondata = async (data) => {
-    console.log(data,'ondata');
+    console.log(data, "ondata");
 
+    const FinalData = { otp: data.otp, num: numerate.num };
+
+    console.log(FinalData, "FinalData");
 
     try {
-      const response = await axios.post("https://a167-2401-4900-1c08-2d04-94db-8c05-61e6-1171.ngrok-free.app/sign_check", data);
-
-      // console.log("Login successful:", response.data);
+      const response = await axios.post(
+        "http://192.168.1.9:8000/sign_check",
+        FinalData
+      );
       const msg = response.data.msg;
       const Status = response.data.status;
 
-
       if (msg === "Success" && Status === "True") {
         setShowModal(false);
-        toast.info("Login Successful", {
+        toast.success("Login Successful", {
           position: "top-center",
           autoClose: 2000,
           hideProgressBar: false,
@@ -96,10 +98,11 @@ const RightPanel = ({ showModal, setShowModal }) => {
           progress: undefined,
           theme: "light",
         });
-      
+        reset();
+        setActive(false);
       }
     } catch (error) {
-      toast.error(error, {
+      toast.error("Login failed", {
         position: "top-center",
         autoClose: 2000,
         hideProgressBar: false,
@@ -109,14 +112,11 @@ const RightPanel = ({ showModal, setShowModal }) => {
         progress: undefined,
         theme: "light",
       });
+      setShowModal(false);
+      setActive(false);
+      reset();
     }
-
-
-  
-
-
-    
-  }
+  };
 
   const startCounting = () => {
     setIsCounting(true);
@@ -131,9 +131,53 @@ const RightPanel = ({ showModal, setShowModal }) => {
     }, 31000); // 30 seconds
   };
 
+  const ResendOtp = async () => {
+    console.log(numerate.num);
+    const ResendData = { msg: "", num: numerate.num };
+    console.log(ResendData.num);
+
+    try {
+      const response = await axios.post(
+        "http://192.168.1.9:8000/sign_m",
+        ResendData
+      );
+      const msg = response.data.msg;
+      const Status = response.data.status;
+
+      if (msg === "Success" && Status === "True") {
+        setShowModal(false);
+        toast.info("Login Successful", {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        reset();
+        setActive(false);
+      }
+    } catch (error) {
+      toast.error("Login failed", {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      setShowModal(false);
+      setActive(false);
+      reset();
+    }
+  };
+
   return (
     <>
-     
       <Modal
         show={showModal} // Show modal based on state
         onHide={() => setShowModal(false)}
@@ -170,24 +214,22 @@ const RightPanel = ({ showModal, setShowModal }) => {
                         placeholder="Enter Phone Number"
                         {...register("num", {
                           required: "Phone Number is required",
-                          pattern: {
-                            value: /^[0-9]{10}$/,
-                            message: "Invalid Phone Number",
-                          },
-                          minLength: {
-                            value: 10,
-                            message: "Invalid Phone Number",
-                          },
-                          maxLength: {
-                            value: 10,
-                            message: "Invalid Phone Number",
-                          },
+                          // pattern: {
+                          //   value: /^[0-9]{10}$/,
+                          //   message: "Invalid Phone Number",
+                          // },
+                          // minLength: {
+                          //   value: 10,
+                          //   message: "Invalid Phone Number",
+                          // },
+                          // maxLength: {
+                          //   value: 10,
+                          //   message: "Invalid Phone Number",
+                          // },
                         })}
                       />
                       {errors.num && (
-                        <div className="text-danger">
-                          {errors.num.message}
-                        </div>
+                        <div className="text-danger">{errors.num.message}</div>
                       )}
                     </div>
 
@@ -204,7 +246,6 @@ const RightPanel = ({ showModal, setShowModal }) => {
 
                 {active === true && (
                   <form onSubmit={handleSubmit(ondata)}>
-
                     <div className="form-outline mb-3">
                       <div>
                         <label
@@ -231,13 +272,40 @@ const RightPanel = ({ showModal, setShowModal }) => {
                         </div>
                       )}
                     </div>
-                    <div className="text-center pt-1  pb-1">
-                      <button
+                    <div className="text-center pt-1 pb-1">
+                      {count === -1 ? (
+                        <>
+                          <button
+                            className="btn btn-primary text-white border-0 gradient-custom-2 mb-3 w-75 text-color-black"
+                            type="submit"
+                          >
+                            Submit
+                          </button>
+
+                          <button
+                            className="btn btn-primary text-white border-0 gradient-custom-2 mb-3 w-75 text-color-black"
+                            onClick={ResendOtp}
+                          >
+                            Resend
+                          </button>
+                        </>
+                      ) : (
+                        <>
+                          <button
+                            className="btn btn-primary text-white border-0 gradient-custom-2 mb-3 w-75 text-color-black"
+                            type="submit"
+                          >
+                            Submit
+                          </button>
+                        </>
+                      )}
+
+                      {/* <button
                         className="btn btn-primary text-white border-0 gradient-custom-2 mb-3 w-75 text-color-black"
                         type="submit"
                       >
                         Submit
-                      </button>
+                      </button> */}
                     </div>
                   </form>
                 )}
