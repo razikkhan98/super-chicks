@@ -8,7 +8,7 @@ import FormatPrice from "../../../Helpers/FormatPrice";
 import { useNavigate } from "react-router-dom";
 
 const OrderCheckoutPayment = () => {
-  const { setOrderPayment ,total_price ,shipping_fee , cart} = useCartContext();
+  const { setOrderPayment ,total_price ,shipping_fee , cart ,BONE} = useCartContext();
 
   const navigate = useNavigate();
 
@@ -21,7 +21,6 @@ const OrderCheckoutPayment = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data, 12233);
     setOrderPayment(data);
     navigate('/orderFinal')
   };
@@ -37,7 +36,6 @@ const OrderCheckoutPayment = () => {
     const { value } = event.target;
     setEnteredZipcode(value);
     if (pincode.includes(parseInt(value))) {
-      console.log("Matching Pin:", value);
     }
   };
 

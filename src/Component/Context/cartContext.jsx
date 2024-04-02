@@ -33,6 +33,9 @@ const CartProvider = ({ children }) => {
   };
 
 
+
+
+
   // increment and decrement the product
 
   const setDecrement = (id) => {

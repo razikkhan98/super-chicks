@@ -3,11 +3,64 @@ import React from "react";
 import Footer from "../../Common/Footer/footer";
 import NavbarGround from "../../../Component/Common/Navbar/navbground";
 import { Button } from "react-bootstrap";
+import { useForm } from "react-hook-form";
 
 // Icons
 import { IoMdCall } from "react-icons/io";
+import WhatApp from "../../Common/whatappicon/whatapp";
+import { toast } from "react-toastify";
+import axios from "axios";
+
+
+
+
 
 const Contact = () => {
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = async (data) => {
+    console.log(data, 12233);
+
+    try {
+      const response = await axios.post(
+        "http://192.168.1.9:8000/sign_m",
+        data
+      );
+      const msg = response.data.msg;
+
+      if (msg === "Success") {
+        toast.info("Message Successful", {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      ;
+      }
+    } catch (error) {
+      toast.error("Message failed", {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      
+    }
+  };
+
   return (
     <>
       {/* Contact Start */}
@@ -53,7 +106,7 @@ const Contact = () => {
             <h3 className="fw-bold text-color-red mt-5">Contact Us</h3>
             <div className="hr"></div>
 
-            <form action="">
+            <form onSubmit={handleSubmit(onSubmit)}>
               <div className="pt-4">
                 <label htmlFor="" className="form-label">
                   <span className="text-color-red">*</span>
@@ -63,7 +116,13 @@ const Contact = () => {
                   type="text"
                   className="border border-secondary bg-white form-control p-2"
                   placeholder="Your Name"
+                  {...register("name", {
+                    required: "Name is required",
+                  })}
                 />
+                {errors.name && (
+                  <div className="text-danger">{errors.name.message}</div>
+                )}
               </div>
               <div className="pt-4">
                 <label htmlFor="" className="form-label">
@@ -71,10 +130,16 @@ const Contact = () => {
                   E-mail Address
                 </label>
                 <input
-                  type="Email"
+                  type="email"
                   className="border border-secondary bg-white form-control p-2"
                   placeholder="Email Address"
+                  {...register("email", {
+                    required: "Email is required",
+                  })}
                 />
+                {errors.email && (
+                  <div className="text-danger">{errors.email.message}</div>
+                )}
               </div>
 
               <div class="pt-4">
@@ -82,23 +147,39 @@ const Contact = () => {
                   <span className="text-color-red">*</span>
                   Enquiry
                 </label>
-                <textarea
+                {/* <textarea
                   class="border border-secondary bg-white form-control p-5"
                   // rows="3"
-                ></textarea>
+                ></textarea> */}
+                <textarea
+                      name=""
+                      id=""
+                      cols="30"
+                      rows="5"
+                      className="border border-secondary bg-white form-control p-5"
+                      {...register("enquiry", {
+                        required: "Enquiry is required",
+                      })}
+                    />
+                    {errors.enquiry && (
+                      <div className="text-danger">
+                        {errors.enquiry.message}
+                      </div>
+                    )}
               </div>
-              <Button variant=" btn-danger text-light bg-danger px-5 mt-5">
+              <Button variant=" btn-danger text-light bg-danger px-5 mt-5"  type="submit">
                 Submit
               </Button>
             </form>
           </div>
+          <WhatApp/>
         </section>
       </div>
 
       {/* Footer Start */}
       <Footer />
       {/* Footer End  */}
-
+     
       {/* Contact End */}
     </>
   );

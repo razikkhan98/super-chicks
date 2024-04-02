@@ -24,14 +24,15 @@ import team1 from "../../asset/img/costumer/costumer-1.png";
 import team2 from "../../asset/img/costumer/costumer-2.png";
 import team3 from "../../asset/img/costumer/costumer-3.png";
 import team4 from "../../asset/img/costumer/costumer-4.png";
+import WhatApp from "../../Common/whatappicon/whatapp";
 
 const Home = () => {
   const CardData = [
     {
       image: Products1,
       title: "Fresh Chicken",
-      kilogram: "500gms | 1Kg",
-      amount: "Amt",
+      comingsoon: 'Order Now',
+      amount: '',
       button: "Order Now",
     },
     {
@@ -54,11 +55,11 @@ const Home = () => {
   ];
 
   const HalalImg = [
-    {
-      image: HalalImage1,
-      title: "Halal",
-      title2: "VERIFIED",
-    },
+    // {
+    //   image: HalalImage1,
+    //   title: "Halal",
+    //   title2: "VERIFIED",
+    // },
     {
       image: HalalImage2,
       title: "FREE OF",
@@ -278,6 +279,7 @@ const Home = () => {
               {/* This Section Continue Shumaila */}
             </div>
           </div>
+          <WhatApp/>
         </section>
 
         {/* Customer End */}

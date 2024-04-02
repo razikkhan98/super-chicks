@@ -2,6 +2,7 @@ import React from "react";
 import AboutImg from "../../asset/img/About/about-img.png";
 import Footer from "../../Common/Footer/footer";
 import NavbarGround from "../../Common/Navbar/navbground";
+import WhatApp from "../../Common/whatappicon/whatapp";
 
 const About = () => {
   return (
@@ -83,6 +84,8 @@ const About = () => {
               </div>
             </div>
           </div>
+          <WhatApp/>
+
         </section>
       </div>
       {/* Footer Start*/}
