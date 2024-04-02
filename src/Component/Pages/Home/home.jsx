@@ -8,7 +8,7 @@ import Footer from "../../Common/Footer/footer";
 import About from "../../Common/About/about";
 
 // Icons
-import { FaStar } from "react-icons/fa";
+import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 
 // Image
 import HomeIMG from "../../asset/img/Home/image1.png";
@@ -83,35 +83,36 @@ const Home = () => {
 
   const CostumerImgfirst = [
     {
-      name: "ABC",
-      description:
-        "There are many variations of the read passages available but the majority There are many variations of the read passages available but the majority There are many variations of the read passages available but the majority.",
+      name: "Salman",
+      description: 
+      "Great service, always get helpful and quick responses & I m impressed with the quality of the Chicken & Mutton.",
       img: team1,
     },
     {
-      name: "ABC",
+      name: "Rizwan",
       description:
-        "There are many variations of the read passages available but the majority There are many variations of the read passages available but the majority There are many variations of the read passages available but the majority.",
+        "Great service, always get helpful and quick responses & I m impressed with the quality of the Chicken & Mutton.",
       img: team2,
     },
   ];
 
   const CostumerImgsecond = [
     {
-      name: "ABC",
+      name: "Aariz",
       description1:
-        "There are many variations of the read passages available but the majority There are many variations of the read passages available but the majority There are many variations of the read passages available but the majority.",
+      "Great service, always get helpful and quick responses & I m impressed with the quality of the Chicken & Mutton.",
 
       img1: team3,
     },
     {
-      name: "ABC",
+      name: "Adnan",
       description1:
-        "There are many variations of the read passages available but the majority There are many variations of the read passages available but the majority There are many variations of the read passages available but the majority.",
+        "Great service, always get helpful and quick responses & I m impressed with the quality of the Chicken & Mutton.",
       img1: team4,
     },
   ];
 
+  
   return (
     <>
       {/* Top Content Start */}
@@ -229,8 +230,8 @@ const Home = () => {
                                     <FaStar />
                                     <FaStar />
                                     <FaStar />
-                                    <FaStar />
-                                    <FaStar />
+                                    <FaStarHalfAlt />
+                                    <FaRegStar />
                                   </div>
                                 </div>
                               </div>
@@ -260,7 +261,7 @@ const Home = () => {
                                     <FaStar />
                                     <FaStar />
                                     <FaStar />
-                                    <FaStar />
+                                    <FaRegStar />
                                   </div>
                                 </div>
                               </div>

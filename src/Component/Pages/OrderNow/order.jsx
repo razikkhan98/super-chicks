@@ -6,12 +6,12 @@ import Card from "../../Common/Cart/card";
 
 // Image
 import Order1 from "../../asset/img/Order/order-1.png";
-import OrderChicken1 from "../../asset/img/Order/Order-Chicken-1.png";
-import OrderChicken2 from "../../asset/img/Order/Order-Chicken-2.png";
-import OrderChicken3 from "../../asset/img/Order/Order-Chicken-3.png";
-import OrderChicken4 from "../../asset/img/Order/Order-Chicken-4.png";
-import OrderChicken5 from "../../asset/img/Order/Order-Chicken-5.png";
-import OrderChicken6 from "../../asset/img/Products/products-1.png";
+import OrderChicken1 from "../../asset/Superchicks images/Chicken Product image/Chiken Mixed With Bones.jpeg";
+import OrderChicken2 from "../../asset/Superchicks images/Chicken Product image/Chiken Boneless.jpeg";
+import OrderChicken3 from "../../asset/Superchicks images/Chicken Product image/Chiken drumstik pack of 6.jpg";
+import OrderChicken4 from "../../asset/Superchicks images/Chicken Product image/Chiken WIngs.jpeg";
+import OrderChicken5 from "../../asset/Superchicks images/Chicken Product image/chicken Mince [keema].jpeg";
+import OrderChicken6 from "../../asset/Superchicks images/Chicken Product image/Chicken Breast.jpg";
 import OrderChicken7 from "../../asset/img/Products/products-2.png";
 import OrderChicken8 from "../../asset/img/Order/Order-Chicken-6.png";
 import Goat from "../../asset/img/Order/Goat.svg";
