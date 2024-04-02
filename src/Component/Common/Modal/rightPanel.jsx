@@ -12,7 +12,6 @@ import { toast } from "react-toastify";
 const RightPanel = ({ showModal, setShowModal }) => {
   const [active, setActive] = useState(false);
   const [count, setCount] = useState(30);
-  console.log(count);
 
   const [isCounting, setIsCounting] = useState(false);
   const [numerate, setNumerate] = useState();
@@ -28,11 +27,8 @@ const RightPanel = ({ showModal, setShowModal }) => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    console.log(data, 12222);
     setNumerate(data, 12222);
     const mobiledata = { msg: "f", num: data.num };
-
-    console.log(mobiledata, "Otp messages in not send");
 
     try {
       const response = await axios.post(
@@ -42,10 +38,7 @@ const RightPanel = ({ showModal, setShowModal }) => {
       const datasets = response.data.msg;
       if (datasets === "Success") {
         setActive(true);
-        const datasets = response.data.uid;
-        setLoggedInUser(datasets);
         startCounting();
-       
         toast.info("Please Enter the Otp", {
           position: "top-center",
           autoClose: 2000,
@@ -74,11 +67,7 @@ const RightPanel = ({ showModal, setShowModal }) => {
   };
 
   const ondata = async (data) => {
-    console.log(data, "ondata");
-
     const FinalData = { otp: data.otp, num: numerate.num };
-
-    console.log(FinalData, "FinalData");
 
     try {
       const response = await axios.post(
@@ -90,6 +79,9 @@ const RightPanel = ({ showModal, setShowModal }) => {
 
       if (msg === "Success" && Status === "True") {
         setShowModal(false);
+        const datasets = response.data.uid;
+        setLoggedInUser(datasets);
+        console.log(datasets)
         toast.success("Login Successful", {
           position: "top-center",
           autoClose: 2000,
@@ -134,10 +126,7 @@ const RightPanel = ({ showModal, setShowModal }) => {
   };
 
   const ResendOtp = async () => {
-    console.log(numerate.num);
     const ResendData = { msg: "", num: numerate.num };
-    console.log(ResendData.num);
-
     try {
       const response = await axios.post(
         "http://192.168.1.9:8000/sign_m",

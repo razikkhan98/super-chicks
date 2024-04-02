@@ -21,6 +21,7 @@ import product2 from "../../asset/Superchicks images/Chicken Product image/Chike
 import product3 from "../../asset/Superchicks images/Chicken Product image/Chicken Breast.jpg";
 import product4 from "../../asset/Superchicks images/Chicken Product image/chicken Mince [keema].jpeg";
 import { toast } from "react-toastify";
+import LoginPopap from "../../Common/Modal/loginpopap";
 
 const SingleProduct = () => {
   const { addToCart } = useCartContext();
@@ -58,19 +59,24 @@ const SingleProduct = () => {
 
   const { id } = useParams();
 
-  console.log(id,"id");
-  
   const [singleProduct, setSingleProduct] = useState([]);
   const [amount, setAmount] = useState(1);
   const [showLoginModal, setShowLoginModal] = useState(false);
-  const { loggedInUser } = useCartContext();
+  const { loggedInUser, cart } = useCartContext();
+  const [showloginpopModal, setShowloginpopModal] = useState(false);
 
+  let saltlength = cart.length;
 
-  console.log(id,122322)
-
-  const { id:alias, name, price, description, stock, image ,offers,discount} = singleProduct;
-
-  console.log(singleProduct,'singleProduct')
+  const {
+    id: alias,
+    name,
+    price,
+    description,
+    stock,
+    image,
+    offers,
+    discount,
+  } = singleProduct;
 
   const setDecrease = () => {
     amount > 1 ? setAmount(amount - 1) : setAmount(1);
@@ -86,7 +92,6 @@ const SingleProduct = () => {
 
   const getSingleProduct = async (id) => {
     const response = await axios.get(`${api}${id}`);
-    console.log(response.data,1222222);
 
     return response.data;
   };
@@ -101,7 +106,6 @@ const SingleProduct = () => {
     if (loggedInUser) {
       addToCart(id, amount, singleProduct);
     } else {
-      console.log("login first");
       setShowLoginModal(!showLoginModal);
       toast.warn("Please Login", {
         position: "top-center",
@@ -187,8 +191,12 @@ const SingleProduct = () => {
                       <FaPlus />
                     </button>
                   </div>
-                  <ReactWhatsapp className="border-0 bg-white text-decoration-underline text-danger" number="91 9244276667" message="please mention your order">
-                  For more than 20kg click here
+                  <ReactWhatsapp
+                    className="border-0 bg-white text-decoration-underline text-danger"
+                    number="91 9244276667"
+                    message="please mention your order"
+                  >
+                    For more than 20kg click here
                   </ReactWhatsapp>
                 </div>
 
@@ -219,30 +227,53 @@ const SingleProduct = () => {
                 </div>
               </div>
               {/* {stock > 0 && ( */}
-                <div className="col-lg-7 col-sm-12">
-                  <div
-                    className=" d-flex justify-content-end"
-                    // onClick={() => addToCart(id, amount, singleProduct)}
-                    onClick={AddToCart}
-                  >
-                    <div className="add-to-cart-button mt-2">
-                      <BsHandbag /> Add to Cart
-                    </div>
+              <div className="col-lg-7 col-sm-12">
+                <div
+                  className=" d-flex justify-content-end"
+                  onClick={AddToCart}
+                >
+                  <div className="add-to-cart-button mt-2">
+                    <BsHandbag /> Add to Cart
                   </div>
                 </div>
+              </div>
               {/* )} */}
 
               {/* {stock > 0 && ( */}
-                <div className="col-lg-5 col-sm-12">
-                  <div className="d-flex justify-content-star mt-2">
-                    {/* <a className="sign-up-button" href="/"> */}
-                    <NavLink to='/orderPayment' className="sign-up-button">
+
+              {saltlength === 0 ? (
+                <>
+                  <div className="col-lg-5 col-sm-12">
+                    <div className="d-flex justify-content-star mt-2">
+                      <NavLink to="/cart" className="sign-up-button">
+                        Buy Now
+                      </NavLink>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="col-lg-5 col-sm-12">
+                    <div className="d-flex justify-content-star mt-2">
+                      <NavLink to="/orderPayment" className="sign-up-button">
+                        Buy Now
+                      </NavLink>
+                    </div>
+                  </div>
+                </>
+              )}
+
+              {/* <div className="col-lg-5 col-sm-12">
+                <div className="d-flex justify-content-star mt-2">
+                  <div
+                    to="/orderPayment"
+                    className="sign-up-button"
+                  >
                     Buy Now
-                    </NavLink>
-                    {/* </a> */}
                   </div>
                 </div>
-              {/* )} */}
+              </div> */}
+              {/* )}  */}
             </div>
 
             <div className="hr"></div>
@@ -278,6 +309,11 @@ const SingleProduct = () => {
       <Footer />
       {/* Footer End  */}
       <RightPanel showModal={showLoginModal} setShowModal={setShowLoginModal} />
+
+      <LoginPopap
+        showModal={showloginpopModal}
+        setShowModal={setShowloginpopModal}
+      />
 
       {/* Description End */}
     </>

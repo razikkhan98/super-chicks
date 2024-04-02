@@ -11,17 +11,16 @@ import { useCartContext } from "../../Context/cartContext";
 import RightPanel from "../Modal/rightPanel";
 import { AiOutlineLogin } from "react-icons/ai";
 import { RiShutDownLine } from "react-icons/ri";
-import Cookies from "js-cookie"
+import Cookies from "js-cookie";
 
 const Navbar = () => {
-  const { cart, total_item, loggedInUser ,setLoggedInUser } = useCartContext();
+  const { cart, total_item, loggedInUser, setLoggedInUser } = useCartContext();
   const [showModal, setShowModal] = useState(false);
 
   let size = cart.length;
 
-const navigate = useNavigate();
+  const navigate = useNavigate();
   const handleLogout = () => {
-
     Cookies.remove("superChicks");
     setLoggedInUser(null);
     navigate("/");
@@ -96,64 +95,24 @@ const navigate = useNavigate();
                   Sign
                 </div>
               </li> */}
-              <li className="nav-item mx-2">
-                <NavLink
-                  to="/sign"
-                  className="nav-link d-flex align-items-center"
-                >
-                  Sign
-                </NavLink>
-
-              </li>
+              <li className="nav-item">Sign</li>
               {loggedInUser ? (
                 <>
-                  {/* <li>
-                    <div
-                      className="text-color-red fs-3 d-flex"
-                      onClick={() => setShowModal(true)}
-                    >
-                      <AiOutlineLogin />
-                    </div>
-                  </li> */}
-
                   <li className="nav-item logo-width logo-width" id="cart">
                     <div className="d-flex justify-content-center">
                       <div className="dropdown">
+                      <RiShutDownLine />
                         <ul
                           className="dropdown-menu"
                           aria-labelledby="dropdownMenuLink"
                         >
-                          <li className="d-flex align-items-center justify-content-center my-2">
-                            <h5
-                              typeof="button"
-                              className="text-danger fw-bolder m-0 p-1 text-uppercase"
-                            >
-                              {loggedInUser}
-                            </h5>
-                          </li>
-                          <li>
-                            {/* <a
-                              className="dropdown-item justify-content-center"
-                              href="/products"
-                            >
-                              Product
-                            </a> */}
-                          </li>
-                          <li>
-                            {/* <a
-                              className="dropdown-item justify-content-center"
-                              href="/contactus"
-                            >
-                              Contact Us
-                            </a> */}
-                          </li>
                           <hr />
                           <li className="px-4">
                             <button
                               className="btn border-0 text-white  gradient-custom-2 my-2 w-100 custom-btn btn-11"
                               onClick={handleLogout}
                             >
-                            <RiShutDownLine/>
+                              <RiShutDownLine />
                             </button>
                           </li>
                         </ul>

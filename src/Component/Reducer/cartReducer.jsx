@@ -1,6 +1,8 @@
 import { toast } from "react-toastify";
 
 const cartReducer = (state, action) => {
+
+  
   if (action.type === "ADD_TO_CART") {
     let {amount, singleProduct } = action.payload;
   

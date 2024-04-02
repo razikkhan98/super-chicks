@@ -16,8 +16,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useEffect } from "react";
 import ScrollToTop from "./Component/Common/ScrollToTop/scroll";
 
-import Text from "./Component/Pages/SingleProduct/text";
-
 
 function App() {
   // const location = useLocation();
@@ -91,7 +89,7 @@ function App() {
           <Route path="/order" element={<OrderNow />} />
           <Route path="/orderPayment" element={<OrderNowPayment />} />
           <Route path="/orderFinal" element={<OrderNowFinal />} />
-          <Route path="/sign" element={<SignLogin />} />
+          {/* <Route path="/sign" element={<SignLogin />} /> */}
           <Route path="/singleproduct/:id" element={<SingleProduct />} />
           {/* <Route path="/singleproduct/:id" element={<Text />} /> */}
           <Route path="/cart" element={<Cart />} />

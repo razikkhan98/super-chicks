@@ -4,9 +4,9 @@
   box-sizing: border-box;
 }
 
-body {
+/* body {
   font-family: "Poppins", sans-serif;
-}
+} */
 
 :root {
   --red-color: #db1516;
@@ -282,7 +282,6 @@ a.learn_more2:hover {
 
 .card-icon {
   background-color: var(--card-background-color);
-  width: 48%;
   border-radius: 8px;
   margin-top: 20px;
   padding: 3px 0px;
@@ -895,4 +894,19 @@ justify-content: center;
 .dropdown:hover .dropdown-menu {
   display: block;
   margin-top: 0; /* remove the gap so it doesn't close */
+}
+.whatsapp-sect {
+  position: fixed;
+  right: 5%;
+  z-index: 999;
+  margin-top: 13px;
+  width: auto;
+  border-radius: 55px;
+  border: 0;
+  bottom: 20px;
+  background-color: #4BED2F;
+  padding: 1px 4px;
+}
+.whatsapp-sect svg {
+  font-size: 3.5rem;
 }

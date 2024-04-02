@@ -49,7 +49,7 @@ const Categories = () => {
                       <img
                         src={link.image}
                         alt="Loading"
-                        className="img-fluid"
+                        className="img-fluid w-50"
                       />
                       <div className="fs-5 fw-bold position-absolute text-color-black">
                         {link.title}

@@ -19,7 +19,7 @@ const FinallPayment = () => {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
 
 
-  const { cart, orderPayment, total_price, shipping_fee,clearCart } = useCartContext();
+  const { cart, orderPayment, total_price, shipping_fee,clearCart  ,loggedInUser} = useCartContext();
 
   // cart Null
 
@@ -39,7 +39,9 @@ const FinallPayment = () => {
   const onSubmit = async (finalPayment) => {
 
 
-    const fullData = { cart, orderPayment, finalPayment };
+    const fullData = { cart, orderPayment, finalPayment  ,loggedInUser};
+
+    console.log(fullData, "Full Data");
 
 
 
@@ -48,8 +50,9 @@ const FinallPayment = () => {
       "http://192.168.1.9:8000/order_data",
       fullData
     );
-    console.log(res);
-    if (res.data.status === 200) {
+    const datasets = res.data.msg;
+
+    if (datasets === "Success") {
       setShowSuccessModal(true);
 
       toast.success("Order is successfully", {
@@ -70,7 +73,6 @@ const FinallPayment = () => {
     }
 
     
-    console.log(fullData, 12233);
     
   };
 

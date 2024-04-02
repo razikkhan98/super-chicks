@@ -14,9 +14,10 @@ const Card = (link) => {
         <div class="card-body">
           <div></div>
           <h5 class="card-title fw-bold mb-1">{title}</h5>
+
           {comingsoon ? (
             <>
-              <span class="card-title fw-bold text-color-red">Coming Soon</span>
+              <span class="card-title fw-bold text-color-red">{comingsoon}</span>
             </>
           ) : null}
 
@@ -135,7 +136,7 @@ const Card = (link) => {
           </div>
 
           <div className="d-flex justify-content-between align-items-baseline">
-            <div className="card-icon d-flex justify-content-between">
+            <div className="card-icon d-flex">
               {kilogram ? (
                 <>
                   <span className="ps-2">
@@ -153,7 +154,7 @@ const Card = (link) => {
                     </svg>
                   </span>
 
-                  <span className="pe-2">{amount} Amt</span>
+                  <span className="ps-3">{amount}</span>
                 </>
               ) : null}
             </div>

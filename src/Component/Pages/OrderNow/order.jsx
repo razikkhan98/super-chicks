@@ -18,7 +18,6 @@ import Goat from "../../asset/img/Order/Goat.svg";
 import Hen from "../../asset/img/Order/Hen.svg";
 import Chicken from "../../asset/img/Order/Chicken.svg";
 import Footer from "../../Common/Footer/footer";
-import axios from "axios";
 
 const OrderNow = () => {
   const OrderData = [
@@ -26,102 +25,60 @@ const OrderNow = () => {
       id: "ch-721",
       image: OrderChicken1,
       title: "Chicken mixed with bone",
-      kilogram: "500gms | 1Kg",
-      amount: "Amt",
+      kilogram: "500gms | Server 4",
+      amount: "370 Rs",
       button: "Add to Cart",
     },
     {
       id: "ch-722",
       image: OrderChicken2,
       title: "Chicken (Boneless)",
-      kilogram: "500gms | 1Kg",
-      amount: "Amt",
+      kilogram: "500gms | Server 4",
+      amount: "440 Rs",
       button: "Add to Cart",
     },
     {
       id: "ch-723",
       image: OrderChicken3,
-      title: "Chicken Drumstick",
-      kilogram: "500gms | 1Kg",
-      amount: "Amt",
+      title: "Chicken Drumstick of 6 Piece",
+      kilogram: "500gms | Server 2 - 3",
+      amount: "390 Rs",
       button: "Add to Cart",
     },
     {
       id: "ch-724",
+      image: OrderChicken3,
+      title: "Chicken Drumstick of 2 Piece",
+      kilogram: "500gms | Server 1 - 2",
+      amount: "150 Rs",
+      button: "Add to Cart",
+    },
+    {
+      id: "ch-725",
       image: OrderChicken4,
       title: "Chicken Wings",
-      kilogram: "500gms | 1Kg",
-      amount: "Amt",
+      kilogram: "500gms | Server 4",
+      amount: "220 Rs",
       button: "Add to Cart",
     },
     {
-      id: "ch-724",
+      id: "ch-726",
       image: OrderChicken5,
       title: "Chicken Mince (Keema)",
-      kilogram: "500gms | 1Kg",
-      price: "Amt",
+      kilogram: "500gms | Server 5 - 6",
+      amount: "370 Rs",
       button: "Add to Cart",
     },
     {
-     id: "ch-724",
+     id: "ch-727",
       image: OrderChicken6,
       title: "Chicken Breast",
-      kilogram: "500gms | 1Kg",
-      amount: "Amt",
+      kilogram: "500gms | Server 4",
+      amount: "340 Rs",
       button: "Add to Cart",
     },
   ];
 
-  // const OrderData = [
-  //   {
-  //     id:'thapaserialnoa',
-  //     image: OrderChicken1,
-  //     title: "Chicken mixed with bone",
-  //     kilogram: "500gms | 1Kg",
-  //     amount: "Amt",
-  //     button: "Add to Cart",
-  //   },
-  //   {
-  //     id:'thapaserialnob',
-  //     image: OrderChicken2,
-  //     title: "Chicken (Boneless)",
-  //     kilogram: "500gms | 1Kg",
-  //     amount: "Amt",
-  //     button: "Add to Cart",
-  //   },
-  //   {
-  //     id:'thapaserialnoc',
-  //     image: OrderChicken3,
-  //     title: "Chicken Drumstick",
-  //     kilogram: "500gms | 1Kg",
-  //     amount: "Amt",
-  //     button: "Add to Cart",
-  //   },
-  //   {
-  //     id:'thapaserialnod',
-  //     image: OrderChicken4,
-  //     title: "Chicken Wings",
-  //     kilogram: "500gms | 1Kg",
-  //     amount: "Amt",
-  //     button: "Add to Cart",
-  //   },
-  //   {
-  //     id:'thapaserialnof',
-  //     image: OrderChicken5,
-  //     title: "Chicken Mince (Keema)",
-  //     kilogram: "500gms | 1Kg",
-  //     price: "Amt",
-  //     button: "Add to Cart",
-  //   },
-  //   {
-  //     id:'thapaserialnog',
-  //     image: OrderChicken6,
-  //     title: "Chicken Breast",
-  //     kilogram: "500gms | 1Kg",
-  //     amount: "Amt",
-  //     button: "Add to Cart",
-  //   },
-  // ];
 
   const DesiChicken = [
     {
