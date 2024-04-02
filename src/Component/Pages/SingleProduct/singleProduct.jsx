@@ -16,10 +16,10 @@ import { BsHandbag } from "react-icons/bs";
 import { FaMinus, FaPlus } from "react-icons/fa";
 
 // Image
-import product1 from "../../asset/img/Order/Order-Chicken-3.png";
-import product2 from "../../asset/img/Order/Order-Chicken-4.png";
-import product3 from "../../asset/img/Products/products-1.png";
-import product4 from "../../asset/img/Order/Order-Chicken-5.png";
+import product1 from "../../asset/Superchicks images/Chicken Product image/Chiken drumstik pack of 6.jpg";
+import product2 from "../../asset/Superchicks images/Chicken Product image/Chiken WIngs.jpeg";
+import product3 from "../../asset/Superchicks images/Chicken Product image/Chicken Breast.jpg";
+import product4 from "../../asset/Superchicks images/Chicken Product image/chicken Mince [keema].jpeg";
 import { toast } from "react-toastify";
 
 const SingleProduct = () => {
@@ -255,7 +255,7 @@ const SingleProduct = () => {
                 <>
                   <div className="col-md-3  mt-3">
                     <div className="similar-prooduct-img">
-                      <img src={link.img} alt="Loading" />
+                          <img src={link.img} alt="Loading" />
                     </div>
                     <div className="similar-product-name mt-4">
                       <h4> {link.title}</h4>

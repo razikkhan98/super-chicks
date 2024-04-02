@@ -58,7 +58,7 @@ const About = () => {
               </div>
               <div className="col-lg-12 mt-4">
                 <p className="fs-5 text-color-black mb-2">
-                  The benefits of ordering from AL MURGH:
+                  The benefits of ordering from SUPER-CHICKS:
                 </p>
                 <p className="fs-6 text-color-gray ">
                   We offer Cash on Delivery (COD) and as well as online mode of
