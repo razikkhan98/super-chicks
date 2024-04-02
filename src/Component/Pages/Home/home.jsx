@@ -37,9 +37,11 @@ const Home = () => {
     {
       image: Products2,
       title: "Alive Desi Chicken",
-      kilogram: "500gms | 1Kg",
-      amount: "Amt",
-      button: "Order Now",
+      comingsoon: "Coming Soon"
+
+      // kilogram: "500gms | 1Kg",
+      // amount: "Amt",
+      // button: "Order Now",
     },
     {
       image: Products3,
