@@ -1,6 +1,6 @@
 import React from "react";
 import TopContent from "../../Common/TopContent/topContent.jsx";
-import Sign from "../../asset/img/Sign/Sign.png";
+import Sign from "../../asset/Superchicks images/Sign in page banner/AdobeStock_162153955.png";
 import Footer from "../../Common/Footer/footer.jsx";
 
 const SignLogin = () => {
