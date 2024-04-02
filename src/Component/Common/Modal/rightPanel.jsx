@@ -42,8 +42,10 @@ const RightPanel = ({ showModal, setShowModal }) => {
       const datasets = response.data.msg;
       if (datasets === "Success") {
         setActive(true);
+        const datasets = response.data.uid;
         setLoggedInUser(datasets);
         startCounting();
+       
         toast.info("Please Enter the Otp", {
           position: "top-center",
           autoClose: 2000,

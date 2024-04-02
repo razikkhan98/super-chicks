@@ -98,7 +98,7 @@ const SingleProduct = () => {
   }, [id]);
 
   const AddToCart = () => {
-    if (loggedInUser === 'Success') {
+    if (loggedInUser) {
       addToCart(id, amount, singleProduct);
     } else {
       console.log("login first");
@@ -222,8 +222,8 @@ const SingleProduct = () => {
                 <div className="col-lg-7 col-sm-12">
                   <div
                     className=" d-flex justify-content-end"
-                    onClick={() => addToCart(id, amount, singleProduct)}
-                    // onAbort={AddToCart}
+                    // onClick={() => addToCart(id, amount, singleProduct)}
+                    onClick={AddToCart}
                   >
                     <div className="add-to-cart-button mt-2">
                       <BsHandbag /> Add to Cart
