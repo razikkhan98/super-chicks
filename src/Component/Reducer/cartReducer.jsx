@@ -52,7 +52,7 @@ const cartReducer = (state, action) => {
         id: singleProduct.id,
         name: singleProduct.name,
         amount,
-        // image: singleProduct.image[0].url,
+        // image: singleProduct.image[0].img,
         price: singleProduct.price,
         max: singleProduct.stock,
       };
