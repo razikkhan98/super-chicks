@@ -20,6 +20,8 @@ import { NavLink } from "react-router-dom";
 const Cart = () => {
   const { cart, total_item,total_price ,shipping_fee  } = useCartContext();
 
+  console.log(cart)
+
   let saltlength = cart.length;
 
   return (

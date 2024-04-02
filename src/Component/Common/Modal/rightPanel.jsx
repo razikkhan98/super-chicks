@@ -114,7 +114,7 @@ const RightPanel = ({ showModal, setShowModal }) => {
 
   const startCounting = () => {
     setIsCounting(true);
-    setCount(30);
+    setCount(60);
     const interval = setInterval(() => {
       setCount((prevCount) => prevCount - 1);
     }, 1000);
