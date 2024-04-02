@@ -1,10 +1,10 @@
 import React from "react";
 // Image
 import Logo from "../../asset/img/Logo/logo.png";
-import About1 from "../../asset/img/About/about-1.png";
-import About2 from "../../asset/img/About/about-2.png";
-import About3 from "../../asset/img/About/about-3.png";
-import About4 from "../../asset/img/About/about-4.png";
+import About1 from "../../asset/Superchicks images/Home page image/Home page about section 1.jpeg";
+import About2 from "../../asset/Superchicks images/Home page image/Home page about section 2.jpeg";
+import About3 from "../../asset/Superchicks images/Home page image/Home page about section 3.jpg";
+import About4 from "../../asset/Superchicks images/Home page image/Home page about section 4.jpeg";
 
 const About = () => {
   return (
@@ -34,7 +34,7 @@ const About = () => {
                 <div className="col-sm-6 offset-sm-1 align-self-center mt-4 ">
                   <span className="hover-effect mb-2">
                     <img
-                      className="img-fluid w-100"
+                      className="img-fluid rounded w-100"
                       src={About4}
                       alt="Loading"
                     />
@@ -43,7 +43,7 @@ const About = () => {
                 <div className="col-sm-5 align-self-end mb-2">
                   <span className="hover-effect">
                     <img
-                      className="img-fluid w-100"
+                      className="img-fluid rounded w-100"
                       src={About3}
                       alt="Loading"
                     />
@@ -52,7 +52,7 @@ const About = () => {
                 <div className="col-sm-6 offset-sm-1 align-self-start mb-2">
                   <span className="hover-effect">
                     <img
-                      className="img-fluid w-100"
+                      className="img-fluid rounded w-100"
                       src={About2}
                       alt="Loading"
                     />
@@ -61,7 +61,7 @@ const About = () => {
                 <div className="col-sm-5 mb-2">
                 <span className="hover-effect">
                     <img
-                      className="img-fluid w-100"
+                      className="img-fluid rounded w-100"
                       src={About1}
                       alt="Loading"
                     />

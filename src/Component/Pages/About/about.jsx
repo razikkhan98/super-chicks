@@ -1,5 +1,5 @@
 import React from "react";
-import AboutImg from "../../asset/img/About/about-img.png";
+import AboutImg from "../../asset/Superchicks images/About page image/ABout page image.jpg";
 import Footer from "../../Common/Footer/footer";
 import NavbarGround from "../../Common/Navbar/navbground";
 
@@ -42,7 +42,7 @@ const About = () => {
               </div>
               <div className="col-lg-6 d-flex align-items-center my-4 ">
                 <div className="about-page-img text-center">
-                  <img src={AboutImg} alt="Loading" />
+                  <img src={AboutImg} className="rounded" alt="Loading" />
                 </div>
               </div>
               <div className="col-lg-12 mt-4">
