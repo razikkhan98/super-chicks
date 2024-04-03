@@ -5,7 +5,7 @@ import Button from "../Button/button";
 import { NavLink } from "react-router-dom";
 
 const Card = (link) => {
-  const { id, title, kilogram, amount, button, image, comingsoon } = link;
+  const { id, title, kilogram, amount, button, image, comingsoon  ,del} = link;
 
   return (
     <>
@@ -154,7 +154,8 @@ const Card = (link) => {
                     </svg>
                   </span>
 
-                  <span className="ps-3">{amount}</span>
+                  <span className="px-2">{amount}</span>
+                  <del className="">{del}</del>
                 </>
               ) : null}
             </div>

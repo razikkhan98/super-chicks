@@ -11,8 +11,8 @@ import About from "../../Common/About/about";
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 
 // Image
-import HomeIMG from "../../asset/Superchicks images/Home page image/Home-page-Banner-image.png";
-import Products1 from "../../asset/img/Products/products-1.png";
+import HomeIMG from "../../asset/img/Home/home-1.png";
+import Products1 from "../../asset/img/Products/home-Products.jpg";
 import Products2 from "../../asset/img/Products/products-2.png";
 import Products3 from "../../asset/img/Products/products-3.png";
 import HalalImage1 from "../../asset/img/HalalVerified/Halal-Verified-1.png";

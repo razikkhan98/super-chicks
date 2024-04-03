@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { NavLink, useParams } from "react-router-dom";
+import { Link, NavLink, useParams } from "react-router-dom";
 
 // Common
 import Footer from "../../Common/Footer/footer";
@@ -16,44 +16,47 @@ import { BsHandbag } from "react-icons/bs";
 import { FaMinus, FaPlus } from "react-icons/fa";
 
 // Image
-import product1 from "../../asset/Superchicks images/Chicken Product image/Chiken drumstik pack of 6.jpg";
+import OrderChicken1 from "../../asset/Superchicks images/Chicken Product image/Chiken Mixed With Bones.jpeg";
 import product2 from "../../asset/Superchicks images/Chicken Product image/Chiken WIngs.jpeg";
 import product3 from "../../asset/Superchicks images/Chicken Product image/Chicken Breast.jpg";
 import product4 from "../../asset/Superchicks images/Chicken Product image/chicken Mince [keema].jpeg";
 import { toast } from "react-toastify";
 import LoginPopap from "../../Common/Modal/loginpopap";
+import { Button } from "react-bootstrap";
+import Similar from "../../Common/SimilarProducts";
 
 const SingleProduct = () => {
   const { addToCart } = useCartContext();
 
   const ProductData = [
     {
-      id: 1,
-      img: product1,
-      title: "Chicken Drumstick",
-      amt: "Rs250",
-      delamt: "Rs350",
+      id: "ch-721",
+      img: OrderChicken1,
+      title: "Chicken mixed with bone",
+      kilogram: "500gms | Serve 4",
+      amt: "148 Rs",
+      del: "185 Rs",
     },
     {
-      id: 2,
+      id: "ch-725",
       img: product2,
       title: "Chicken Wings",
-      amt: "Rs250",
-      delamt: "Rs350",
+      amt: "175 Rs",
+      del: "219 Rs",
     },
     {
-      id: 3,
+      id: "ch-727",
       img: product3,
       title: "Chicken Breast",
-      amt: "Rs250",
-      delamt: "Rs350",
+      amt: "271 Rs",
+      del: "339 Rs",
     },
     {
-      id: 4,
+      id: "ch-726",
       img: product4,
-      title: "Chicken Keema",
-      amt: "Rs250",
-      delamt: "Rs350",
+      title: "Chicken Mince (Keema)",
+      amt: "311 Rs",
+      del: "389 Rs",
     },
   ];
 
@@ -172,7 +175,7 @@ const SingleProduct = () => {
                   <h1 className="price-off">{offers}</h1>
                 </div>
                 <div className="hr"></div>
-                <div className="Product-quantity d-flex">
+                <div className="Product-quantity d-flex align-items-center">
                   Quantity:
                   <div className="product-quantity-btn d-flex align-items-center ms-3 mb-3">
                     {/* <button className="btn">-</button> */}
@@ -200,10 +203,12 @@ const SingleProduct = () => {
                   </ReactWhatsapp>
                 </div>
 
-                <h4 className="price-heading">Raw Chicken Mince with Bone</h4>
+                <h4 className="price-heading  pt-2">
+                  Raw Chicken Mince with Bone
+                </h4>
                 <p className="description">{description}</p>
-                <div className="product-offer">Offers</div>
-                <div className="product-offer-card d-flex justify-content-evenly my-3">
+                {/* <div className="product-offer">Offers</div> */}
+                {/* <div className="product-offer-card d-flex justify-content-evenly my-3">
                   <div className="offer-card-1 me-2 p-2">
                     <p>Rs125 cashback & Rs475 welcome rewards</p>
                     <a href="/" className="offer-card-terms">
@@ -224,14 +229,11 @@ const SingleProduct = () => {
                       View More Offers
                     </a>
                   </div>
-                </div>
+                </div> */}
               </div>
               {/* {stock > 0 && ( */}
               <div className="col-lg-7 col-sm-12">
-                <div
-                  className=" d-flex justify-content-end"
-                  onClick={AddToCart}
-                >
+                <div className="add-ot-cart" onClick={AddToCart}>
                   <div className="add-to-cart-button mt-2">
                     <BsHandbag /> Add to Cart
                   </div>
@@ -244,7 +246,7 @@ const SingleProduct = () => {
               {saltlength === 0 ? (
                 <>
                   <div className="col-lg-5 col-sm-12">
-                    <div className="d-flex justify-content-star mt-2">
+                    <div className="buy-now mt-2">
                       <NavLink to="/cart" className="sign-up-button">
                         Buy Now
                       </NavLink>
@@ -278,25 +280,15 @@ const SingleProduct = () => {
 
             <div className="hr"></div>
 
-            <div className="description-card-heading mt-5">
-              <h1>Similar Products</h1>
+            <div className="description-card-heading mt-5 ">
+              <h3>Similar Products</h3>
             </div>
             <div className="row">
               {ProductData.map((link, index) => (
                 <>
-                  <div className="col-md-3  mt-3">
-                    <div className="similar-prooduct-img">
-                          <img src={link.img} alt="Loading" />
-                    </div>
-                    <div className="similar-product-name mt-4">
-                      <h4> {link.title}</h4>
-                    </div>
-                    <div className="similar-product-price d-flex">
-                      <h5>{link.amt}</h5>
-                      <del>
-                        <h5>{link.delamt}</h5>
-                      </del>
-                    </div>
+                  <div className="col-lg-3 col-sm-12  mt-3 text-center"  key={index}>
+                    <Similar key={link.id}
+                      {...link}/>
                   </div>
                 </>
               ))}
