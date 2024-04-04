@@ -8,9 +8,7 @@ const NavbarGround = () => {
       <div className="background-color-main">
         <Navbar />
       </div>
-      <div>
         <img src={Nnnnnn} alt="" className="img-fluid" />
-      </div>
     </>
   );
 };

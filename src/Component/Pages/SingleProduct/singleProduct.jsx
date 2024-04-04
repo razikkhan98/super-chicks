@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link, NavLink, useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 
 // Common
 import Footer from "../../Common/Footer/footer";
@@ -22,7 +22,6 @@ import product3 from "../../asset/Superchicks images/Chicken Product image/Chick
 import product4 from "../../asset/Superchicks images/Chicken Product image/chicken Mince [keema].jpeg";
 import { toast } from "react-toastify";
 import LoginPopap from "../../Common/Modal/loginpopap";
-import { Button } from "react-bootstrap";
 import Similar from "../../Common/SimilarProducts";
 
 const SingleProduct = () => {
@@ -71,11 +70,9 @@ const SingleProduct = () => {
   let saltlength = cart.length;
 
   const {
-    id: alias,
     name,
     price,
     description,
-    stock,
     image,
     offers,
     discount,

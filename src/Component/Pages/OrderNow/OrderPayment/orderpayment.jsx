@@ -8,7 +8,7 @@ import FormatPrice from "../../../Helpers/FormatPrice";
 import { useNavigate } from "react-router-dom";
 
 const OrderCheckoutPayment = () => {
-  const { setOrderPayment ,total_price ,shipping_fee , cart ,BONE} = useCartContext();
+  const { setOrderPayment ,total_price ,shipping_fee , cart } = useCartContext();
 
   const navigate = useNavigate();
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 // Common
 import TopContent from "../../Common/TopContent/topContent";

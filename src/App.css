@@ -947,12 +947,12 @@ a.learn_more2:hover {
     height: 35rem;
   }
 }
-@media only screen and (min-width: 400px) and (max-width: 768px) {
+@media only screen and (min-width: 400px) and (max-width: 584px) {
   .top-back-ground {
     background-repeat: no-repeat;
     background-size: contain !important;
-    background-position: 0rem 35rem !important;
-    height: 90vh !important;
+    background-position: 0rem 31rem !important;
+    height: 81vh !important;
     position: relative;
     top: 0rem;
     z-index: 999;
@@ -964,7 +964,29 @@ a.learn_more2:hover {
   }
   .header-content {
     background-color: #ffe5e5;
-    height: 47rem;
+    height: 42rem;
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+}
+@media only screen and (min-width: 584px) and (max-width: 768px) {
+  .top-back-ground {
+    background-repeat: no-repeat;
+    background-size: contain !important;
+    background-position: 0rem 38rem !important;
+    height: 104vh !important;
+    position: relative;
+    top: 0rem;
+    z-index: 999;
+  }
+  .header-content .title {
+    padding-top: 0px !important;
+    place-items: center;
+    display: grid;
+  }
+  .header-content {
+    background-color: #ffe5e5;
+    height: 42rem;
     margin: 0 auto;
     max-width: 1200px;
   }

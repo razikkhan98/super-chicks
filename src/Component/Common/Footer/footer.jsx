@@ -9,7 +9,6 @@ import { MdLocationPin } from "react-icons/md";
 import { FaWhatsapp } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { FaFacebookF } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
 import ReactWhatsapp from "react-whatsapp";

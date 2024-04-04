@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { AiOutlineLogin } from "react-icons/ai";
 import { useCartContext } from "../../Context/cartContext";
 
 // Images
@@ -16,7 +15,6 @@ const RightPanel = ({ showModal, setShowModal }) => {
   const [isCounting, setIsCounting] = useState(false);
   const [numerate, setNumerate] = useState();
 
-  const [otpdata, setOtpdata] = useState();
   const { setLoggedInUser } = useCartContext();
 
   const {

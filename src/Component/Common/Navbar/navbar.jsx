@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { NavLink, Navigate, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 // Image
 import Logo from "../../asset/img/Logo/logo.png";
 // react icon
-import { FaRegUser } from "react-icons/fa6";
 import { FiShoppingCart } from "react-icons/fi";
 import { RiMenu2Line } from "react-icons/ri";
 import { useCartContext } from "../../Context/cartContext";
@@ -14,7 +13,7 @@ import { RiShutDownLine } from "react-icons/ri";
 import Cookies from "js-cookie";
 
 const Navbar = () => {
-  const { cart, total_item, loggedInUser, setLoggedInUser } = useCartContext();
+  const { cart, loggedInUser, setLoggedInUser } = useCartContext();
   const [showModal, setShowModal] = useState(false);
 
   let size = cart.length;

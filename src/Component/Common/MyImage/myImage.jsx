@@ -8,7 +8,6 @@ import image1 from "../../asset/img/Description/description-1.jpg";
 import image2 from "../../asset/img/Description/description-2.jpg";
 import image3 from "../../asset/img/Description/description-3.jpg";
 import image4 from "../../asset/img/Description/description-4.jpg";
-import image5 from "../../asset/img/Description/description-5.jpg";
 
 const MyImage = ({ imgs = [{ url: "" }] }) => {
 
