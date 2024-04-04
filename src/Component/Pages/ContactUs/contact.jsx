@@ -11,12 +11,7 @@ import WhatApp from "../../Common/whatappicon/whatapp";
 import { toast } from "react-toastify";
 import axios from "axios";
 
-
-
-
-
 const Contact = () => {
-
   const {
     register,
     handleSubmit,
@@ -27,10 +22,7 @@ const Contact = () => {
     console.log(data, 12233);
 
     try {
-      const response = await axios.post(
-        "http://192.168.1.9:8000/sign_m",
-        data
-      );
+      const response = await axios.post("http://192.168.1.9:8000/sign_m", data);
       const msg = response.data.msg;
 
       if (msg === "Success") {
@@ -44,7 +36,6 @@ const Contact = () => {
           progress: undefined,
           theme: "light",
         });
-      ;
       }
     } catch (error) {
       toast.error("Message failed", {
@@ -57,7 +48,6 @@ const Contact = () => {
         progress: undefined,
         theme: "light",
       });
-      
     }
   };
 
@@ -79,7 +69,7 @@ const Contact = () => {
                       fssai registered, always fresh with fair pricing
                     </p>
                     <p>
-                      100% Halal Raw Fresh Chicken , Raw Fresh Mutton & Raw
+                      100% Hygienic Raw Fresh Chicken ,Fresh Mutton & 
                       Fresh Fish delivery
                     </p>
                     <h5 className=" fw-bold">Order online from our website</h5>
@@ -152,34 +142,35 @@ const Contact = () => {
                   // rows="3"
                 ></textarea> */}
                 <textarea
-                      name=""
-                      id=""
-                      cols="30"
-                      rows="5"
-                      className="border border-secondary bg-white form-control p-5"
-                      {...register("enquiry", {
-                        required: "Enquiry is required",
-                      })}
-                    />
-                    {errors.enquiry && (
-                      <div className="text-danger">
-                        {errors.enquiry.message}
-                      </div>
-                    )}
+                  name=""
+                  id=""
+                  cols="30"
+                  rows="5"
+                  className="border border-secondary bg-white form-control p-5"
+                  {...register("msg", {
+                    required: "Enquiry is required",
+                  })}
+                />
+                {errors.enquiry && (
+                  <div className="text-danger">{errors.msg.message}</div>
+                )}
               </div>
-              <Button variant=" btn-danger text-light bg-danger px-5 mt-5"  type="submit">
+              <Button
+                variant=" btn-danger text-light bg-danger px-5 mt-5"
+                type="submit"
+              >
                 Submit
               </Button>
             </form>
           </div>
-          <WhatApp/>
+          <WhatApp />
         </section>
       </div>
 
       {/* Footer Start */}
       <Footer />
       {/* Footer End  */}
-     
+
       {/* Contact End */}
     </>
   );

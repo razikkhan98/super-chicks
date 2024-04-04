@@ -8,11 +8,11 @@ import About4 from "../../asset/Superchicks images/Home page image/Home page abo
 
 const About = () => {
   return (
-    <section className="" id="section-padding">
+    <section className="">
       <div className="container">
         <div className="row">
           <div className="col-lg-5">
-            <div className="py-3">
+            <div className="py-4 mb-3">
               <img src={Logo} alt="Logo" className="about-img" />
             </div>
             <div className="about-content">

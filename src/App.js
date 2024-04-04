@@ -91,6 +91,7 @@ function App() {
           <Route path="/orderFinal" element={<OrderNowFinal />} />
           {/* <Route path="/sign" element={<SignLogin />} /> */}
           <Route path="/singleproduct/:id" element={<SingleProduct />} />
+          <Route path="/single/:id" element={<SingleProduct />} />
           {/* <Route path="/singleproduct/:id" element={<Text />} /> */}
           <Route path="/cart" element={<Cart />} />
           <Route path="/contact" element={<Contact />} />

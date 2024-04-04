@@ -3,9 +3,11 @@ import React, { useEffect, useState } from "react";
 // Common
 import TopContent from "../../Common/TopContent/topContent";
 import Card from "../../Common/Cart/card";
+import Footer from "../../Common/Footer/footer";
+import WhatApp from "../../Common/whatappicon/whatapp";
 
 // Image
-import Order1 from "../../asset/img/Order/order-1.png";
+import Order1 from "../../asset/img/Home/home-1.png";
 import OrderChicken1 from "../../asset/Superchicks images/Chicken Product image/Chiken Mixed With Bones.jpeg";
 import OrderChicken2 from "../../asset/Superchicks images/Chicken Product image/Chiken Boneless.jpeg";
 import OrderChicken3 from "../../asset/Superchicks images/Chicken Product image/Chiken drumstik pack of 6.jpg";
@@ -14,10 +16,15 @@ import OrderChicken5 from "../../asset/Superchicks images/Chicken Product image/
 import OrderChicken6 from "../../asset/Superchicks images/Chicken Product image/Chicken Breast.jpg";
 import OrderChicken7 from "../../asset/img/Products/products-2.png";
 import OrderChicken8 from "../../asset/img/Order/Order-Chicken-6.png";
+import OrderChicken9 from "../../asset/Superchicks images/Chicken Product image/Chiken drumstik pack of 2.jpg";
 import Goat from "../../asset/img/Order/Goat.svg";
 import Hen from "../../asset/img/Order/Hen.svg";
 import Chicken from "../../asset/img/Order/Chicken.svg";
-import Footer from "../../Common/Footer/footer";
+import MuttonProducts from "../../asset/img/Order/Order-Mutton-1.jpg";
+import MuttonProducts2 from "../../asset/img/Order/Order-Mutton-2.jpg";
+import MuttonProducts3 from "../../asset/img/Order/Order-Mutton-3.jpg";
+
+
 
 const OrderNow = () => {
   const OrderData = [
@@ -26,7 +33,8 @@ const OrderNow = () => {
       image: OrderChicken1,
       title: "Chicken mixed with bone",
       kilogram: "500gms | Serve 4",
-      amount: "370 Rs",
+      amount: "148 Rs",
+      del:"185 Rs",
       button: "Add to Cart",
     },
     {
@@ -34,7 +42,8 @@ const OrderNow = () => {
       image: OrderChicken2,
       title: "Chicken (Boneless)",
       kilogram: "500gms | Serve 4",
-      amount: "440 Rs",
+      amount: "319 Rs",
+      del:"399 Rs",
       button: "Add to Cart",
     },
     {
@@ -42,15 +51,17 @@ const OrderNow = () => {
       image: OrderChicken3,
       title: "Chicken Drumstick of 6 Piece",
       kilogram: "500gms | Serve 2 - 3",
-      amount: "390 Rs",
+      amount: "311 Rs",
+      del:"389 Rs",
       button: "Add to Cart",
     },
     {
       id: "ch-724",
-      image: OrderChicken3,
+      image: OrderChicken9,
       title: "Chicken Drumstick of 2 Piece",
       kilogram: "500gms | Serve 1 - 2",
-      amount: "150 Rs",
+      amount: "119 Rs",
+      del:"149 Rs",
       button: "Add to Cart",
     },
     {
@@ -58,7 +69,8 @@ const OrderNow = () => {
       image: OrderChicken4,
       title: "Chicken Wings",
       kilogram: "500gms | Serve 4",
-      amount: "220 Rs",
+      amount: "175 Rs",
+      del:"219 Rs",
       button: "Add to Cart",
     },
     {
@@ -66,7 +78,8 @@ const OrderNow = () => {
       image: OrderChicken5,
       title: "Chicken Mince (Keema)",
       kilogram: "500gms | Serve 5 - 6",
-      amount: "370 Rs",
+      amount: "311 Rs",
+      del:"389 Rs",
       button: "Add to Cart",
     },
     {
@@ -74,7 +87,8 @@ const OrderNow = () => {
       image: OrderChicken6,
       title: "Chicken Breast",
       kilogram: "500gms | Serve 4",
-      amount: "340 Rs",
+      amount: "271 Rs",
+      del:"339 Rs",
       button: "Add to Cart",
     },
   ];
@@ -84,7 +98,7 @@ const OrderNow = () => {
     {
       id: 7,
       image: OrderChicken7,
-      title: "Chicken Mince (Keema)",
+      title: "Alive Desi Chicken",
       // kilogram: "500gms | 1Kg",
       // amount: "Amt",
       // button: "Add to Cart",
@@ -94,7 +108,7 @@ const OrderNow = () => {
     {
       id: 9,
       image: OrderChicken8,
-      title: "Chicken Breast",
+      title: "Alive Kadaknath Chicken",
       // kilogram: "500gms | 1Kg",
       // amount: "Amt",
       // button: "Add to Cart",
@@ -106,7 +120,7 @@ const OrderNow = () => {
   const Mutton = [
     {
       id: 13,
-      image: OrderChicken3,
+      image: MuttonProducts2,
       title: "Mutton mixed with bone",
       // kilogram: "500gms | 1Kg",
       // amount: "Amt",
@@ -116,7 +130,7 @@ const OrderNow = () => {
     },
     {
       id: 43,
-      image: OrderChicken4,
+      image: MuttonProducts,
       title: "Mutton (Boneless)",
       // kilogram: "500gms | 1Kg",
       // amount: "Amt",
@@ -126,7 +140,7 @@ const OrderNow = () => {
     },
     {
       id: 73,
-      image: OrderChicken2,
+      image: MuttonProducts3,
       title: "Mutton Mince (Keema)",
       // kilogram: "500gms | 1Kg",
       // amount: "Amt",
@@ -253,6 +267,7 @@ const OrderNow = () => {
 
             {/* Mutton End */}
           </div>
+          <WhatApp/>
         </section>
         {/* Footer Start  */}
 

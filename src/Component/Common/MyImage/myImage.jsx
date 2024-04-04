@@ -17,8 +17,7 @@ const MyImage = ({ imgs = [{ url: "" }] }) => {
     { image: image2, },
     { image: image3, },
     { image: image4, },
-    { image: image5, },
-
+    
 
 ];
 

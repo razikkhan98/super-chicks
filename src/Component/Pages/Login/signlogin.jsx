@@ -1,6 +1,6 @@
 import React from "react";
 import TopContent from "../../Common/TopContent/topContent.jsx";
-import Sign from "../../asset/Superchicks images/Sign in page banner/AdobeStock_162153955.png";
+// import Sign from "../../asset/Superchicks images/Sign in page banner/AdobeStock_162153955.png";
 import Footer from "../../Common/Footer/footer.jsx";
 
 const SignLogin = () => {
@@ -13,7 +13,7 @@ const SignLogin = () => {
         title3=""
         description="Please Sign In into your SuperChicks Account"
         button=""
-        img={Sign}
+        // img={Sign}
       />
       {/* Top Content End */}
 

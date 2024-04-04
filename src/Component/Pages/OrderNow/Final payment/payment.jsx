@@ -47,7 +47,7 @@ const FinallPayment = () => {
 
 
     const res = await axios.post(
-      "http://192.168.1.9:8000/order_data",
+      "http://146.190.8.141/order_data",
       fullData
     );
     const datasets = res.data.msg;

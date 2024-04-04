@@ -5,7 +5,7 @@ import Button from "../Button/button";
 import { NavLink } from "react-router-dom";
 
 const Card = (link) => {
-  const { id, title, kilogram, amount, button, image, comingsoon } = link;
+  const { id, title, kilogram, amount, button, image, comingsoon, del } = link;
 
   return (
     <>
@@ -17,7 +17,9 @@ const Card = (link) => {
 
           {comingsoon ? (
             <>
-              <span class="card-title fw-bold text-color-red">{comingsoon}</span>
+              <span class="card-title fw-bold text-color-red">
+                {comingsoon}
+              </span>
             </>
           ) : null}
 
@@ -154,61 +156,35 @@ const Card = (link) => {
                     </svg>
                   </span>
 
-                  <span className="ps-3">{amount}</span>
+                  <span className="px-2 fw-bold">{amount}</span>
+                  <del className="">{del}</del>
                 </>
               ) : null}
             </div>
             {button ? (
               <>
-                {" "}
-                <div>
-                  {button === "Order Now" ? (
-                    <>
-                      <NavLink
-                        to="/order"
-                        className="text-decoration-none"
-                        // onClick={() => handlechange()}
-                      >
-                        <Button button={button} />
-                      </NavLink>
-                    </>
-                  ) : (
-                    <>
-                      {/* <NavLink
-                        to={`/singleproduct/${pid}`}
-                        className="text-decoration-none"
-                      >
-                        <Button button={button} />
-                      </NavLink> */}
-                      <NavLink
-                        to={`/singleproduct/${id}`}
-                        className="text-decoration-none"
-                      >
-                        <Button button={button} />
-                      </NavLink>
-                    </>
-                  )}
-                </div>
+                {button === "Order Now" ? (
+                  <>
+                    <NavLink
+                      to="/order"
+                      className="text-decoration-none"
+                      // onClick={() => handlechange()}
+                    >
+                      <Button button={button} />
+                    </NavLink>
+                  </>
+                ) : (
+                  <>
+                    <NavLink
+                      to={`/singleproduct/${id}`}
+                      className="text-decoration-none"
+                    >
+                      <Button button={button} />
+                    </NavLink>
+                  </>
+                )}
               </>
             ) : null}
-            {/* <div>
-              {button === "Order Now" ? (
-                <>
-                  <NavLink to="/order" className="text-decoration-none">
-                    <Button button={button} />
-                  </NavLink>
-                </>
-              ) : (
-                <>
-                  <NavLink
-                    to={`/singleproduct/${id}`}
-                    className="text-decoration-none"
-                  >
-                    <Button button={button} />
-                  </NavLink>
-                </>
-              )}
-            </div> */}
           </div>
         </div>
       </div>
