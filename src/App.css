@@ -23,7 +23,7 @@
 }
 
 .back-img-main {
-  background-image: url(./Component/asset/img/Home/back-img.png);
+  background-image: url(./Component/asset/img/Home/background-img.png );
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -165,7 +165,7 @@ a.order-now-button:hover {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 160vh;
+  height: 115vh;
 }
 
 .white_pad {

@@ -51,8 +51,7 @@ const About = () => {
                   How does your order reach your doorstep?
                 </p>
                 <p className="fs-6 text-color-gray ">
-                  When you place an order with us, we guarantee a one-hour
-                  delivery. Our team ensures that the products are fresh,
+                  When you place an order with us, we guarantee a 110 minutes delivery. Our team ensures that the products are fresh,
                   hygienic, and processed shortly before being handed over to
                   our delivery executive.
                 </p>

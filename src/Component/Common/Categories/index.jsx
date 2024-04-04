@@ -4,7 +4,7 @@ import React from "react";
 import Logo1 from "../../asset/img/Logo/logo-1.png";
 import Logo2 from "../../asset/img/Logo/logo-2.png";
 import Logo3 from "../../asset/img/Logo/logo-3.png";
-import Logo4 from "../../asset/img/Logo/fish-4.png";
+import Logo4 from "../../asset/img/Logo/Fish Icon.png";
 import { NavLink } from "react-router-dom";
 
 const Categories = () => {
@@ -16,6 +16,8 @@ const Categories = () => {
     {
       heading: "Alive Desi Chicken",
       image: Logo2,
+      description: "Coming Soon",
+
     },
     {
       heading: "Mutton Meat",

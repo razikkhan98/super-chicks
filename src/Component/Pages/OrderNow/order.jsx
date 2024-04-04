@@ -20,7 +20,10 @@ import OrderChicken9 from "../../asset/Superchicks images/Chicken Product image/
 import Goat from "../../asset/img/Order/Goat.svg";
 import Hen from "../../asset/img/Order/Hen.svg";
 import Chicken from "../../asset/img/Order/Chicken.svg";
-import MuttonProducts from "../../asset/img/Products/products-3.png";
+import MuttonProducts from "../../asset/img/Order/Order-Mutton-1.jpg";
+import MuttonProducts2 from "../../asset/img/Order/Order-Mutton-2.jpg";
+import MuttonProducts3 from "../../asset/img/Order/Order-Mutton-3.jpg";
+
 
 
 const OrderNow = () => {
@@ -117,7 +120,7 @@ const OrderNow = () => {
   const Mutton = [
     {
       id: 13,
-      image: MuttonProducts,
+      image: MuttonProducts2,
       title: "Mutton mixed with bone",
       // kilogram: "500gms | 1Kg",
       // amount: "Amt",
@@ -137,7 +140,7 @@ const OrderNow = () => {
     },
     {
       id: 73,
-      image: MuttonProducts,
+      image: MuttonProducts3,
       title: "Mutton Mince (Keema)",
       // kilogram: "500gms | 1Kg",
       // amount: "Amt",

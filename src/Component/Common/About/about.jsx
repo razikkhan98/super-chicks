@@ -12,7 +12,7 @@ const About = () => {
       <div className="container">
         <div className="row">
           <div className="col-lg-5">
-            <div className="py-3">
+            <div className="py-4 mb-3">
               <img src={Logo} alt="Logo" className="about-img" />
             </div>
             <div className="about-content">
@@ -53,7 +53,7 @@ const About = () => {
                   <span className="hover-effect">
                     <img
                       className="img-fluid rounded w-100"
-                      src={About1}
+                      src={About2}
                       alt="Loading"
                     />
                   </span>
@@ -62,7 +62,7 @@ const About = () => {
                 <span className="hover-effect">
                     <img
                       className="img-fluid rounded w-100"
-                      src={About2}
+                      src={About1}
                       alt="Loading"
                     />
                   </span>

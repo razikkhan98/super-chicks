@@ -91,7 +91,7 @@ const SingleProduct = () => {
 
   //   Api Function single Product Id
 
-  const api = "http://192.168.1.9:8000/product?id=";
+  const api = "http://146.190.8.141/product?id=";
 
   const getSingleProduct = async (id) => {
     const response = await axios.get(`${api}${id}`);
