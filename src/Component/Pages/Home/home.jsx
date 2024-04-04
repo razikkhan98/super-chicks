@@ -11,11 +11,10 @@ import About from "../../Common/About/about";
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 
 // Image
-import HomeIMG from "../../asset/img/Home/home-img.png";
+import HomeIMG from "../../asset/img/Home/order-img.png";
 import Products1 from "../../asset/img/Products/home-Products.jpg";
 import Products2 from "../../asset/img/Products/products-2.png";
 import Products3 from "../../asset/img/Order/Order-Mutton-1.jpg";
-import HalalImage1 from "../../asset/img/HalalVerified/Halal-Verified-1.png";
 import HalalImage2 from "../../asset/img/HalalVerified/Halal-Verified-2.png";
 import HalalImage3 from "../../asset/img/HalalVerified/Halal-Verified-3.png";
 import HalalImage4 from "../../asset/img/HalalVerified/Halal-Verified-4.png";
@@ -32,13 +31,14 @@ const Home = () => {
       image: Products1,
       title: "Fresh Chicken",
       comingsoon: 'Order Now',
-      amount: '',
       button: "Order Now",
+
     },
     {
       image: Products2,
       title: "Alive Desi Chicken",
-      comingsoon: "Coming Soon"
+      comingsoon: "Coming Soon",
+      mb3:"mb-3"
 
       // kilogram: "500gms | 1Kg",
       // amount: "Amt",
@@ -47,7 +47,8 @@ const Home = () => {
     {
       image: Products3,
       title: "Fresh Mutton",
-      comingsoon: "Coming Soon"
+      comingsoon: "Coming Soon",
+      mb3:"mb-3"
       // kilogram: "500gms | 1Kg",
       // amount: "Amt",
       // button: "Order Now",

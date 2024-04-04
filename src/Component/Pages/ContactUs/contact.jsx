@@ -22,7 +22,7 @@ const Contact = () => {
     console.log(data, 12233);
 
     try {
-      const response = await axios.post("http://192.168.1.9:8000/sign_m", data);
+      const response = await axios.post("http://146.190.8.141/sign_m", data);
       const msg = response.data.msg;
 
       if (msg === "Success") {

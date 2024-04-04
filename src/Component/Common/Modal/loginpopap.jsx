@@ -1,6 +1,5 @@
 import React from "react";
 import { Modal } from "react-bootstrap";
-import { IoMdCheckmarkCircle } from "react-icons/io";
 import { NavLink } from "react-router-dom";
 // React Icon
 
