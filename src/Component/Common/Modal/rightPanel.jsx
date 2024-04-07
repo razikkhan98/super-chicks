@@ -30,7 +30,7 @@ const RightPanel = ({ showModal, setShowModal }) => {
 
     try {
       const response = await axios.post(
-        "http://192.168.1.9:8000/sign_m",
+        "http://146.190.8.141/sign_m",
         mobiledata
       );
       const datasets = response.data.msg;
@@ -69,7 +69,7 @@ const RightPanel = ({ showModal, setShowModal }) => {
 
     try {
       const response = await axios.post(
-        "http://192.168.1.9:8000/sign_check",
+        "http://146.190.8.141/sign_check",
         FinalData
       );
       const msg = response.data.msg;

@@ -41,11 +41,6 @@ const FinallPayment = () => {
 
     const fullData = { cart, orderPayment, finalPayment  ,loggedInUser};
 
-    console.log(fullData, "Full Data");
-
-
-
-
     const res = await axios.post(
       "http://146.190.8.141/order_data",
       fullData
@@ -71,9 +66,6 @@ const FinallPayment = () => {
     } else {
       toast.error(res.data.message);
     }
-
-    
-    
   };
 
   return (

@@ -73,10 +73,10 @@ const SingleProduct = () => {
     name,
     price,
     description,
-    image,
     offers,
     discount,
   } = singleProduct;
+
 
   const setDecrease = () => {
     amount > 1 ? setAmount(amount - 1) : setAmount(1);
@@ -90,11 +90,26 @@ const SingleProduct = () => {
 
   const api = "http://146.190.8.141/product?id=";
 
-  const getSingleProduct = async (id) => {
-    const response = await axios.get(`${api}${id}`);
+  // const getSingleProduct = async (id) => {
+  //   const response = await axios.get(`${api}${id}`);
+    
 
-    return response.data;
-  };
+  //   return response.data;
+  // };
+
+  const getSingleProduct = async (id) => {
+    try {
+      const response = await axios.get(`${api}${id}`);
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.data;
+   } catch (error) {
+      // Display error using Toastify
+      toast.error('Network error occurred');
+      console.error('Error fetching data:', error);
+    }
+  }
 
   useEffect(() => {
     getSingleProduct(id).then((data) => {
@@ -129,7 +144,7 @@ const SingleProduct = () => {
           <div class="container">
             <div class="row">
               <div className="col-md-7">
-                <MyImage imgs={image} />
+                <MyImage />
                 <div className="row d-flex justify-content-center">
                   <div className="col-lg-6">
                     <div className="description-text ms-5">
@@ -175,7 +190,6 @@ const SingleProduct = () => {
                 <div className="Product-quantity d-flex align-items-center">
                   Quantity:
                   <div className="product-quantity-btn d-flex align-items-center ms-3 mb-3">
-                    {/* <button className="btn">-</button> */}
                     <button
                       className="btn bg-white m-1"
                       onClick={() => setDecrease()}
@@ -183,7 +197,6 @@ const SingleProduct = () => {
                       <FaMinus />
                     </button>
                     <div>{amount}</div>
-                    {/* <button className="btn">+</button> */}
                     <button
                       className="btn bg-white m-1"
                       onClick={() => setIncrease()}
@@ -253,7 +266,7 @@ const SingleProduct = () => {
               ) : (
                 <>
                   <div className="col-lg-5 col-sm-12">
-                    <div className="d-flex justify-content-star mt-2">
+                    <div className="buy-now mt-2">
                       <NavLink to="/orderPayment" className="sign-up-button">
                         Buy Now
                       </NavLink>

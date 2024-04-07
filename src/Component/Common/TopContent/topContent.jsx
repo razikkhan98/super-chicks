@@ -30,7 +30,7 @@ const TopContent = ({ title,title2,title3, description, button, img }) => {
                   src={img}
                  
                   alt="Loading"
-                  className="img-fluid header-img"
+                  className="img-fluid header-img w-100"
                 />
               </div>
             </div>
