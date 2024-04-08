@@ -42,7 +42,7 @@ const FinallPayment = () => {
     const fullData = { cart, orderPayment, finalPayment  ,loggedInUser};
 
     const res = await axios.post(
-      "http://146.190.8.141/order_data",
+      "https://api.superchicks.online/order_data",
       fullData
     );
     const datasets = res.data.msg;

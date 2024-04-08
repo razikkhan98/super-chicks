@@ -22,7 +22,7 @@ const Contact = () => {
     console.log(data, 12233);
 
     try {
-      const response = await axios.post("http://146.190.8.141/sign_m", data);
+      const response = await axios.post("https://api.superchicks.online/contact", data);
       const msg = response.data.msg;
 
       if (msg === "Success") {

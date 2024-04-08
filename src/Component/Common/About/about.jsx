@@ -21,10 +21,10 @@ const About = () => {
                 <span> SuperChicks</span>
               </h3>
               <p>
-                SuperChicks provides you fresh and hygienic meat products at
-                very reasonable price. Forget the old days of purchasing meat
-                from stinky and unhygienic shops. Now just order it online and
-                get it delivered to your door steps.
+                  SuperChicks provides you fresh and hygienic meat products at
+                  very reasonable price. Forget the old days of purchasing meat
+                  from stinky and unhygienic shops. Now just order it online and
+                  get it delivered to your door steps.
               </p>
             </div>
           </div>

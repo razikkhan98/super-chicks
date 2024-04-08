@@ -27,12 +27,25 @@ const RightPanel = ({ showModal, setShowModal }) => {
   const onSubmit = async (data) => {
     setNumerate(data);
     const mobiledata = { msg: "f", num: data.num };
-    console.log(mobiledata)
+    console.log(typeof mobiledata);
+    console.log(mobiledata);
 
     try {
       const response = await axios.post(
-        "http://146.190.8.141/sign_m",
-        mobiledata
+        "https://api.superchicks.online/sign_m",
+        {
+          msg: "f",
+          num: data.num,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json", // Adjust content type according to your API requirements
+            Authorization: "Bearer yourAccessToken", // Include your authorization token here if needed
+            "Access-Control-Allow-Origin": "*", // Required for CORS support to work
+            "Access-Control-Allow-Methods": "POST",
+            "Access-Control-Allow-Headers": "X-Requested-With,content-type",
+          },
+        }
       );
       const datasets = response.data.msg;
       if (datasets === "Success") {
@@ -66,12 +79,24 @@ const RightPanel = ({ showModal, setShowModal }) => {
   };
 
   const ondata = async (data) => {
-    const FinalData = { otp: data.otp, num: numerate.num };
+    // const FinalData = { otp: data.otp, num: numerate.num };
 
     try {
       const response = await axios.post(
-        "http://146.190.8.141/sign_check",
-        FinalData
+        "https://api.superchicks.online/sign_check",
+        {
+          otp: data.otp,
+          num: numerate.num,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json", // Adjust content type according to your API requirements
+            Authorization: "Bearer yourAccessToken", // Include your authorization token here if needed
+            "Access-Control-Allow-Origin": "*", // Required for CORS support to work
+            "Access-Control-Allow-Methods": "POST",
+            "Access-Control-Allow-Headers": "X-Requested-With,content-type",
+          },
+        }
       );
       const msg = response.data.msg;
       const Status = response.data.status;
@@ -80,7 +105,7 @@ const RightPanel = ({ showModal, setShowModal }) => {
         setShowModal(false);
         const datasets = response.data.uid;
         setLoggedInUser(datasets);
-        console.log(datasets)
+        console.log(datasets);
         toast.success("Login Successful", {
           position: "top-center",
           autoClose: 2000,

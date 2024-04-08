@@ -81,7 +81,7 @@ const SingleProduct = () => {
 
   //   Api Function single Product Id
 
-  const api = "http://146.190.8.141/product?id=";
+  const api = "https://api.superchicks.online/product?id=";
 
   const getSingleProduct = async (id) => {
     const response = await axios.get(`${api}${id}`);
