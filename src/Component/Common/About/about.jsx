@@ -30,40 +30,40 @@ const About = () => {
           </div>
 
           <div className="col-lg-7">
-              <div className="row justify-content-center">
-                <div className="col-lg-5 text-center px-1 mt-4">
+            <div className="row justify-content-center">
+              <div className="col-lg-5 text-center px-1 mt-4">
                 <img
-                        className=" rounded my-2 "
-                        src={About1}
-                        alt="Loading"
-                        width={270}
-                        height={167}
-                      />
-                       <img
-                        className=" rounded"
-                        src={About3}
-                        alt="Loading"
-                        width={270}
-                        height={235}
-                      />
-                </div>
-                <div className="col-lg-5 text-center px-1 mb-4">
+                  className=" rounded my-2 "
+                  src={About1}
+                  alt="Loading"
+                  width={270}
+                  height={167}
+                />
                 <img
-                        className=" rounded my-2 "
-                        src={About2}
-                        alt="Loading"
-                        width={270}
-                        height={235}
-                      />
-                       <img
-                        className=" rounded"
-                        src={About4}
-                        alt="Loading"
-                        width={270}
-                        height={167}
-                      />
-                </div>
-                  {/* <div className="col-sm-5 offset-sm-1  mt-4 ">
+                  className=" rounded"
+                  src={About3}
+                  alt="Loading"
+                  width={270}
+                  height={235}
+                />
+              </div>
+              <div className="col-lg-5 text-center px-1 mb-4">
+                <img
+                  className=" rounded my-2 "
+                  src={About2}
+                  alt="Loading"
+                  width={270}
+                  height={235}
+                />
+                <img
+                  className=" rounded"
+                  src={About4}
+                  alt="Loading"
+                  width={270}
+                  height={167}
+                />
+              </div>
+              {/* <div className="col-sm-5 offset-sm-1  mt-4 ">
                     <span className="hover-effect mb-2">
                       <img
                         className="img-fluid rounded w-100"
@@ -99,11 +99,10 @@ const About = () => {
                     />
                   </span>
                 </div> */}
-                
-              </div>
             </div>
           </div>
         </div>
+      </div>
     </section>
   );
 };

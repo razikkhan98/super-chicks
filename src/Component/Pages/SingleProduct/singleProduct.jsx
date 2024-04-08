@@ -69,14 +69,7 @@ const SingleProduct = () => {
 
   let saltlength = cart.length;
 
-  const {
-    name,
-    price,
-    description,
-    offers,
-    discount,
-  } = singleProduct;
-
+  const { name, price, description, offers, discount } = singleProduct;
 
   const setDecrease = () => {
     amount > 1 ? setAmount(amount - 1) : setAmount(1);
@@ -90,26 +83,11 @@ const SingleProduct = () => {
 
   const api = "http://146.190.8.141/product?id=";
 
-  // const getSingleProduct = async (id) => {
-  //   const response = await axios.get(`${api}${id}`);
-    
-
-  //   return response.data;
-  // };
-
   const getSingleProduct = async (id) => {
-    try {
-      const response = await axios.get(`${api}${id}`);
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.data;
-   } catch (error) {
-      // Display error using Toastify
-      toast.error('Network error occurred');
-      console.error('Error fetching data:', error);
-    }
-  }
+    const response = await axios.get(`${api}${id}`);
+
+    return response.data;
+  };
 
   useEffect(() => {
     getSingleProduct(id).then((data) => {
@@ -296,9 +274,11 @@ const SingleProduct = () => {
             <div className="row">
               {ProductData.map((link, index) => (
                 <>
-                  <div className="col-lg-3 col-sm-12  mt-3 text-center"  key={index}>
-                    <Similar key={link.id}
-                      {...link}/>
+                  <div
+                    className="col-lg-3 col-sm-12  mt-3 text-center"
+                    key={index}
+                  >
+                    <Similar key={link.id} {...link} />
                   </div>
                 </>
               ))}

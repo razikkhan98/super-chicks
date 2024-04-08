@@ -25,8 +25,9 @@ const RightPanel = ({ showModal, setShowModal }) => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    setNumerate(data, 12222);
+    setNumerate(data);
     const mobiledata = { msg: "f", num: data.num };
+    console.log(mobiledata)
 
     try {
       const response = await axios.post(
