@@ -26,6 +26,9 @@ const OrderCheckoutPayment = () => {
   };
 
   const [enteredZipcode, setEnteredZipcode] = useState("");
+
+  const [message, setMessage] = useState('')
+
   const pincode = [
     451010, 452001, 452002, 452003, 452004, 452005, 452006, 452007, 452008,
     452009, 452010, 452011, 452012, 452013, 452014, 452015, 452016, 452018,
@@ -36,7 +39,11 @@ const OrderCheckoutPayment = () => {
     const { value } = event.target;
     setEnteredZipcode(value);
     if (pincode.includes(parseInt(value))) {
+      setMessage("");
+    }else {
+      setMessage("Invalid zipcode");
     }
+
   };
 
   return (
@@ -175,6 +182,12 @@ const OrderCheckoutPayment = () => {
                         value={enteredZipcode}
                     onChange={handleZipcodeChange}
                       />
+                      {errors.zipcode && (
+                        <div className="text-danger">
+                          {errors.zipcode.message}
+                        </div>
+                      )}
+                      <div className="text-color-red">{message}</div>
                     </div>
                   </div>
                 </div>
@@ -237,11 +250,7 @@ const OrderCheckoutPayment = () => {
                         required: "Additional Information is required",
                       })}
                     />
-                    {errors.additional && (
-                      <div className="text-danger">
-                        {errors.additional.message}
-                      </div>
-                    )}
+                   
                   </div>
                 </div>
               </div>
