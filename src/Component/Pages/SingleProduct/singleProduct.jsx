@@ -69,14 +69,7 @@ const SingleProduct = () => {
 
   let saltlength = cart.length;
 
-  const {
-    name,
-    price,
-    description,
-    image,
-    offers,
-    discount,
-  } = singleProduct;
+  const { name, price, description, offers, discount } = singleProduct;
 
   const setDecrease = () => {
     amount > 1 ? setAmount(amount - 1) : setAmount(1);
@@ -129,7 +122,7 @@ const SingleProduct = () => {
           <div class="container">
             <div class="row">
               <div className="col-md-7">
-                <MyImage imgs={image} />
+                <MyImage />
                 <div className="row d-flex justify-content-center">
                   <div className="col-lg-6">
                     <div className="description-text ms-5">
@@ -175,7 +168,6 @@ const SingleProduct = () => {
                 <div className="Product-quantity d-flex align-items-center">
                   Quantity:
                   <div className="product-quantity-btn d-flex align-items-center ms-3 mb-3">
-                    {/* <button className="btn">-</button> */}
                     <button
                       className="btn bg-white m-1"
                       onClick={() => setDecrease()}
@@ -183,7 +175,6 @@ const SingleProduct = () => {
                       <FaMinus />
                     </button>
                     <div>{amount}</div>
-                    {/* <button className="btn">+</button> */}
                     <button
                       className="btn bg-white m-1"
                       onClick={() => setIncrease()}
@@ -253,7 +244,7 @@ const SingleProduct = () => {
               ) : (
                 <>
                   <div className="col-lg-5 col-sm-12">
-                    <div className="d-flex justify-content-star mt-2">
+                    <div className="buy-now mt-2">
                       <NavLink to="/orderPayment" className="sign-up-button">
                         Buy Now
                       </NavLink>
@@ -283,9 +274,11 @@ const SingleProduct = () => {
             <div className="row">
               {ProductData.map((link, index) => (
                 <>
-                  <div className="col-lg-3 col-sm-12  mt-3 text-center"  key={index}>
-                    <Similar key={link.id}
-                      {...link}/>
+                  <div
+                    className="col-lg-3 col-sm-12  mt-3 text-center"
+                    key={index}
+                  >
+                    <Similar key={link.id} {...link} />
                   </div>
                 </>
               ))}

@@ -4,9 +4,6 @@
   box-sizing: border-box;
 }
 
-/* body {
-  font-family: "Poppins", sans-serif;
-} */
 
 :root {
   --red-color: #db1516;
@@ -77,7 +74,9 @@ a.order-now-button:hover {
 .fs-7 {
   font-size: 13px;
 }
-
+.cursor-pointer{
+  cursor: pointer;
+}
 /* Navbar Common */
 /* ---------------------------------*/
 
@@ -855,6 +854,14 @@ a.learn_more2:hover {
     display: flex;
     margin-right: 5px;
   }
+  .add-ot-cart{
+    display: flex;
+    justify-content: center;
+  }
+  .buy-now{
+    display: flex;
+    justify-content: center;
+  }
 
 
   
@@ -880,14 +887,8 @@ a.learn_more2:hover {
   .costumer-wrapper {
     display: block;
   }
-  .add-ot-cart{
-    display: flex;
-    justify-content: center;
-  }
-  .buy-now{
-    display: flex;
-    justify-content: center;
-  }
+ 
+  
 }
 
 @media screen and (max-width: 576px) {
@@ -916,7 +917,7 @@ a.learn_more2:hover {
   padding: 4px;
 }
 
-@media only screen and (min-width: 320px) and (max-width: 768px) {
+@media only screen and (min-width: 320px) and (max-width: 992px) {
   .product-detail-head,
   .product-detail-hr {
     display: none !important;
@@ -952,7 +953,7 @@ a.learn_more2:hover {
     background-repeat: no-repeat;
     background-size: contain !important;
     background-position: 0rem 31rem !important;
-    height: 81vh !important;
+    height: 95vh !important;
     position: relative;
     top: 0rem;
     z-index: 999;
@@ -974,7 +975,7 @@ a.learn_more2:hover {
     background-repeat: no-repeat;
     background-size: contain !important;
     background-position: 0rem 38rem !important;
-    height: 104vh !important;
+    height: 120vh !important;
     position: relative;
     top: 0rem;
     z-index: 999;

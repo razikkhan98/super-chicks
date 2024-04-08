@@ -28,12 +28,10 @@ const Navbar = () => {
     <>
       <nav className="navbar navbar-expand-lg">
         <div className="container-fluid">
-          {/* <a className="navbar-brand" href="/"> */}
           <div className="logo-img">
             <img src={Logo} alt="Loading" className="img-fluid w-100" />
           </div>
-          {/* </a> */}
-          <button
+         <button
             className="navbar-toggler mx-3"
             type="button"
             data-bs-toggle="collapse"
@@ -58,23 +56,12 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li className="nav-item">
-                {/* <a className="nav-link" aria-disabled="true" href="/"> */}
                 <NavLink to="/about" className="nav-link">
                   About
                 </NavLink>
 
-                {/* </a> */}
               </li>
-              {/* <li className="nav-item">
-                <NavLink
-                  to="/"
-                  className="nav-link d-flex align-items-center"
-                >
-                  <FaRegUser className="mx-2" />
-                  Account
-                </NavLink>
-
-              </li> */}
+             
               <li className="nav-item cart-trolley-link">
                 <NavLink to="/cart" className="nav-link">
                   <FiShoppingCart className="cart-trolley" />
@@ -89,11 +76,7 @@ const Navbar = () => {
                   )}
                 </NavLink>
               </li>
-              {/* <li className="login-btn">
-                <div className="nav-link login-button ">
-                  Sign
-                </div>
-              </li> */}
+              
               <li className="nav-item">Sign</li>
               {loggedInUser ? (
                 <>
@@ -106,7 +89,7 @@ const Navbar = () => {
                           aria-labelledby="dropdownMenuLink"
                         >
                           <hr />
-                          <li className="px-4">
+                          <li className="px-4 user-select-auto">
                             <button
                               className="btn border-0 text-white  gradient-custom-2 my-2 w-100 custom-btn btn-11"
                               onClick={handleLogout}
@@ -121,12 +104,11 @@ const Navbar = () => {
                 </>
               ) : (
                 <li>
-                  {/* <RightPanel/> */}
                   <div
-                    className="text-color-red fs-3 d-flex"
+                    className="text-color-red fs-3 d-flex cursor-pointer"
                     onClick={() => setShowModal(true)}
                   >
-                    <AiOutlineLogin />
+                    <AiOutlineLogin/>
                   </div>
                 </li>
               )}

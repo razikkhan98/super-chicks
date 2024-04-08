@@ -151,11 +151,6 @@ const Home = () => {
                 <>
                   <div className="col-lg-4 col-md-6 col-sm-12 my-2">
                     <Card
-                      // image={link.image}
-                      // title={link.title}
-                      // kilogram={link.kilogram}
-                      // amount={link.amount}
-                      // button={link.button}
                       key={link.id}
                       {...link}
                     />
@@ -175,7 +170,7 @@ const Home = () => {
                 <span> Why order from</span> SuperChicks?
               </h3>
               <p className="pb-5">
-                We deliver halal verified, free of preservative , fssai
+                We deliver free of preservative , fssai
                 registered, always fresh with fair pricing
               </p>
             </div>
