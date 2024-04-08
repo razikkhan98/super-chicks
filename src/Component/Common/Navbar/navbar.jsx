@@ -31,7 +31,7 @@ const Navbar = () => {
           <div className="logo-img">
             <img src={Logo} alt="Loading" className="img-fluid w-100" />
           </div>
-         <button
+          <button
             className="navbar-toggler mx-3"
             type="button"
             data-bs-toggle="collapse"
@@ -59,9 +59,8 @@ const Navbar = () => {
                 <NavLink to="/about" className="nav-link">
                   About
                 </NavLink>
-
               </li>
-             
+
               <li className="nav-item cart-trolley-link">
                 <NavLink to="/cart" className="nav-link">
                   <FiShoppingCart className="cart-trolley" />
@@ -76,14 +75,13 @@ const Navbar = () => {
                   )}
                 </NavLink>
               </li>
-              
-              <li className="nav-item">Sign</li>
+
               {loggedInUser ? (
                 <>
                   <li className="nav-item logo-width logo-width" id="cart">
                     <div className="d-flex justify-content-center">
                       <div className="dropdown">
-                      <RiShutDownLine />
+                        <RiShutDownLine />
                         <ul
                           className="dropdown-menu"
                           aria-labelledby="dropdownMenuLink"
@@ -103,14 +101,17 @@ const Navbar = () => {
                   </li>
                 </>
               ) : (
-                <li>
-                  <div
-                    className="text-color-red fs-3 d-flex cursor-pointer"
-                    onClick={() => setShowModal(true)}
-                  >
-                    <AiOutlineLogin/>
-                  </div>
-                </li>
+                <>
+                  <li className="nav-item">Sign</li>
+                  <li>
+                    <div
+                      className="text-color-red fs-3 d-flex cursor-pointer"
+                      onClick={() => setShowModal(true)}
+                    >
+                      <AiOutlineLogin />
+                    </div>
+                  </li>
+                </>
               )}
             </ul>
             <RightPanel showModal={showModal} setShowModal={setShowModal} />

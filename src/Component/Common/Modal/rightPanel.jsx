@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Modal } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useCartContext } from "../../Context/cartContext";
@@ -16,6 +16,17 @@ const RightPanel = ({ showModal, setShowModal }) => {
   const [numerate, setNumerate] = useState();
 
   const { setLoggedInUser } = useCartContext();
+
+  useEffect(() => {
+    // Check if user is already logged in
+    const storedUser = localStorage.getItem("loggedInUser");
+    if (storedUser) {
+      setLoggedInUser(JSON.parse(storedUser));
+    }
+  }, [setLoggedInUser]);
+
+
+
 
   const {
     register,
@@ -105,6 +116,7 @@ const RightPanel = ({ showModal, setShowModal }) => {
         setShowModal(false);
         const datasets = response.data.uid;
         setLoggedInUser(datasets);
+        localStorage.setItem("loggedInUser",datasets);
         console.log(datasets);
         toast.success("Login Successful", {
           position: "top-center",
