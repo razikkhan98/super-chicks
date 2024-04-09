@@ -686,8 +686,7 @@ a.learn_more2:hover {
 }
 .similar-prooduct-img img {
   border-radius: 10px;
-  width: 255px;
-  height: 279px;
+  width: 100% !important;
 }
 
 .similar-product-name {

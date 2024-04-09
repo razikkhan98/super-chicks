@@ -19,10 +19,11 @@ const Contact = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    console.log(data, 12233);
-
     try {
-      const response = await axios.post("https://api.superchicks.online/contact", data);
+      const response = await axios.post(
+        "https://api.superchicks.online/contact",
+        data
+      );
       const msg = response.data.msg;
 
       if (msg === "Success") {
@@ -69,8 +70,8 @@ const Contact = () => {
                       fssai registered, always fresh with fair pricing
                     </p>
                     <p>
-                      100% Hygienic Raw Fresh Chicken ,Fresh Mutton & 
-                      Fresh Fish delivery
+                      100% Hygienic Raw Fresh Chicken ,Fresh Mutton & Fresh Fish
+                      delivery
                     </p>
                     <h5 className=" fw-bold">Order online from our website</h5>
                     <h6 className="fw-semibold">www.SuperChicks.online</h6>

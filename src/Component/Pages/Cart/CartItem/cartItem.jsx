@@ -16,84 +16,23 @@ import Chickenkeema1 from "../../../asset/img/Description/Chicken keema/chickenk
 import ChickenBreast1 from "../../../asset/img/Description/Chicken Breast/chicken-breast-1.jpg"
 
 const CartItem = ({ id,name, image, price, amount }) => {
-  const { removeItem, setDecrement, setIncrement ,singleImage} = useCartContext();
+  const { removeItem, setDecrement, setIncrement } = useCartContext();
 
-  const images = [
-    {
-      id: "ch-721",
-      title: "Chicken mixed with bone",
-      imgs: [
-        {
-          imgs1: ChickenMixBone1,
-        },
-       
-      ],
-    },
-    {
-      id: "ch-722",
-      title: "Chicken (Boneless)",
-      imgs: [
-        {
-          imgs1: ChickenBone1,
-        },
-       
-      ],
-    },
-    {
-      id: "ch-723",
-      title: "Chicken Drumstick of 6 Piece",
-      imgs: [
-        {
-          imgs1: ChickenDurmtick61,
-        },
-      ],
-    },
-    {
-      id: "ch-724",
-      title: "Chicken Drumstick of 2 Piece",
-      imgs: [
-        {
-          imgs1: ChickenDurmtick21,
-        },
-       
-      ],
+ 
+  // const img = images.filter((item) => item.id === singleImage)[0];
+  // const { imgs } = img;
+  // const { imgs1 } = imgs[0];
 
-    },
-    {
-      id: "ch-725",
-      title: "Chicken Wings",
-      imgs: [
-        {
-          imgs1: ChickenWings1,
-        },
-       
-      ],
-    },
-    {
-      id: "ch-726",
-      title: "Chicken Mince (Keema)",
-      imgs: [
-        {
-          imgs1: Chickenkeema1,
-        },
-       
-      ],
-    },
-    {
-      id: "ch-727",
-      title: "Chicken Breast",
-      imgs: [
-        {
-          imgs1: ChickenBreast1,
-        },
-       
-      ],
-    },
-  ];
-
-  const img = images.filter((item) => item.id === singleImage)[0];
-  const { imgs } = img;
-  const { imgs1 } = imgs[0];
+  const imageData = {
+    "ch-721": ChickenMixBone1,
+    "ch-722": ChickenBone1,
+    "ch-723": ChickenDurmtick61,
+    "ch-724": ChickenDurmtick21,
+    "ch-725": ChickenWings1,
+    "ch-726": Chickenkeema1,
+    "ch-727": ChickenBreast1
+  };
+  const prdimg = imageData[id];
 
 
 
@@ -101,7 +40,7 @@ const CartItem = ({ id,name, image, price, amount }) => {
     <>
       <div className="row ">
         <div className="col-lg-2 text-center my-2">
-          <img src={imgs1} className="cart-img rounded ps-3 me-3" alt="Loading" />
+          <img src={prdimg} className="cart-img rounded ps-3 me-3" alt="Loading" />
         </div>
         <div className="col-lg-2 align-items-center justify-content-center text-center my-2 d-flex">
           {name}
@@ -110,9 +49,9 @@ const CartItem = ({ id,name, image, price, amount }) => {
         <FormatPrice price={price} />
         </div>
         <div className="col-lg-2 text-center justify-content-center my-2 ps-3 fw-bold d-flex align-items-center">
-          <CiCircleMinus className="fs-3" onClick={() => setDecrement(id)}/>
+          <CiCircleMinus className="fs-3 cursor-pointer" onClick={() => setDecrement(id)}/>
           <span> {amount}</span>
-          <CiCirclePlus className="fs-3" onClick={() => setIncrement(id)}/>
+          <CiCirclePlus className="fs-3 cursor-pointer" onClick={() => setIncrement(id)}/>
         </div>
         <div className="col-lg-2 text-center justify-content-center my-2 ps-3 fw-bold d-flex align-items-center">
         <FormatPrice price={price * amount}/>
@@ -120,7 +59,7 @@ const CartItem = ({ id,name, image, price, amount }) => {
         {/* <div className="fs-3 d-flex justify-content-end  align-items-center  text-color-red pe-5">
           <RiDeleteBin6Line onClick={() => removeItem(id)} />
         </div> */}
-        <div className="col-lg-2 text-center justify-content-center my-2 ps-3 fw-bold d-flex align-items-center text-color-red fs-3">
+        <div className="col-lg-2 text-center justify-content-center my-2 ps-3 fw-bold d-flex align-items-center text-color-red fs-3 cursor-pointer">
           <RiDeleteBin6Line onClick={() => removeItem(id)} />
         </div>
       </div>

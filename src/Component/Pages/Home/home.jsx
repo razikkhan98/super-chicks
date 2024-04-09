@@ -30,15 +30,14 @@ const Home = () => {
     {
       image: Products1,
       title: "Fresh Chicken",
-      comingsoon: 'Order Now',
+      comingsoon: "Order Now",
       button: "Order Now",
-
     },
     {
       image: Products2,
       title: "Alive Desi Chicken",
       comingsoon: "Coming Soon",
-      mb3:"mb-3"
+      mb3: "mb-3",
 
       // kilogram: "500gms | 1Kg",
       // amount: "Amt",
@@ -48,7 +47,7 @@ const Home = () => {
       image: Products3,
       title: "Fresh Mutton",
       comingsoon: "Coming Soon",
-      mb3:"mb-3"
+      mb3: "mb-3",
       // kilogram: "500gms | 1Kg",
       // amount: "Amt",
       // button: "Order Now",
@@ -85,36 +84,32 @@ const Home = () => {
 
   const CostumerImgfirst = [
     {
-      name: "Salman",
-      description: 
-      "Great service, always get helpful and quick responses & I m impressed with the quality of the Chicken & Mutton.",
+      name: "Basily",
+      description:
+        "Great service, always get helpful and quick responses & I m impressed with the quality of the Chicken & Mutton.",
       img: team1,
     },
     {
-      name: "Rizwan",
+      name: "Mohammad Noor",
       description:
-        "Great service, always get helpful and quick responses & I m impressed with the quality of the Chicken & Mutton.",
+        "As a conscientious consumer, I appreciate Super Chicks commitment to ethical sourcing practices. ",
       img: team2,
     },
   ];
 
   const CostumerImgsecond = [
     {
-      name: "Aariz",
-      description1:
-      "Great service, always get helpful and quick responses & I m impressed with the quality of the Chicken & Mutton.",
-
+      name: "Dr. Anas",
+      description1: "Great service, always get helpful and quick responses & I m impressed with the quality of the Chicken & Mutton.",
       img1: team3,
     },
     {
-      name: "Adnan",
-      description1:
-        "Great service, always get helpful and quick responses & I m impressed with the quality of the Chicken & Mutton.",
+      name: "Shoaib",
+      description1: "As a conscientious consumer, I appreciate Super Chicks commitment to ethical sourcing practices.",
       img1: team4,
     },
   ];
 
-  
   return (
     <>
       {/* Top Content Start */}
@@ -150,10 +145,7 @@ const Home = () => {
               {CardData.map((link, index) => (
                 <>
                   <div className="col-lg-4 col-md-6 col-sm-12 my-2">
-                    <Card
-                      key={link.id}
-                      {...link}
-                    />
+                    <Card key={link.id} {...link} />
                   </div>
                 </>
               ))}
@@ -170,8 +162,8 @@ const Home = () => {
                 <span> Why order from</span> SuperChicks?
               </h3>
               <p className="pb-5">
-                We deliver free of preservative , fssai
-                registered, always fresh with fair pricing
+                We deliver free of preservative , fssai registered, always fresh
+                with fair pricing
               </p>
             </div>
             <div className="halal-img-grid">
@@ -276,7 +268,7 @@ const Home = () => {
               {/* This Section Continue Shumaila */}
             </div>
           </div>
-          <WhatApp/>
+          <WhatApp />
         </section>
 
         {/* Customer End */}
