@@ -7,48 +7,43 @@ import {
 import ChickenMixBone1 from "../../asset/img/Description/Chicken mix with bones/chicken-mix-bones-1.jpg";
 import ChickenMixBone2 from "../../asset/img/Description/Chicken mix with bones/chicken-mix-bones-2.jpg";
 import ChickenMixBone3 from "../../asset/img/Description/Chicken mix with bones/chicken-mix-bones-3.jpg";
-import ChickenMixBone4 from "../../asset/Superchicks images/Chicken Product image/Chiken Mixed With Bones.jpeg"
+import ChickenMixBone4 from "../../asset/Superchicks images/Chicken Product image/Chiken Mixed With Bones.jpeg";
 
 import ChickenBone1 from "../../asset/img/Description/Chicken Boneless/chicken-bonless-1.jpg";
 import ChickenBone2 from "../../asset/img/Description/Chicken Boneless/chicken-bonless-2.jpg";
 import ChickenBone3 from "../../asset/img/Description/Chicken Boneless/chicken-bonless-3.jpg";
-import ChickenBone4 from "../../asset/Superchicks images/Chicken Product image/Chiken Boneless.jpeg"
+import ChickenBone4 from "../../asset/Superchicks images/Chicken Product image/Chiken Boneless.jpeg";
 
 import ChickenDurmtick21 from "../../asset/img/Description/Chicken drumstick 2 pieces/chicken-durmstick-1.jpg";
 import ChickenDurmtick22 from "../../asset/img/Description/Chicken drumstick 2 pieces/chicken-durmstick-2.jpg";
 import ChickenDurmtick23 from "../../asset/img/Description/Chicken drumstick 2 pieces/chicken-durmstick-3.jpg";
-import ChickenDurmtick24 from "../../asset/Superchicks images/Chicken Product image/Chiken drumstik pack of 2.jpg"
+import ChickenDurmtick24 from "../../asset/Superchicks images/Chicken Product image/Chiken drumstik pack of 2.jpg";
 
 import ChickenDurmtick61 from "../../asset/img/Description/Chicken drumstick 6 pieces/chicken-drumstick-6-1.jpg";
 import ChickenDurmtick62 from "../../asset/img/Description/Chicken drumstick 6 pieces/chicken-drumstick-6-2.jpg";
 import ChickenDurmtick63 from "../../asset/img/Description/Chicken drumstick 6 pieces/chicken-drumstick-6-3.jpg";
-import ChickenDurmtick64 from "../../asset/Superchicks images/Chicken Product image/Chiken drumstik pack of 6.jpg"
+import ChickenDurmtick64 from "../../asset/Superchicks images/Chicken Product image/Chiken drumstik pack of 6.jpg";
 
-import ChickenWings1 from "../../asset/img/Description/Chicken wings/chicken-wings-1.jpg"
-import ChickenWings2 from "../../asset/img/Description/Chicken wings/chicken-wings-2.jpg"
-import ChickenWings3 from "../../asset/img/Description/Chicken wings/chicken-wings-3.jpg"
-import ChickenWings4 from "../../asset/Superchicks images/Chicken Product image/Chiken WIngs.jpeg"
+import ChickenWings1 from "../../asset/img/Description/Chicken wings/chicken-wings-1.jpg";
+import ChickenWings2 from "../../asset/img/Description/Chicken wings/chicken-wings-2.jpg";
+import ChickenWings3 from "../../asset/img/Description/Chicken wings/chicken-wings-3.jpg";
+import ChickenWings4 from "../../asset/Superchicks images/Chicken Product image/Chiken WIngs.jpeg";
 
-import Chickenkeema1 from "../../asset/img/Description/Chicken keema/chickenkeema-1.jpg"
-import Chickenkeema2 from "../../asset/img/Description/Chicken keema/chickenkeema-2.jpg"
-import Chickenkeema3 from "../../asset/img/Description/Chicken keema/chickenkeema-3.jpg"
-import Chickenkeema4 from "../../asset/Superchicks images/Chicken Product image/chicken Mince [keema].jpeg"
+import Chickenkeema1 from "../../asset/img/Description/Chicken keema/chickenkeema-1.jpg";
+import Chickenkeema2 from "../../asset/img/Description/Chicken keema/chickenkeema-2.jpg";
+import Chickenkeema3 from "../../asset/img/Description/Chicken keema/chickenkeema-3.jpg";
+import Chickenkeema4 from "../../asset/Superchicks images/Chicken Product image/chicken Mince [keema].jpeg";
 
-import ChickenBreast1 from "../../asset/img/Description/Chicken Breast/chicken-breast-1.jpg"
-import ChickenBreast2 from "../../asset/img/Description/Chicken Breast/chicken-breast-2.jpg"
-import ChickenBreast3 from "../../asset/img/Description/Chicken Breast/chicken-breast-3.jpg"
-import ChickenBreast4 from "../../asset/Superchicks images/Chicken Product image/Chicken Breast.jpg"
-
-
+import ChickenBreast1 from "../../asset/img/Description/Chicken Breast/chicken-breast-1.jpg";
+import ChickenBreast2 from "../../asset/img/Description/Chicken Breast/chicken-breast-2.jpg";
+import ChickenBreast3 from "../../asset/img/Description/Chicken Breast/chicken-breast-3.jpg";
+import ChickenBreast4 from "../../asset/Superchicks images/Chicken Product image/Chicken Breast.jpg";
 
 import { useParams } from "react-router-dom";
 import { useCartContext } from "../../Context/cartContext";
 
 const MyImage = () => {
-
   const { setSingleImage } = useCartContext();
-
- 
 
   const image = [
     {
@@ -122,7 +117,6 @@ const MyImage = () => {
           imgs1: ChickenDurmtick24,
         },
       ],
-
     },
     {
       id: "ch-725",
@@ -180,16 +174,9 @@ const MyImage = () => {
     },
   ];
 
-
-
-
   const { id } = useParams();
   const img = image.filter((item) => item.id === id)[0];
-  setSingleImage(img.id)
-  console.log(img.id)
-
-
-
+  setSingleImage(img.id);
 
   return (
     <>

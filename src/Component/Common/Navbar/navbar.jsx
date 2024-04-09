@@ -13,15 +13,17 @@ import { RiShutDownLine } from "react-icons/ri";
 import Cookies from "js-cookie";
 
 const Navbar = () => {
-  const { cart, loggedInUser, setLoggedInUser } = useCartContext();
+  const { cart, loggedInUser, setLoggedInUser, clearCart } = useCartContext();
   const [showModal, setShowModal] = useState(false);
 
   let size = cart.length;
 
   const navigate = useNavigate();
   const handleLogout = () => {
+    Cookies.remove("loggedInUser");
     Cookies.remove("superChicks");
     setLoggedInUser(null);
+    clearCart();
     navigate("/");
   };
   return (

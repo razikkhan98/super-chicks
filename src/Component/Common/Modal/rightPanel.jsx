@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Modal } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useCartContext } from "../../Context/cartContext";
+import Cookies from "js-cookie";
 
 // Images
 import logo from "../../asset/img/Logo/logo.png";
@@ -17,13 +18,20 @@ const RightPanel = ({ showModal, setShowModal }) => {
 
   const { setLoggedInUser } = useCartContext();
 
+ 
+
   useEffect(() => {
     // Check if user is already logged in
-    const storedUser = localStorage.getItem("loggedInUser");
+    const storedUser = Cookies.get("loggedInUser");
     if (storedUser) {
-      setLoggedInUser(JSON.parse(storedUser));
+      setLoggedInUser(storedUser);
     }
-  }, [setLoggedInUser]);
+  }, []);
+
+
+  
+
+
 
 
 
@@ -37,9 +45,7 @@ const RightPanel = ({ showModal, setShowModal }) => {
 
   const onSubmit = async (data) => {
     setNumerate(data);
-    const mobiledata = { msg: "f", num: data.num };
-    console.log(typeof mobiledata);
-    console.log(mobiledata);
+   
 
     try {
       const response = await axios.post(
@@ -116,8 +122,9 @@ const RightPanel = ({ showModal, setShowModal }) => {
         setShowModal(false);
         const datasets = response.data.uid;
         setLoggedInUser(datasets);
-        localStorage.setItem("loggedInUser",datasets);
-        console.log(datasets);
+        Cookies.set("loggedInUser", datasets);
+
+        // localStorage.setItem("loggedInUser",datasets);
         toast.success("Login Successful", {
           position: "top-center",
           autoClose: 2000,
@@ -241,18 +248,7 @@ const RightPanel = ({ showModal, setShowModal }) => {
                         placeholder="Enter Phone Number"
                         {...register("num", {
                           required: "Phone Number is required",
-                          // pattern: {
-                          //   value: /^[0-9]{10}$/,
-                          //   message: "Invalid Phone Number",
-                          // },
-                          // minLength: {
-                          //   value: 10,
-                          //   message: "Invalid Phone Number",
-                          // },
-                          // maxLength: {
-                          //   value: 10,
-                          //   message: "Invalid Phone Number",
-                          // },
+                         
                         })}
                       />
                       {errors.num && (
