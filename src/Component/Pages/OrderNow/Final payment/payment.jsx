@@ -14,16 +14,16 @@ import { toast } from "react-toastify";
 import axios from "axios";
 
 const FinallPayment = () => {
-
-
   const [showSuccessModal, setShowSuccessModal] = useState(false);
 
-
-  const { cart, orderPayment, total_price, shipping_fee,clearCart  ,loggedInUser} = useCartContext();
-
-  // cart Null
-
-
+  const {
+    cart,
+    orderPayment,
+    total_price,
+    shipping_fee,
+    clearCart,
+    loggedInUser,
+  } = useCartContext();
 
 
   const {
@@ -32,24 +32,16 @@ const FinallPayment = () => {
     formState: { errors },
   } = useForm();
 
-  
- 
- 
-
   const onSubmit = async (finalPayment) => {
-
-
-    const fullData = { cart, orderPayment, finalPayment  ,loggedInUser};
+    const fullData = { cart, orderPayment, finalPayment, loggedInUser };
 
     const res = await axios.post(
       "https://api.superchicks.online/order_data",
       fullData
     );
     const datasets = res.data.msg;
-
     if (datasets === "Success") {
       setShowSuccessModal(true);
-
       toast.success("Order is successfully", {
         position: "top-center",
         autoClose: 2000,
@@ -60,16 +52,13 @@ const FinallPayment = () => {
         progress: undefined,
         theme: "light",
       });
-      clearCart()
-
-
+      clearCart();
     } else {
       toast.error(res.data.message);
     }
   };
 
   return (
-
     <>
       <NavbarGround />
       <div className="back-img-main">
@@ -135,7 +124,9 @@ const FinallPayment = () => {
                     type="text"
                     className="form-control my-2"
                     placeholder="Transaction ID"
-                    {...register("transaction", {})}
+                    {...register("transaction", {
+                      required: "Transaction ID is required",
+                    })}
                   />
                 </div>
                 <div className="col-lg-5 my-4">
@@ -167,8 +158,11 @@ const FinallPayment = () => {
 
       {/* Modal Succes Start */}
 
-      <SuccesModel showModal={showSuccessModal} setShowModal={setShowSuccessModal}/>
-      
+      <SuccesModel
+        showModal={showSuccessModal}
+        setShowModal={setShowSuccessModal}
+      />
+
       {/* Modal Succes End */}
 
       {/* Footer Start*/}

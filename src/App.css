@@ -356,6 +356,13 @@ a.learn_more2:hover {
   justify-content: space-between;
   padding: 25px 0px;
 }
+.form-check-input:checked{
+  background-color: var(--green-color);
+  color: var(--white-color);
+}
+.form-check{
+  padding-left: 10px;
+}
 /* Sign Up Page */
 /* ---------------------------------*/
 
