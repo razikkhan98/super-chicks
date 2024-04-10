@@ -6,34 +6,36 @@ import { useForm } from "react-hook-form";
 import { useCartContext } from "../../../Context/cartContext";
 import FormatPrice from "../../../Helpers/FormatPrice";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const OrderCheckoutPayment = () => {
   const { setOrderPayment, total_price, shipping_fee, cart } = useCartContext();
 
   const navigate = useNavigate();
 
+  const [showForm, setShowForm] = useState(true);
+  const [enteredZipcode, setEnteredZipcode] = useState("");
 
+  const [message, setMessage] = useState("");
+  const [selectedAddress, setSelectedAddress] = useState(null);
 
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
   const onSubmit = (data) => {
     setOrderPayment(data);
-    console.log(data);
-    navigate('/orderFinal')
+    reset();
+    navigate("/orderFinal");
   };
-
-  const [enteredZipcode, setEnteredZipcode] = useState("");
-
-  const [message, setMessage] = useState('')
 
   const pincode = [
     451010, 452001, 452002, 452003, 452004, 452005, 452006, 452007, 452008,
     452009, 452010, 452011, 452012, 452013, 452014, 452015, 452016, 452018,
-    452020, 453111, 453112, 453331, 453332, 453555, 453556, 453771, 456015
+    452020, 453111, 453112, 453331, 453332, 453555, 453556, 453771, 456015,
   ];
 
   const handleZipcodeChange = (event) => {
@@ -44,63 +46,87 @@ const OrderCheckoutPayment = () => {
     } else {
       setMessage("Invalid zipcode");
     }
-
   };
 
-  const addressjson = [{
+  // api get method in axios
+  // const Api = "https://api.superchicks.online";
 
-    "address": "123 Main Street green Park Indore ",
-    "name": "admin",
-    "ctiy": "Paris",
-    "zipcode": "452001",
-    "number": "1234567"
-  }, {
-    "address": "777 North West rajwada indore",
-    "name": "Berlin",
-    "city": "France",
-    "zipcode": "452001",
-    "number": "1234567"
-  },
-  {
-    "address": "55 anpurna road  Indore",
-    "name": "Panel",
-    "city": "Indore",
-    "zipcode": "452001",
-    "number": "1234567"
-  }
 
-  ]
+  // const GetAddress = async () => {
+  //   const response = await axios.get(Api);
 
-  const [showForm, setShowForm] = useState(true);
-  var a = 7
+  //   const { data } = response;
+
+
+  // };
+
+  // useEffect(() => {
+  //   GetAddress()
+  // }, []);
+
+
+
+
+
+
+
+
+  const addressjson = [
+    {
+      address: "123 Main Street green Park Indore ",
+      name: "admin",
+      ctiy: "Paris",
+      zipcode: "452001",
+      number: "1234567",
+      landmark: "Kazi clinic"
+    },
+    {
+      address: "777 North West rajwada indore",
+      name: "Berlin",
+      city: "France",
+      zipcode: "452001",
+      number: "1234567",
+      landmark: "Kazi clinic"
+
+    },
+    {
+      address: "55 anpurna road  Indore",
+      name: "Panel",
+      city: "Indore",
+      zipcode: "452001",
+      number: "1234567",
+      landmark: "Kazi clinic"
+
+    },
+  ];
+
+  var a = 7;
   useEffect(() => {
-    if (a == 7) {
+    if (a === 7) {
       setShowForm(false);
     }
   }, []);
-  // const [selectedAddress, setSelectedAddress] = useState('');
-  // const handleRadioChange = (event) => {
-  //   setSelectedAddress(event.target.value);
-  // };
+
   const RadioSubmit = () => {
-    if (selectedAddress === '') {
+    if (selectedAddress === "") {
       console.log("Selected Address is empty");
     } else {
       console.log("Selected Address:", selectedAddress);
-      navigate('/orderFinal');
+      navigate("/orderFinal");
     }
   };
-
-  const [selectedAddress, setSelectedAddress] = useState(null);
 
   const handleRadioChange = (event) => {
     setSelectedAddress(event.target.value);
   };
 
   const logSelectedAddress = () => {
-    const selected = addressjson.find(address => address.address === selectedAddress);
-    console.log(selected);
-      navigate('/orderFinal');
+    const selected = addressjson.find(
+      (address) => address.address === selectedAddress
+    );
+    setOrderPayment(selected);
+    reset();
+    navigate("/orderFinal");
   };
 
   const handleRadioClick = (address) => {
@@ -131,10 +157,24 @@ const OrderCheckoutPayment = () => {
                           placeholder="Name"
                           {...register("name", {
                             required: "Name is required",
+                            pattern: {
+                              value: /^[a-zA-Z ]+$/g,
+                              message: "Only letters are allowed",
+                            },
+                            minLength: {
+                              value: 3,
+                              message: "Minimum 3 characters",
+                            },
+                            maxLength: {
+                              value: 20,
+                              message: "Maximum 20 characters",
+                            },
                           })}
                         />
                         {errors.name && (
-                          <div className="text-danger">{errors.name.message}</div>
+                          <div className="text-danger">
+                            {errors.name.message}
+                          </div>
                         )}
                       </div>
                       <div className="col-lg-6 pt-4">
@@ -148,8 +188,21 @@ const OrderCheckoutPayment = () => {
                           placeholder="Phone Number"
                           {...register("number", {
                             required: "Phone Number is required",
+                            pattern: {
+                              value: /^\d{10}$/,
+                              message: "Invalid phone number",
+                            },
+                            minLength: {
+                              value: 10,
+                              message: "Phone number must be exactly 10 digits",
+                            },
+                            maxLength: {
+                              value: 10,
+                              message: "Phone number must be exactly 10 digits",
+                            },
                           })}
                         />
+
                         {errors.number && (
                           <div className="text-danger">
                             {errors.number.message}
@@ -167,6 +220,11 @@ const OrderCheckoutPayment = () => {
                           placeholder="Email Address"
                           {...register("email", {
                             required: "Email is required",
+                            pattern: {
+                              value:
+                                /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+                              message: "Invalid email",
+                            },
                           })}
                         />
                         {errors.email && (
@@ -205,6 +263,20 @@ const OrderCheckoutPayment = () => {
                           placeholder="Street Address"
                           {...register("street", {
                             required: "Street Address is required",
+                            pattern: {
+                              value: /^[a-zA-Z0-9\s]+$/,
+                              message: "Invalid street address",
+                            },
+                            minLength: {
+                              value: 3,
+                              message:
+                                "Street address must be at least 3 characters",
+                            },
+                            maxLength: {
+                              value: 100,
+                              message:
+                                "Street address must be at most 100 characters",
+                            },
                           })}
                         />
                         {errors.street && (
@@ -224,6 +296,19 @@ const OrderCheckoutPayment = () => {
                           placeholder="Nearest Landmark"
                           {...register("landmark", {
                             required: "Landmark is required",
+                            pattern: {
+                              value: /^[a-zA-Z0-9\s]+$/,
+                              message: "Invalid landmark",
+                            },
+                            minLength: {
+                              value: 3,
+                              message: "Landmark must be at least 3 characters",
+                            },
+                            maxLength: {
+                              value: 100,
+                              message:
+                                "Landmark must be at most 100 characters",
+                            },
                           })}
                         />
                         {errors.landmark && (
@@ -244,11 +329,7 @@ const OrderCheckoutPayment = () => {
                           value={enteredZipcode}
                           onChange={handleZipcodeChange}
                         />
-                        {errors.zipcode && (
-                          <div className="text-danger">
-                            {errors.zipcode.message}
-                          </div>
-                        )}
+                       
                         <div className="text-color-red">{message}</div>
                       </div>
                     </div>
@@ -312,7 +393,6 @@ const OrderCheckoutPayment = () => {
                           required: "Additional Information is required",
                         })}
                       />
-
                     </div>
                   </div>
                 </div>
@@ -329,14 +409,16 @@ const OrderCheckoutPayment = () => {
                     <hr />
                     {cart.map((link) => (
                       <div className="row">
-
                         <div className="col-lg-8 text-color-gray">
                           {link.name}
 
-
-                          <span className="ps-5 fw-bold text-color-black">{link.amount}</span>
+                          <span className="ps-5 fw-bold text-color-black">
+                            {link.amount}
+                          </span>
                         </div>
-                        <div className="col-lg-4 pe-5 fw-bold text-end"><FormatPrice price={link.price * link.amount} /></div>
+                        <div className="col-lg-4 pe-5 fw-bold text-end">
+                          <FormatPrice price={link.price * link.amount} />
+                        </div>
                       </div>
                     ))}
 
@@ -344,22 +426,30 @@ const OrderCheckoutPayment = () => {
 
                     <div className="row">
                       <div className="col-lg-8 fw-bold">Subtotal</div>
-                      <div className="col-lg-4 pe-5 fw-bold text-end"><FormatPrice price={total_price} /></div>
+                      <div className="col-lg-4 pe-5 fw-bold text-end">
+                        <FormatPrice price={total_price} />
+                      </div>
                     </div>
                     <hr />
                     <div className="row">
                       <div className="col-lg-8 fw-bold">Shipping Charge</div>
-                      <div className="col-lg-4 pe-5 fw-bold text-end"><FormatPrice price={shipping_fee} /></div>
+                      <div className="col-lg-4 pe-5 fw-bold text-end">
+                        <FormatPrice price={shipping_fee} />
+                      </div>
                     </div>
                     <hr />
                     <div className="row">
                       <div className="col-lg-8 fw-bold">Promo Discount</div>
-                      <div className="col-lg-4 pe-5 fw-bold text-end">{ }</div>
+                      <div className="col-lg-4 pe-5 fw-bold text-end">{}</div>
                     </div>
                     <hr />
                     <div className="row">
-                      <div className="col-lg-8 text-color-gray">Order Total</div>
-                      <div className="col-lg-4 pe-5 fw-bold text-end"><FormatPrice price={total_price + shipping_fee} /></div>
+                      <div className="col-lg-8 text-color-gray">
+                        Order Total
+                      </div>
+                      <div className="col-lg-4 pe-5 fw-bold text-end">
+                        <FormatPrice price={total_price + shipping_fee} />
+                      </div>
                     </div>
                   </div>
 
@@ -377,58 +467,63 @@ const OrderCheckoutPayment = () => {
               </form>
             ) : (
               <>
-                {/* <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="address"
-                    id="address1"
-                    value="Address 1"
-                    checked={selectedAddress === "Address 1"}
-                    onChange={handleRadioChange}
-                  />
-                  <label className="form-check-label" htmlFor="address1">
-                    Address 1
-                  </label>
-                </div>
-                <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="address"
-                    id="address2"
-                    value="Address 2"
-                    checked={selectedAddress === "Address 2"}
-                    onChange={handleRadioChange}
-                  />
-                  <label className="form-check-label" htmlFor="address2">
-                    Address 2
-                  </label>
-                </div> */}
+               
                 <div className="row">
                   {addressjson.map((address, index) => (
-                    <div className="col-lg-4 form-check my-1" key={index}>
-                      <div onClick={() => handleRadioClick(address.address)} className={"radio-box border rounded w- justify-content-between p-2" + (selectedAddress === address.address ? " border-primary border-3" : "")}>
-
-                        <div className="d-flex justify-content-between align-items-center m-2"><span>Name : <strong className="mx-2">{address.name}</strong></span> <input
-                          className="form-check-input text-end float-none m-0"
-                          type="radio"
-                          name="address"
-                          id={"address" + (index + 1)}
-                          value={address.address}
-                          checked={selectedAddress === address.address}
-                          onChange={handleRadioChange}
-                        />
+                    <div className="col-lg-6 col-sm-12 form-check my-1" key={index}>
+                      <div
+                        onClick={() => handleRadioClick(address.address)}
+                        className={
+                          "radio-box border rounded justify-content-between p-2" +
+                          (selectedAddress === address.address
+                            ? " border-success border-3"
+                            : "")
+                        }
+                      >
+                        <div className="d-flex justify-content-between align-items-center m-2">
+                          <div>
+                            Name :
+                            <strong className="mx-2">{address.name}</strong>
+                          </div>
+                          <input
+                            className="form-check-input text-end float-none m-0"
+                            type="radio"
+                            name="address"
+                            id={"address" + (index + 1)}
+                            value={address.address}
+                            checked={selectedAddress === address.address}
+                            onChange={handleRadioChange}
+                          />
                         </div>
-                        <span className="my-2 d-block mx-2">Number : <strong className="mx-2">{address.number}</strong></span>
+                        <div className="my-2 d-block mx-2">
+                          Number :
+                          <strong className="mx-2">{address.number}</strong>
+                        </div>
 
-                        <span className="my-2 m-0 px-2 d-block">Address:<strong className="m-0">{address.address}</strong>
-                        </span>
+                        <div className="my-2 m-0 px-2 d-block">
+                          Address:
+                          <strong className="mx-2">{address.address}</strong>
+                        </div>
+                        <div className="my-2 m-0 px-2 d-block">
+                        Nearest Landmark:
+                          <strong className="mx-2">{address.address}</strong>
+                        </div>
                       </div>
                     </div>
                   ))}
                 </div>
-                <Button onClick={() => setShowForm(true)}>Fill New Details</Button>
+                {/* <Button onClick={() => setShowForm(true)}>
+                  Fill New Details
+                </Button> */}
+                <div className="d-flex justify-content-start">
+                  <Button
+                    variant=" btn-danger text-light bg-danger px-5 mt-5"
+                    onClick={() => setShowForm(true)}
+                  >
+                    Fill New Details
+                  </Button>
+                </div>
+
                 <div className="my-5 row pe-4">
                   <div className="col-lg-8">
                     <div>Your Order</div>
@@ -442,14 +537,16 @@ const OrderCheckoutPayment = () => {
                     <hr />
                     {cart.map((link) => (
                       <div className="row">
-
                         <div className="col-lg-8 text-color-gray">
                           {link.name}
 
-
-                          <span className="ps-5 fw-bold text-color-black">{link.amount}</span>
+                          <span className="ps-5 fw-bold text-color-black">
+                            {link.amount}
+                          </span>
                         </div>
-                        <div className="col-lg-4 pe-5 fw-bold text-end"><FormatPrice price={link.price * link.amount} /></div>
+                        <div className="col-lg-4 pe-5 fw-bold text-end">
+                          <FormatPrice price={link.price * link.amount} />
+                        </div>
                       </div>
                     ))}
 
@@ -457,22 +554,30 @@ const OrderCheckoutPayment = () => {
 
                     <div className="row">
                       <div className="col-lg-8 fw-bold">Subtotal</div>
-                      <div className="col-lg-4 pe-5 fw-bold text-end"><FormatPrice price={total_price} /></div>
+                      <div className="col-lg-4 pe-5 fw-bold text-end">
+                        <FormatPrice price={total_price} />
+                      </div>
                     </div>
                     <hr />
                     <div className="row">
                       <div className="col-lg-8 fw-bold">Shipping Charge</div>
-                      <div className="col-lg-4 pe-5 fw-bold text-end"><FormatPrice price={shipping_fee} /></div>
+                      <div className="col-lg-4 pe-5 fw-bold text-end">
+                        <FormatPrice price={shipping_fee} />
+                      </div>
                     </div>
                     <hr />
                     <div className="row">
                       <div className="col-lg-8 fw-bold">Promo Discount</div>
-                      <div className="col-lg-4 pe-5 fw-bold text-end">{ }</div>
+                      <div className="col-lg-4 pe-5 fw-bold text-end">{}</div>
                     </div>
                     <hr />
                     <div className="row">
-                      <div className="col-lg-8 text-color-gray">Order Total</div>
-                      <div className="col-lg-4 pe-5 fw-bold text-end"><FormatPrice price={total_price + shipping_fee} /></div>
+                      <div className="col-lg-8 text-color-gray">
+                        Order Total
+                      </div>
+                      <div className="col-lg-4 pe-5 fw-bold text-end">
+                        <FormatPrice price={total_price + shipping_fee} />
+                      </div>
                     </div>
                   </div>
 
@@ -480,7 +585,8 @@ const OrderCheckoutPayment = () => {
                   <div className="d-flex justify-content-end">
                     <Button
                       variant=" btn-danger text-light bg-danger px-5 mt-5"
-                      type="button" onClick={logSelectedAddress}
+                      type="button"
+                      onClick={logSelectedAddress}
                     >
                       Place Order
                     </Button>

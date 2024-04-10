@@ -18,8 +18,6 @@ const RightPanel = ({ showModal, setShowModal }) => {
 
   const { setLoggedInUser } = useCartContext();
 
- 
-
   useEffect(() => {
     // Check if user is already logged in
     const storedUser = Cookies.get("loggedInUser");
@@ -27,14 +25,6 @@ const RightPanel = ({ showModal, setShowModal }) => {
       setLoggedInUser(storedUser);
     }
   }, []);
-
-
-  
-
-
-
-
-
 
   const {
     register,
@@ -45,7 +35,6 @@ const RightPanel = ({ showModal, setShowModal }) => {
 
   const onSubmit = async (data) => {
     setNumerate(data);
-   
 
     try {
       const response = await axios.post(
@@ -248,7 +237,6 @@ const RightPanel = ({ showModal, setShowModal }) => {
                         placeholder="Enter Phone Number"
                         {...register("num", {
                           required: "Phone Number is required",
-                         
                         })}
                       />
                       {errors.num && (

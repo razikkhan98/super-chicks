@@ -88,7 +88,14 @@ const Navbar = () => {
                           className="dropdown-menu"
                           aria-labelledby="dropdownMenuLink"
                         >
-                          <hr />
+                          {/* <hr /> */}
+                          <li className="nav-item">
+                            <NavLink to="/order" className="nav-link">
+                              <span className="nav-link-text">
+                                Orders
+                              </span>
+                            </NavLink>
+                          </li>
                           <li className="px-4 user-select-auto">
                             <button
                               className="btn border-0 text-white  gradient-custom-2 my-2 w-100 custom-btn btn-11"
