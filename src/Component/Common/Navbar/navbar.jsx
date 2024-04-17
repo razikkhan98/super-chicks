@@ -92,7 +92,7 @@ const Navbar = () => {
                           <li className="nav-item">
                             <NavLink to="/order" className="nav-link">
                               <span className="nav-link-text">
-                                Orders
+                              Logout
                               </span>
                             </NavLink>
                           </li>

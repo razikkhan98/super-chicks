@@ -25,7 +25,6 @@ const FinallPayment = () => {
     loggedInUser,
   } = useCartContext();
 
-
   const {
     register,
     handleSubmit,
@@ -35,26 +34,36 @@ const FinallPayment = () => {
   const onSubmit = async (finalPayment) => {
     const fullData = { cart, orderPayment, finalPayment, loggedInUser };
 
-    const res = await axios.post(
-      "https://api.superchicks.online/order_data",
-      fullData
-    );
-    const datasets = res.data.msg;
-    if (datasets === "Success") {
-      setShowSuccessModal(true);
-      toast.success("Order is successfully", {
-        position: "top-center",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-      clearCart();
-    } else {
-      toast.error(res.data.message);
+    try {
+      const res = await axios.post(
+        "https://api.superchicks.online/order_data",
+        fullData
+      );
+      const datasets = res.data.msg;
+      if (datasets === "Success") {
+        setShowSuccessModal(true);
+        toast.success("Order is successfully", {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        clearCart();
+      } else {
+        toast.error(res.data.message);
+      }
+    } catch (error) {
+      if (error.response) {
+        toast.error(error.response.data.message);
+      } else if (error.request) {
+        toast.error("Network Error: Please check your internet connection");
+      } else {
+        toast.error("An unexpected error occurred");
+      }
     }
   };
 

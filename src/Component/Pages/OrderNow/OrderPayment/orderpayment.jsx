@@ -7,17 +7,19 @@ import { useCartContext } from "../../../Context/cartContext";
 import FormatPrice from "../../../Helpers/FormatPrice";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const OrderCheckoutPayment = () => {
-  const { setOrderPayment, total_price, shipping_fee, cart } = useCartContext();
+  const { setOrderPayment, total_price, shipping_fee, cart, loggedInUser } =
+    useCartContext();
 
   const navigate = useNavigate();
 
   const [showForm, setShowForm] = useState(true);
   const [enteredZipcode, setEnteredZipcode] = useState("");
-
   const [message, setMessage] = useState("");
   const [selectedAddress, setSelectedAddress] = useState(null);
+  const [addressData, setAddressdata] = useState();
 
   const {
     register,
@@ -48,85 +50,109 @@ const OrderCheckoutPayment = () => {
     }
   };
 
-  // api get method in axios
-  // const Api = "https://api.superchicks.online";
+  const Api = "https://api.superchicks.online/address";
 
+  const PostAddress = async () => {
+    try {
+      const response = await axios.post(
+        Api,
+        {
+          loggedInUser,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json", // Adjust content type according to your API requirements
+            Authorization: "Bearer yourAccessToken", // Include your authorization token here if needed
+            "Access-Control-Allow-Origin": "*", // Required for CORS support to work
+            "Access-Control-Allow-Methods": "POST",
+            "Access-Control-Allow-Headers": "X-Requested-With,content-type",
+          },
+        }
+      );
 
-  // const GetAddress = async () => {
-  //   const response = await axios.get(Api);
+      const { data } = response;
+      setAddressdata(data);
+    } catch (error) {
+      if (error.response) {
+        toast.error(error.response.data.message);
+      } else if (error.request) {
+        toast.error("Network Error: Please check your internet connection");
+      } else {
+        toast.error("An unexpected error occurred");
+      }
+    }
+  };
+  useEffect(() => {
+    PostAddress();
+  }, []);
 
-  //   const { data } = response;
-
-
-  // };
-
-  // useEffect(() => {
-  //   GetAddress()
-  // }, []);
-
-
-
-
-
-
-
-
-  const addressjson = [
-    {
-      address: "123 Main Street green Park Indore ",
-      name: "admin",
-      ctiy: "Paris",
-      zipcode: "452001",
-      number: "1234567",
-      landmark: "Kazi clinic"
-    },
-    {
-      address: "777 North West rajwada indore",
-      name: "Berlin",
-      city: "France",
-      zipcode: "452001",
-      number: "1234567",
-      landmark: "Kazi clinic"
-
-    },
-    {
-      address: "55 anpurna road  Indore",
-      name: "Panel",
-      city: "Indore",
-      zipcode: "452001",
-      number: "1234567",
-      landmark: "Kazi clinic"
-
-    },
-  ];
+  // const addressjson = [
+  //   {
+  //     address: "123 Main Street green Park Indore ",
+  //     name: "admin",
+  //     ctiy: "Paris",
+  //     zipcode: "452001",
+  //     number: "1234567",
+  //     landmark: "Kazi clinic",
+  //   },
+  //   {
+  //     address: "777 North West rajwada indore",
+  //     name: "Berlin",
+  //     city: "France",
+  //     zipcode: "452001",
+  //     number: "1234567",
+  //     landmark: "Kazi clinic",
+  //   },
+  //   {
+  //     address: "55 anpurna road  Indore",
+  //     name: "Panel",
+  //     city: "Indore",
+  //     zipcode: "452001",
+  //     number: "1234567",
+  //     landmark: "Kazi clinic",
+  //   },
+  // ];
 
   var a = 7;
   useEffect(() => {
     if (a === 7) {
       setShowForm(false);
     }
-  }, []);
-
-  const RadioSubmit = () => {
-    if (selectedAddress === "") {
-      console.log("Selected Address is empty");
+    if (addressData && addressData.length > 0) {
+      const selected = addressData.find(
+        (address) => address.address === selectedAddress
+      );
+      setOrderPayment(selected);
+      reset();
+      console.log("card");
     } else {
-      console.log("Selected Address:", selectedAddress);
-      navigate("/orderFinal");
+      setShowForm(true);
+      console.log("form");
     }
-  };
+    
+  }, []);
 
   const handleRadioChange = (event) => {
     setSelectedAddress(event.target.value);
   };
 
   const logSelectedAddress = () => {
-    const selected = addressjson.find(
-      (address) => address.address === selectedAddress
-    );
-    setOrderPayment(selected);
-    reset();
-    navigate("/orderFinal");
+    // let selected;
+    if (addressData.find((address) => address.address === selectedAddress)) {
+      navigate("/orderFinal");
+    } else {
+      console.log("please select");
+      toast.info("please select", {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
   };
 
   const handleRadioClick = (address) => {
@@ -329,7 +355,7 @@ const OrderCheckoutPayment = () => {
                           value={enteredZipcode}
                           onChange={handleZipcodeChange}
                         />
-                       
+
                         <div className="text-color-red">{message}</div>
                       </div>
                     </div>
@@ -467,10 +493,12 @@ const OrderCheckoutPayment = () => {
               </form>
             ) : (
               <>
-               
                 <div className="row">
-                  {addressjson.map((address, index) => (
-                    <div className="col-lg-6 col-sm-12 form-check my-1" key={index}>
+                  {addressData.map((address, index) => (
+                    <div
+                      className="col-lg-6 col-sm-12 form-check my-1"
+                      key={index}
+                    >
                       <div
                         onClick={() => handleRadioClick(address.address)}
                         className={
@@ -505,7 +533,7 @@ const OrderCheckoutPayment = () => {
                           <strong className="mx-2">{address.address}</strong>
                         </div>
                         <div className="my-2 m-0 px-2 d-block">
-                        Nearest Landmark:
+                          Nearest Landmark:
                           <strong className="mx-2">{address.address}</strong>
                         </div>
                       </div>
@@ -529,7 +557,9 @@ const OrderCheckoutPayment = () => {
                     <div>Your Order</div>
                     <hr />
                     <div className="row">
-                      <div className="col-lg-6 ps-3 fw-bold">Product</div>
+                      <div className="col-lg-6 ps-3 fw-bold">
+                        Productyhfyujfiyfyuf
+                      </div>
                       <div className="col-lg-6 pe-5 fw-bold text-end">
                         Subtotal
                       </div>
@@ -540,6 +570,7 @@ const OrderCheckoutPayment = () => {
                         <div className="col-lg-8 text-color-gray">
                           {link.name}
 
+                          <h3>x</h3>
                           <span className="ps-5 fw-bold text-color-black">
                             {link.amount}
                           </span>

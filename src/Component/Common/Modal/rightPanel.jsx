@@ -70,16 +70,13 @@ const RightPanel = ({ showModal, setShowModal }) => {
         reset();
       }
     } catch (error) {
-      toast.error("Otp messages in not send", {
-        position: "top-center",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
+      if (error.response) {
+        toast.error(error.response.data.message);
+      } else if (error.request) {
+        toast.error("Network Error: Please check your internet connection");
+      } else {
+        toast.error("An unexpected error occurred");
+      }
       reset();
     }
   };
@@ -128,19 +125,16 @@ const RightPanel = ({ showModal, setShowModal }) => {
         setActive(false);
       }
     } catch (error) {
-      toast.error("Login failed", {
-        position: "top-center",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
       setShowModal(false);
       setActive(false);
       reset();
+      if (error.response) {
+        toast.error(error.response.data.message);
+      } else if (error.request) {
+        toast.error("Network Error: Please check your internet connection");
+      } else {
+        toast.error("An unexpected error occurred");
+      }
     }
   };
 
@@ -183,19 +177,16 @@ const RightPanel = ({ showModal, setShowModal }) => {
         setActive(false);
       }
     } catch (error) {
-      toast.error("Login failed", {
-        position: "top-center",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
       setShowModal(false);
       setActive(false);
       reset();
+      if (error.response) {
+        toast.error(error.response.data.message);
+      } else if (error.request) {
+        toast.error("Network Error: Please check your internet connection");
+      } else {
+        toast.error("An unexpected error occurred");
+      }
     }
   };
 

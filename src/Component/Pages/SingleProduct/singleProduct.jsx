@@ -191,33 +191,9 @@ const SingleProduct = () => {
                   </ReactWhatsapp>
                 </div>
 
-                <h4 className="price-heading  pt-2">
-                  Raw Chicken Mince with Bone
-                </h4>
+                
                 <p className="description">{description}</p>
-                {/* <div className="product-offer">Offers</div> */}
-                {/* <div className="product-offer-card d-flex justify-content-evenly my-3">
-                  <div className="offer-card-1 me-2 p-2">
-                    <p>Rs125 cashback & Rs475 welcome rewards</p>
-                    <a href="/" className="offer-card-terms">
-                      Terms & Conditions
-                    </a>
-                  </div>
-                  <div className="offer-card-2 me-2 p-2  ">
-                    <p>Get upto 30% Off on order value above Rs100</p>
-                    <a href="/" className="offer-card-terms">
-                      Terms & Conditions
-                    </a>
-                  </div>
-                  <div>
-                    <a
-                      href="/"
-                      className="offer-card-3 d-flex align-items-center justify-content-center"
-                    >
-                      View More Offers
-                    </a>
-                  </div>
-                </div> */}
+               
               </div>
               {/* {stock > 0 && ( */}
               <div className="col-lg-7 col-sm-12">
