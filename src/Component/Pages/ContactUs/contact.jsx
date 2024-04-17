@@ -25,7 +25,6 @@ const Contact = () => {
         data
       );
       const msg = response.data.msg;
-
       if (msg === "Success") {
         toast.info("Message Successful", {
           position: "top-center",
@@ -39,16 +38,13 @@ const Contact = () => {
         });
       }
     } catch (error) {
-      toast.error("Message failed", {
-        position: "top-center",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
+      if (error.response) {
+        toast.error(error.response.data.message);
+      } else if (error.request) {
+        toast.error("Network Error: Please check your internet connection");
+      } else {
+        toast.error("An unexpected error occurred");
+      }
     }
   };
 
