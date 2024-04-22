@@ -88,25 +88,38 @@ const Home = () => {
       description:
         "Great service, always get helpful and quick responses & I m impressed with the quality of the Chicken & Mutton.",
       img: team1,
+      star: <FaStar />,
+      // faStarHalf :<FaStarHalfAlt/>,
+      faRegStar: <FaRegStar />,
     },
     {
-      name: "Mohammad Noor",
+      name: "Abhishek",
       description:
         "As a conscientious consumer, I appreciate Super Chicks commitment to ethical sourcing practices. ",
       img: team2,
+      star: <FaStar />,
+      faStarHalf: <FaStarHalfAlt />,
+      // faRegStar: <FaRegStar />,
     },
   ];
 
   const CostumerImgsecond = [
     {
-      name: "Dr. Anas",
-      description1: "Great service, always get helpful and quick responses & I m impressed with the quality of the Chicken & Mutton.",
+      name: "Dr. Akash",
+      description1:
+        "Great service, always get helpful and quick responses & I m impressed with the quality of the Chicken & Mutton.",
       img1: team3,
+      star: <FaStar />,
+      faStarHalf: <FaStarHalfAlt />,
     },
     {
-      name: "Shoaib",
-      description1: "As a conscientious consumer, I appreciate Super Chicks commitment to ethical sourcing practices.",
+      name: "Ankit",
+      description1:
+        "As a conscientious consumer, I appreciate Super Chicks commitment to ethical sourcing practices.",
       img1: team4,
+      star: <FaStar />,
+      // faStarHalf :<FaStarHalfAlt/>,
+      faRegStar: <FaRegStar />,
     },
   ];
 
@@ -201,8 +214,9 @@ const Home = () => {
                 id="carouselExampleIndicators"
                 className="carousel slide"
                 data-bs-ride="carousel"
+                data-bs-interval="1000"
               >
-                <div className="carousel-inner">
+                <div className="carousel-inner" >
                   <div className="carousel-item active">
                     <div className="card-slide">
                       <div className="costumer-wrapper">
@@ -216,11 +230,16 @@ const Home = () => {
                                 <div className="costumer-author-info">
                                   <h4>{link.name}</h4>
                                   <div className="costumer-rate">
-                                    <FaStar />
+                                    {/* <FaStar />
                                     <FaStar />
                                     <FaStar />
                                     <FaStarHalfAlt />
-                                    <FaRegStar />
+                                    <FaRegStar /> */}
+                                    {link.star}
+                                    {link.star}
+                                    {link.star}
+                                    {link.faRegStar}
+                                    {link.faStarHalf}
                                   </div>
                                 </div>
                               </div>

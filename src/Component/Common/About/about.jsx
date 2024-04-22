@@ -12,10 +12,10 @@ const About = () => {
       <div className="container">
         <div className="row">
           <div className="col-lg-5">
-            <div className="py-4 mb-3">
-              <img src={Logo} alt="Logo" className="about-img" />
+            <div className="py-4 mb-4">
+              <img src={Logo} alt="Logo" className="about-img img-fluid" />
             </div>
-            <div className="about-content">
+            <div className="about-content ">
               <h3>
                 About
                 <span> SuperChicks</span>

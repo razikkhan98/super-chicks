@@ -19,7 +19,7 @@ const TopContent = ({ title,title2,title3, description, button, img }) => {
                   <h2 className="fs-1 fw-medium fw-bold">{title2}</h2>
                   <h2 className="fw-1 fw-medium fw-bold">{title3}</h2>
 
-                  <p>{description}</p>
+                  <p className="mt-4">{description}</p>
                   <NavLink to='/order' className='text-decoration-none'>
                   {button.length === 0 ? null : <Button button={button} />}
                 </NavLink>
