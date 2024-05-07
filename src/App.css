@@ -4,7 +4,6 @@
   box-sizing: border-box;
 }
 
-
 :root {
   --red-color: #db1516;
   --black-color: #000000;
@@ -20,7 +19,7 @@
 }
 
 .back-img-main {
-  background-image: url(./Component/asset/img/Home/background-img.png );
+  background-image: url(./Component/asset/img/Home/background-img.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -51,8 +50,23 @@ a.order-now-button {
   -moz-transition: all 0.2s ease-in-out;
   -webkit-transition: all 0.2s ease-in-out;
 }
-
 a.order-now-button:hover {
+  background: #ffffff;
+  color: var(--red-color);
+}
+
+.order-now-button {
+  padding: 8px 20px;
+  font-size: 12px;
+  color: #ffffff !important;
+  background: var(--red-color) !important;
+  border-radius: 50px;
+  text-decoration: none !important;
+  transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+}
+.order-now-button:hover {
   background: #ffffff;
   color: var(--red-color);
 }
@@ -74,7 +88,7 @@ a.order-now-button:hover {
 .fs-7 {
   font-size: 13px;
 }
-.cursor-pointer{
+.cursor-pointer {
   cursor: pointer;
 }
 /* Navbar Common */
@@ -179,7 +193,6 @@ a.order-now-button:hover {
   bottom: 0px;
 }
 
-
 .home-heading h2 {
   font-size: 30px;
   color: var(--red-color);
@@ -213,7 +226,7 @@ a.learn_more2:hover {
 /* ---------------------------------*/
 
 .about-img {
-  width: 20%;
+  width: 35%;
   display: inline-block;
 }
 
@@ -237,7 +250,7 @@ a.learn_more2:hover {
 }
 
 .about-page-img img {
-  width: 65%;
+  width: 85%;
   display: inline-block;
 }
 
@@ -252,6 +265,9 @@ a.learn_more2:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: rgb(217, 201, 201) 0px 0px 55px 0px;
+}
+.circle:hover {
   box-shadow: rgba(219, 21, 22, 0.5) 0px 0px 55px 0px;
 }
 
@@ -356,18 +372,18 @@ a.learn_more2:hover {
   justify-content: space-between;
   padding: 25px 0px;
 }
-.form-check-input:checked{
+.form-check-input:checked {
   background-color: var(--green-color);
   color: var(--white-color);
 }
-.form-check{
+.form-check {
   padding-left: 10px;
 }
 /* Sign Up Page */
 /* ---------------------------------*/
 
 .sign-up-button {
-  padding: 10px 100px;
+  padding: 10px 75px;
   background-color: var(--red-color);
   color: var(--white-color);
   border-radius: 10px;
@@ -573,13 +589,15 @@ a.learn_more2:hover {
 }
 
 .add-to-cart-button {
-  padding: 9px 100px;
+  padding: 10px 53px;
   color: var(--red-color);
   border: 2px solid red;
   border-radius: 10px;
   text-decoration: none;
   background-color: var(--white-color);
   cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
 .add-to-cart-button:hover {
@@ -721,13 +739,16 @@ a.learn_more2:hover {
   width: 439.59px;
   height: 439.59px;
 }
-.add-ot-cart{
+.add-ot-cart {
   display: flex;
   justify-content: end;
 }
-.buy-now{
+.buy-now {
   display: flex;
   justify-content: start;
+}
+.description-text {
+  margin-left: 50px;
 }
 
 /* Cart Page */
@@ -860,17 +881,14 @@ a.learn_more2:hover {
     display: flex;
     margin-right: 5px;
   }
-  .add-ot-cart{
+  .add-ot-cart {
     display: flex;
     justify-content: center;
   }
-  .buy-now{
+  .buy-now {
     display: flex;
     justify-content: center;
   }
-
-
-  
 }
 
 @media screen and (max-width: 767px) {
@@ -889,12 +907,11 @@ a.learn_more2:hover {
   .description-text {
     display: flex;
     justify-content: center;
+    margin-left: 25px;
   }
   .costumer-wrapper {
     display: block;
   }
- 
-  
 }
 
 @media screen and (max-width: 576px) {

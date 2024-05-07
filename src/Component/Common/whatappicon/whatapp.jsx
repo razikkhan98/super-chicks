@@ -8,8 +8,8 @@ const WhatApp = () => {
       <div>
         <ReactWhatsapp
           className="whatsapp-sect"
-          number="+919244276667"
-          message="Hello World"
+          number="+91 9244276667"
+          message="Hello"
         >
           <IoLogoWhatsapp className="text-white btn--shockwave is-active" />
         </ReactWhatsapp>

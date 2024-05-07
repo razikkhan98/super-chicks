@@ -51,7 +51,7 @@ const MyImage = () => {
       title: "Chicken mixed with bone",
       imgs: [
         {
-          imgs1: ChickenMixBone1,
+          imgs1: ChickenMixBone4,
         },
         {
           imgs1: ChickenMixBone2,
@@ -60,7 +60,7 @@ const MyImage = () => {
           imgs1: ChickenMixBone3,
         },
         {
-          imgs1: ChickenMixBone4,
+          imgs1: ChickenMixBone1,
         },
       ],
     },
@@ -69,7 +69,7 @@ const MyImage = () => {
       title: "Chicken (Boneless)",
       imgs: [
         {
-          imgs1: ChickenBone1,
+          imgs1: ChickenBone4,
         },
         {
           imgs1: ChickenBone2,
@@ -78,7 +78,7 @@ const MyImage = () => {
           imgs1: ChickenBone3,
         },
         {
-          imgs1: ChickenBone4,
+          imgs1: ChickenBone1,
         },
       ],
     },
@@ -87,7 +87,7 @@ const MyImage = () => {
       title: "Chicken Drumstick of 6 Piece",
       imgs: [
         {
-          imgs1: ChickenDurmtick61,
+          imgs1: ChickenDurmtick64,
         },
         {
           imgs1: ChickenDurmtick62,
@@ -96,7 +96,7 @@ const MyImage = () => {
           imgs1: ChickenDurmtick63,
         },
         {
-          imgs1: ChickenDurmtick64,
+          imgs1: ChickenDurmtick61,
         },
       ],
     },
@@ -105,7 +105,7 @@ const MyImage = () => {
       title: "Chicken Drumstick of 2 Piece",
       imgs: [
         {
-          imgs1: ChickenDurmtick21,
+          imgs1: ChickenDurmtick24,
         },
         {
           imgs1: ChickenDurmtick22,
@@ -114,7 +114,7 @@ const MyImage = () => {
           imgs1: ChickenDurmtick23,
         },
         {
-          imgs1: ChickenDurmtick24,
+          imgs1: ChickenDurmtick21
         },
       ],
     },
@@ -123,7 +123,7 @@ const MyImage = () => {
       title: "Chicken Wings",
       imgs: [
         {
-          imgs1: ChickenWings1,
+          imgs1: ChickenWings4,
         },
         {
           imgs1: ChickenWings2,
@@ -132,7 +132,7 @@ const MyImage = () => {
           imgs1: ChickenWings3,
         },
         {
-          imgs1: ChickenWings4,
+          imgs1: ChickenWings1,
         },
       ],
     },
@@ -141,7 +141,7 @@ const MyImage = () => {
       title: "Chicken Mince (Keema)",
       imgs: [
         {
-          imgs1: Chickenkeema1,
+          imgs1: Chickenkeema4,
         },
         {
           imgs1: Chickenkeema2,
@@ -150,7 +150,7 @@ const MyImage = () => {
           imgs1: Chickenkeema3,
         },
         {
-          imgs1: Chickenkeema4,
+          imgs1: Chickenkeema1,
         },
       ],
     },
@@ -159,7 +159,7 @@ const MyImage = () => {
       title: "Chicken Breast",
       imgs: [
         {
-          imgs1: ChickenBreast1,
+          imgs1: ChickenBreast4,
         },
         {
           imgs1: ChickenBreast2,
@@ -168,7 +168,7 @@ const MyImage = () => {
           imgs1: ChickenBreast3,
         },
         {
-          imgs1: ChickenBreast4,
+          imgs1: ChickenBreast1,
         },
       ],
     },

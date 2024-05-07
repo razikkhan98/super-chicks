@@ -31,7 +31,11 @@ const OrderCheckoutPayment = () => {
   const onSubmit = (data) => {
     setOrderPayment(data);
     reset();
-    navigate("/orderFinal");
+    if(data.paymentMethod === 'paypal'){
+      navigate("/orderFinalUPI");
+    }else{
+      navigate("/orderFinalCASE");
+    }
   };
 
   const pincode = [
@@ -76,7 +80,9 @@ const OrderCheckoutPayment = () => {
       if (error.response) {
         toast.error(error.response.data.message);
       } else if (error.request) {
-        toast.error("Network Error: Please check your internet connection");
+        toast.error("Network Error: Please check your internet connection", {
+          autoClose: 2000,
+        });
       } else {
         toast.error("An unexpected error occurred");
       }
@@ -86,7 +92,7 @@ const OrderCheckoutPayment = () => {
     PostAddress();
   }, []);
 
-  // const addressjson = [
+  
   //   {
   //     address: "123 Main Street green Park Indore ",
   //     name: "admin",
@@ -124,12 +130,9 @@ const OrderCheckoutPayment = () => {
       );
       setOrderPayment(selected);
       reset();
-      console.log("card");
     } else {
       setShowForm(true);
-      console.log("form");
     }
-    
   }, []);
 
   const handleRadioChange = (event) => {
@@ -139,12 +142,12 @@ const OrderCheckoutPayment = () => {
   const logSelectedAddress = () => {
     // let selected;
     if (addressData.find((address) => address.address === selectedAddress)) {
-      navigate("/orderFinal");
+      navigate("/orderFinalUPI");
     } else {
       console.log("please select");
       toast.info("please select", {
         position: "top-center",
-        autoClose: 2000,
+        autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -388,7 +391,7 @@ const OrderCheckoutPayment = () => {
                         <span className="text-color-red">*</span>
                       </label>
                       <input
-                        type="text"
+                        type="time"
                         className="form-control my-2"
                         placeholder="2PM - 5PM"
                         {...register("timeslot", {
@@ -415,9 +418,7 @@ const OrderCheckoutPayment = () => {
                         cols="30"
                         rows="5"
                         className="textarea"
-                        {...register("additional", {
-                          required: "Additional Information is required",
-                        })}
+                        {...register("additional", {})}
                       />
                     </div>
                   </div>
@@ -439,7 +440,7 @@ const OrderCheckoutPayment = () => {
                           {link.name}
 
                           <span className="ps-5 fw-bold text-color-black">
-                            {link.amount}
+                            x {link.amount}
                           </span>
                         </div>
                         <div className="col-lg-4 pe-5 fw-bold text-end">
@@ -477,6 +478,37 @@ const OrderCheckoutPayment = () => {
                         <FormatPrice price={total_price + shipping_fee} />
                       </div>
                     </div>
+                  </div>
+                  <div className="col-lg-4">
+                    <div className="row">
+                      <div className="col-lg-6">
+                        <label>
+                          <input
+                            type="radio"
+                            value="cash"
+                            className="me-2"
+                            {...register("paymentMethod", { required: true })}
+                          />
+                          Case
+                        </label>
+                      </div>
+                      <div className="col-lg-6">
+                        <label>
+                          <input
+                            type="radio"
+                            value="paypal"
+                            className="me-2"
+                            {...register("paymentMethod", { required: true })}
+                          />
+                          PayPal
+                        </label>
+                      </div>
+                    </div>
+
+                    {errors.paymentMethod && (
+                      <span className="text-danger">Please select a payment method</span>
+                    )}
+                     
                   </div>
 
                   {/* <NavLink to="/orderFinal" className="text-decoration-none"> */}

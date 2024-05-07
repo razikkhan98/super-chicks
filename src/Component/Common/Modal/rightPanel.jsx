@@ -11,7 +11,7 @@ import { toast } from "react-toastify";
 
 const RightPanel = ({ showModal, setShowModal }) => {
   const [active, setActive] = useState(false);
-  const [count, setCount] = useState(30);
+  const [count, setCount] = useState(60);
 
   const [isCounting, setIsCounting] = useState(false);
   const [numerate, setNumerate] = useState();
@@ -148,7 +148,7 @@ const RightPanel = ({ showModal, setShowModal }) => {
     setTimeout(() => {
       clearInterval(interval);
       setIsCounting(false);
-    }, 31000); // 30 seconds
+    }, 61000); // 30 seconds
   };
 
   const ResendOtp = async () => {

@@ -14,6 +14,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useEffect } from "react";
 import ScrollToTop from "./Component/Common/ScrollToTop/scroll";
 import Account from "../src/Component/Pages/Account/account";
+import OrderNowFinalCase from "./Component/Pages/OrderNow/Final payment/paymentcase";
 
 function App() {
   useEffect(() => {
@@ -41,30 +42,7 @@ function App() {
     };
   }, []);
 
-  // useEffect(() => {
-  //   const navbarlinksActive = () => {
-  //     const position = window.scrollY + 200;
-  //     const navbarlinks = document.querySelectorAll("#navbar .scrollto");
 
-  //     navbarlinks.forEach((navbarlink) => {
-  //       const sectionId = navbarlink.getAttribute("href").substring(1);
-  //       const section = document.getElementById(sectionId);
-
-  //       if (
-  //         section &&
-  //         position >= section.offsetTop &&
-  //         position <= section.offsetTop + section.offsetHeight
-  //       ) {
-  //         navbarlink.classList.add("active");
-  //       } else {
-  //         navbarlink.classList.remove("active");
-  //       }
-  //     });
-  //   };
-  //   window.scrollTo(0, 0);
-
-  //   navbarlinksActive();
-  // }, []);
 
   return (
     <>
@@ -76,7 +54,8 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/order" element={<OrderNow />} />
           <Route path="/orderPayment" element={<OrderNowPayment />} />
-          <Route path="/orderFinal" element={<OrderNowFinal />} />
+          <Route path="/orderFinalUPI" element={<OrderNowFinal />} />
+          <Route path="/orderFinalCASE" element={<OrderNowFinalCase />} />
           <Route path="/singleproduct/:id" element={<SingleProduct />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/contact" element={<Contact />} />

@@ -103,7 +103,7 @@ const Footer = () => {
                   </a>
 
                   {/* <!-- Twitter --> */}
-                  <ReactWhatsapp className="bg-transparent border-0 " number="91 9244276667" message="Hello">
+                  <ReactWhatsapp className="bg-transparent border-0 " number="919244276667" message="Hello">
                     <FaWhatsapp className="footer-icon" />
                   </ReactWhatsapp>
 

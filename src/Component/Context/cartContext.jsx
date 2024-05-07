@@ -18,7 +18,7 @@ const initialState = {
   cart:getLocalCartData(),
   total_item: "",
   total_amount: "",
-  shipping_fee: 50,
+  shipping_fee: 30,
 };
 
 const CartProvider = ({ children }) => {
@@ -29,6 +29,8 @@ const CartProvider = ({ children }) => {
 
   const addToCart = (id, amount, singleProduct) => {
     dispatch({ type: "ADD_TO_CART", payload: { id, amount, singleProduct } });
+    console.log(id, amount, singleProduct)
+
 
   };
 
@@ -63,8 +65,10 @@ const CartProvider = ({ children }) => {
     localStorage.setItem("superChicks", JSON.stringify(state.cart));
   }, [state.cart]);
 
+  const [singleProduct, setSingleProduct] = useState([]);
+
   return (
-    <CartContext.Provider value={{ ...state, addToCart, removeItem,setDecrement ,setIncrement,loggedInUser,setLoggedInUser,orderPayment,setOrderPayment ,clearCart ,singleImage,setSingleImage}}>
+    <CartContext.Provider value={{ ...state, addToCart, removeItem,setDecrement ,setIncrement,loggedInUser,setLoggedInUser,orderPayment,setOrderPayment ,clearCart ,singleImage,setSingleImage ,singleProduct, setSingleProduct}}>
       {children}
     </CartContext.Provider>
   );

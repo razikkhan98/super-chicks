@@ -1,17 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
 
 // Common
 import Button from "../Button/button";
 import { NavLink } from "react-router-dom";
+import axios from "axios";
+import { useCartContext } from "../../Context/cartContext";
+import { toast } from "react-toastify";
+import RightPanel from "../Modal/rightPanel";
+
+
 
 const Card = (link) => {
   const { id, title, kilogram, amount, button, image, comingsoon, del, mb3 } =
     link;
+  const { addToCart, singleProduct, setSingleProduct ,loggedInUser} = useCartContext();
+
+  const [showLoginModal, setShowLoginModal] = useState(false);
+
+
+  const api = "https://api.superchicks.online/product?id=";
+
+
+  const getSingleProduct = async () => {
+    const response = await axios.get(`${api}${id}`);
+    // console.log(response.data);
+    setSingleProduct(response.data);
+
+
+    if (loggedInUser) {
+      addToCart(id, 1, response.data);
+    } else {
+      setShowLoginModal(!showLoginModal);
+      toast.warn("Please Login", {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
+  
+  };
 
   return (
     <>
       <div class="card card-shadow">
-        <img src={image} class="card-img-top" alt="Loading" />
+        {comingsoon ? (
+          <img src={image} class="card-img-top" alt="Loading" />
+        ) : (
+          <NavLink to={`/singleproduct/${id}`} className="text-decoration-none">
+            <img src={image} class="card-img-top" alt="Loading" />
+          </NavLink>
+        )}
+        {/* <img src={image} class="card-img-top" alt="Loading" /> */}
         <div class="card-body">
           <div className={mb3}>
             <h5 class="card-title fw-bold mb-1">{title}</h5>
@@ -176,12 +220,13 @@ const Card = (link) => {
                     </>
                   ) : (
                     <>
-                      <NavLink
-                        to={`/singleproduct/${id}`}
+                      <div
                         className="text-decoration-none"
+                        onClick={getSingleProduct}
                       >
-                        <Button button={button} />
-                      </NavLink>
+                        {/* <Button button={button} /> */}
+                        <div className="order-now-button btn">{button}</div>
+                      </div>
                     </>
                   )}
                 </>
@@ -190,6 +235,8 @@ const Card = (link) => {
           </div>
         </div>
       </div>
+      <RightPanel showModal={showLoginModal} setShowModal={setShowLoginModal} />
+
     </>
   );
 };
