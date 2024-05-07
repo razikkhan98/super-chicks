@@ -8,12 +8,12 @@ import { useForm } from "react-hook-form";
 import { useCartContext } from "../../../Context/cartContext";
 
 // Image
-import Upi from "../../../asset/img/Order/UPI.jpg";
+// import Upi from "../../../asset/img/Order/UPI.jpg";
 import SuccesModel from "../../../Common/Modal/succesModel";
 import { toast } from "react-toastify";
 import axios from "axios";
 
-const FinallPayment = () => {
+const FinallPaymentCase = () => {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   const {
@@ -75,16 +75,7 @@ const FinallPayment = () => {
           <div className="container px-5">
             <h2 className="fw-bold text-color-red">Payment</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="row">
-                <div className="col-lg-6 py-3 text-center py-3">
-                  <img src={Upi} alt="Upi" className="img-fluid w-50 rounded" />
-                </div>
-                <div className="col-lg-5 py-3">
-                  <div className="text-center shadow rounded py-2 background-color-footer">
-                    <h3>UPI NO : 9876543210</h3> <h3>UPI ID :Chicks@Kotak</h3>
-                  </div>
-                </div>
-              </div>
+              
               <div className="row justify-content-center">
                 <div className="col-lg-5 my-4">
                   <label htmlFor="" className="form-label">
@@ -96,21 +87,6 @@ const FinallPayment = () => {
                     placeholder="Name"
                     {...register("name", {
                       required: "Name is required",
-
-                      pattern: {
-                        value: /^[a-zA-Z ]*$/,
-                        message: "Please enter a valid name",
-                      },
-                      minLength: {
-                        value: 3,
-                        message: "Please enter at least 3 characters",
-                      },
-                      maxLength: {
-                        value: 20,
-                        message: "Please enter at most 20 characters",
-                      },
-                     
-                      
                     })}
                   />
                   {errors.name && (
@@ -127,28 +103,6 @@ const FinallPayment = () => {
                     placeholder="Mobile Number"
                     {...register("number", {
                       required: "Mobile Number is required",
-                      pattern: {
-                        value: /^\d{10}$/,
-                        message: "Please enter a valid mobile number",
-                      },
-                      minLength: {
-                        value: 10,
-                        message: "Please enter at least 10 characters",
-                      },
-                      maxLength: {
-                        value: 10,
-                        message: "Please enter at most 10 characters",
-                      },
-                      max: {
-                        value: 9999999999,
-                        message: "Please enter a valid mobile number",
-                      },
-                      min: {
-                        value: 6000000000,
-                        message: "Please enter a valid mobile number",
-                      },  
-
-
                     })}
                   />
                   {errors.number && (
@@ -163,23 +117,10 @@ const FinallPayment = () => {
                     type="text"
                     className="form-control my-2"
                     placeholder="Transaction ID"
-                    value={'UPI PAYMENT'}
+                    value={'CASH PAYMENT'}
                   />
                 </div>
                 <div className="col-lg-5 my-4">
-                  <label htmlFor="" className="form-label">
-                    Transaction ID
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control my-2"
-                    placeholder="Transaction ID"
-                    {...register("transaction", {
-                      
-                    })}
-                  />
-                </div>
-                <div className="col-lg-5 my-2">
                   <label htmlFor="" className="form-label">
                     Amount
                   </label>
@@ -192,9 +133,9 @@ const FinallPayment = () => {
                     })}
                   />
                 </div>
-                <div className="col-lg-5 d-flex justify-content-center align-self-center">
+                <div className="col-lg-5 d-flex justify-content-center">
                   <Button
-                    variant=" btn-danger text-light bg-danger px-5 mt-4"
+                    variant=" btn-danger text-light bg-danger px-5 mt-1"
                     type="submit"
                   >
                     Done
@@ -222,4 +163,4 @@ const FinallPayment = () => {
   );
 };
 
-export default FinallPayment;
+export default FinallPaymentCase;

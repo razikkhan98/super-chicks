@@ -25,7 +25,8 @@ import LoginPopap from "../../Common/Modal/loginpopap";
 import Similar from "../../Common/SimilarProducts";
 
 const SingleProduct = () => {
-  const { addToCart } = useCartContext();
+  const { addToCart, singleProduct, setSingleProduct } = useCartContext();
+  console.log(singleProduct);
 
   const ProductData = [
     {
@@ -61,7 +62,7 @@ const SingleProduct = () => {
 
   const { id } = useParams();
 
-  const [singleProduct, setSingleProduct] = useState([]);
+  // const [singleProduct, setSingleProduct] = useState([]);
   const [amount, setAmount] = useState(1);
   const [showLoginModal, setShowLoginModal] = useState(false);
   const { loggedInUser, cart } = useCartContext();
@@ -92,6 +93,8 @@ const SingleProduct = () => {
   useEffect(() => {
     getSingleProduct(id).then((data) => {
       setSingleProduct(data);
+      console.log(singleProduct);
+      // addToCart(singleProduct)
     });
   }, [id]);
 
@@ -190,60 +193,43 @@ const SingleProduct = () => {
                     For more than 20kg click here
                   </ReactWhatsapp>
                 </div>
-
-                
                 <p className="description">{description}</p>
-               
-              </div>
-              {/* {stock > 0 && ( */}
-              <div className="col-lg-7 col-sm-12">
-                <div className="add-ot-cart" onClick={AddToCart}>
-                  <div className="add-to-cart-button mt-2">
-                    <BsHandbag /> Add to Cart
-                  </div>
-                </div>
-              </div>
-              {/* )} */}
-
-              {/* {stock > 0 && ( */}
-
-              {saltlength === 0 ? (
-                <>
-                  <div className="col-lg-5 col-sm-12">
-                    <div className="buy-now mt-2">
-                      <NavLink to="/cart" className="sign-up-button">
-                        Buy Now
-                      </NavLink>
+                <div className="row mt-4">
+                  <div className="col-lg-6 col-sm-12">
+                    <div className="add-ot-cart" onClick={AddToCart}>
+                      <div className="add-to-cart-button mt-2">
+                        <BsHandbag /> Add to Cart
+                      </div>
                     </div>
                   </div>
-                </>
-              ) : (
-                <>
-                  <div className="col-lg-5 col-sm-12">
-                    <div className="buy-now mt-2">
-                      <NavLink to="/orderPayment" className="sign-up-button">
-                        Buy Now
-                      </NavLink>
-                    </div>
-                  </div>
-                </>
-              )}
-
-              {/* <div className="col-lg-5 col-sm-12">
-                <div className="d-flex justify-content-star mt-2">
-                  <div
-                    to="/orderPayment"
-                    className="sign-up-button"
-                  >
-                    Buy Now
-                  </div>
+                  {saltlength === 0 ? (
+                    <>
+                      <div className="col-lg-6 col-sm-12">
+                        <div className="buy-now mt-2">
+                          <NavLink to="/cart" className="sign-up-button">
+                            Buy Now
+                          </NavLink>
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="col-lg-6 col-sm-12">
+                        <div className="buy-now mt-2">
+                          <NavLink
+                            to="/orderPayment"
+                            className="sign-up-button"
+                          >
+                            Buy Now
+                          </NavLink>
+                        </div>
+                      </div>
+                    </>
+                  )}
                 </div>
-              </div> */}
-              {/* )}  */}
+              </div>
             </div>
-
             <div className="hr"></div>
-
             <div className="description-card-heading mt-5 ">
               <h3>Similar Products</h3>
             </div>

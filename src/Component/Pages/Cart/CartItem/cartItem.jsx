@@ -7,30 +7,25 @@ import { CiCircleMinus, CiCirclePlus } from "react-icons/ci";
 import { RiDeleteBin6Line } from "react-icons/ri";
 
 // Image
-import ChickenMixBone1 from "../../../asset/img/Description/Chicken mix with bones/chicken-mix-bones-1.jpg"
-import ChickenBone1 from "../../../asset/img/Description/Chicken Boneless/chicken-bonless-1.jpg"
-import ChickenDurmtick61 from "../../../asset/img/Description/Chicken drumstick 6 pieces/chicken-drumstick-6-1.jpg"
-import ChickenDurmtick21 from "../../../asset/img/Description/Chicken drumstick 2 pieces/chicken-durmstick-2.jpg"
-import ChickenWings1 from "../../../asset/img/Description/Chicken wings/chicken-wings-1.jpg"
-import Chickenkeema1 from "../../../asset/img/Description/Chicken keema/chickenkeema-1.jpg"
-import ChickenBreast1 from "../../../asset/img/Description/Chicken Breast/chicken-breast-1.jpg"
+import ChickenMixBone4 from "../../../asset/Superchicks images/Chicken Product image/Chiken Mixed With Bones.jpeg";
+import ChickenBone4 from "../../../asset/Superchicks images/Chicken Product image/Chiken Boneless.jpeg";
+import ChickenDurmtick64 from "../../../asset/Superchicks images/Chicken Product image/Chiken drumstik pack of 6.jpg";
+import ChickenDurmtick24 from "../../../asset/Superchicks images/Chicken Product image/Chiken drumstik pack of 2.jpg";
+import ChickenWings4 from "../../../asset/Superchicks images/Chicken Product image/Chiken WIngs.jpeg";
+import Chickenkeema4 from "../../../asset/Superchicks images/Chicken Product image/chicken Mince [keema].jpeg";
+import ChickenBreast4 from "../../../asset/Superchicks images/Chicken Product image/Chicken Breast.jpg";
 
 const CartItem = ({ id,name, image, price, amount }) => {
   const { removeItem, setDecrement, setIncrement } = useCartContext();
 
- 
-  // const img = images.filter((item) => item.id === singleImage)[0];
-  // const { imgs } = img;
-  // const { imgs1 } = imgs[0];
-
   const imageData = {
-    "ch-721": ChickenMixBone1,
-    "ch-722": ChickenBone1,
-    "ch-723": ChickenDurmtick61,
-    "ch-724": ChickenDurmtick21,
-    "ch-725": ChickenWings1,
-    "ch-726": Chickenkeema1,
-    "ch-727": ChickenBreast1
+    "ch-721": ChickenMixBone4,
+    "ch-722": ChickenBone4,
+    "ch-723": ChickenDurmtick64,
+    "ch-724": ChickenDurmtick24,
+    "ch-725": ChickenWings4,
+    "ch-726": Chickenkeema4,
+    "ch-727": ChickenBreast4
   };
   const prdimg = imageData[id];
 

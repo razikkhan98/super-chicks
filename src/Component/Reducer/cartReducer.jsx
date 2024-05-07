@@ -4,7 +4,10 @@ const cartReducer = (state, action) => {
 
   
   if (action.type === "ADD_TO_CART") {
-    let {amount, singleProduct } = action.payload;
+    let {amount, singleProduct} = action.payload;
+
+    console.log(amount,222);
+    console.log(singleProduct,1111);
   
     toast.success("Add to cart in successfully", {
       position: "top-center",
@@ -52,7 +55,6 @@ const cartReducer = (state, action) => {
         id: singleProduct.id,
         name: singleProduct.name,
         amount,
-        // image: singleProduct.image[0].img,
         price: singleProduct.price,
         max: singleProduct.stock,
       };

@@ -62,7 +62,7 @@ const Contact = () => {
                   <div className="contact-address">
                     <h3>Order online Raw Chicken & Raw Mutton</h3>
                     <p>
-                      SuperChicks deliver halal verified, free of preservative ,
+                      SuperChicks deliver verified, free of preservative ,
                       fssai registered, always fresh with fair pricing
                     </p>
                     <p>

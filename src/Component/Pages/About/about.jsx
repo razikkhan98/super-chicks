@@ -43,7 +43,7 @@ const About = () => {
               </div>
               <div className="col-lg-6 d-flex align-items-center my-4 ">
                 <div className="about-page-img text-center">
-                  <img src={AboutImg} className="rounded w-75" alt="Loading" />
+                  <img src={AboutImg} className="rounded" alt="Loading" />
                 </div>
               </div>
               <div className="col-lg-12 mt-4">
