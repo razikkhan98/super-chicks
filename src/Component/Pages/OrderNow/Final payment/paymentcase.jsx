@@ -33,7 +33,6 @@ const FinallPaymentCase = () => {
 
   const onSubmit = async (finalPayment) => {
     const fullData = { cart, orderPayment, finalPayment, loggedInUser };
-
     try {
       const res = await axios.post(
         "https://api.superchicks.online/order_data",
@@ -85,6 +84,7 @@ const FinallPaymentCase = () => {
                     type="text"
                     className="form-control my-2"
                     placeholder="Name"
+                    value={orderPayment.name}
                     {...register("name", {
                       required: "Name is required",
                     })}
@@ -101,6 +101,7 @@ const FinallPaymentCase = () => {
                     type="text"
                     className="form-control my-2"
                     placeholder="Mobile Number"
+                    value={orderPayment.number}
                     {...register("number", {
                       required: "Mobile Number is required",
                     })}

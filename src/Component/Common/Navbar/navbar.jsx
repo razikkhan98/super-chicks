@@ -22,6 +22,7 @@ const Navbar = () => {
   const handleLogout = () => {
     Cookies.remove("loggedInUser");
     Cookies.remove("superChicks");
+    localStorage.removeItem("items");
     setLoggedInUser(null);
     clearCart();
     navigate("/");
