@@ -21,7 +21,6 @@ const OrderCheckoutPayment = () => {
   } = useCartContext();
 
   const navigate = useNavigate();
-
   const [showForm, setShowForm] = useState(true);
   const [enteredZipcode, setEnteredZipcode] = useState();
   const [message, setMessage] = useState("");
@@ -33,7 +32,6 @@ const OrderCheckoutPayment = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
 
@@ -261,7 +259,7 @@ const OrderCheckoutPayment = () => {
                           className="form-control my-2"
                           placeholder="Email Address"
                           defaultValue={get.email}
-                       
+                          {...register("email")}
                         />
                         
                       </div>
@@ -292,7 +290,7 @@ const OrderCheckoutPayment = () => {
                           type="time"
                           className="form-control my-2"
                           placeholder="Time"
-                          // {...register("time")}
+                          defaultValue={get.time}
                           {...register("time", {
                             // Delivery time should be after one hour 
                             required: "Delivery time is required",
@@ -332,7 +330,6 @@ const OrderCheckoutPayment = () => {
                           placeholder="Zipcode"
                           value={get.enteredZipcode}
                           onChange={handleZipcodeChange}
-                          name="zipcode"
                         />
 
                         <div className="text-color-red">{message}</div>
