@@ -8,35 +8,49 @@ import FormatPrice from "../../../Helpers/FormatPrice";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
+import moment from "moment";
 
 const OrderCheckoutPayment = () => {
-  const { setOrderPayment, total_price, shipping_fee, cart, loggedInUser } =
-    useCartContext();
+  const {
+    setOrderPayment,
+    total_price,
+    shipping_fee,
+    cart,
+    loggedInUser,
+    orderPayment,
+  } = useCartContext();
 
   const navigate = useNavigate();
 
   const [showForm, setShowForm] = useState(true);
-  const [enteredZipcode, setEnteredZipcode] = useState("");
+  const [enteredZipcode, setEnteredZipcode] = useState();
   const [message, setMessage] = useState("");
   const [selectedAddress, setSelectedAddress] = useState(null);
   const [addressData, setAddressdata] = useState();
+  const [get, setGet] = useState("");
+  console.log(enteredZipcode);
 
   const {
     register,
     handleSubmit,
-    reset,
+    watch,
     formState: { errors },
   } = useForm();
 
   const onSubmit = (data) => {
-    setOrderPayment(data);
-    reset();
-    if(data.paymentMethod === 'paypal'){
+    setOrderPayment({ ...data, enteredZipcode });
+    localStorage.setItem("items", JSON.stringify({ ...data, enteredZipcode }));
+    if (data.paymentMethod === "paypal") {
       navigate("/orderFinalUPI");
-    }else{
+    } else {
       navigate("/orderFinalCASE");
     }
   };
+
+  useEffect(() => {
+    const addressData = JSON.parse(localStorage.getItem("items") ?? "[]");
+    setGet(addressData);
+  }, []);
 
   const pincode = [
     451010, 452001, 452002, 452003, 452004, 452005, 452006, 452007, 452008,
@@ -92,7 +106,6 @@ const OrderCheckoutPayment = () => {
     PostAddress();
   }, []);
 
-  
   //   {
   //     address: "123 Main Street green Park Indore ",
   //     name: "admin",
@@ -129,7 +142,6 @@ const OrderCheckoutPayment = () => {
         (address) => address.address === selectedAddress
       );
       setOrderPayment(selected);
-      reset();
     } else {
       setShowForm(true);
     }
@@ -144,7 +156,6 @@ const OrderCheckoutPayment = () => {
     if (addressData.find((address) => address.address === selectedAddress)) {
       navigate("/orderFinalUPI");
     } else {
-      console.log("please select");
       toast.info("please select", {
         position: "top-center",
         autoClose: 1000,
@@ -180,10 +191,12 @@ const OrderCheckoutPayment = () => {
                           Name
                           <span className="text-color-red">*</span>
                         </label>
+
                         <input
                           type="text"
                           className="form-control my-2"
                           placeholder="Name"
+                          defaultValue={get.name}
                           {...register("name", {
                             required: "Name is required",
                             pattern: {
@@ -215,6 +228,7 @@ const OrderCheckoutPayment = () => {
                           type="number"
                           className="form-control my-2"
                           placeholder="Phone Number"
+                          defaultValue={get.number}
                           {...register("number", {
                             required: "Phone Number is required",
                             pattern: {
@@ -241,111 +255,72 @@ const OrderCheckoutPayment = () => {
                       <div className="col-lg-6 pt-4">
                         <label htmlFor="" className="form-label">
                           Email
-                          <span className="text-color-red">*</span>
                         </label>
                         <input
                           type="email"
                           className="form-control my-2"
                           placeholder="Email Address"
-                          {...register("email", {
-                            required: "Email is required",
-                            pattern: {
-                              value:
-                                /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-                              message: "Invalid email",
-                            },
-                          })}
+                          defaultValue={get.email}
+                       
                         />
-                        {errors.email && (
-                          <div className="text-danger">
-                            {errors.email.message}
-                          </div>
-                        )}
+                        
                       </div>
+
                       <div className="col-lg-6 pt-4">
                         <label htmlFor="" className="form-label">
-                          Flat/Apartment No
+                          Address
                           <span className="text-color-red">*</span>
                         </label>
                         <input
                           type="text"
                           className="form-control my-2"
-                          placeholder="Flat/Apartment No"
-                          {...register("apartment", {
-                            required: "Flat/Apartment is required",
-                          })}
+                          placeholder="Address"
+                          defaultValue={get.address}
+                          {...register("address")}
                         />
-                        {errors.apartment && (
+                        {errors.address && (
                           <div className="text-danger">
-                            {errors.apartment.message}
+                            {errors.address.message}
                           </div>
                         )}
                       </div>
                       <div className="col-lg-6 pt-4">
-                        <label htmlFor="" className="form-label">
-                          Street Address
-                          <span className="text-color-red">*</span>
+                        <label htmlFor="time" className="form-label">
+                          Time
                         </label>
                         <input
-                          type="text"
+                          type="time"
                           className="form-control my-2"
-                          placeholder="Street Address"
-                          {...register("street", {
-                            required: "Street Address is required",
-                            pattern: {
-                              value: /^[a-zA-Z0-9\s]+$/,
-                              message: "Invalid street address",
+                          placeholder="Time"
+                          // {...register("time")}
+                          {...register("time", {
+                            // Delivery time should be after one hour 
+                            required: "Delivery time is required",
+                            min: {
+                              value: moment().add(1, "hour").format("HH:mm"),
+                              message: "Delivery time should be after 1 hour",
                             },
-                            minLength: {
-                              value: 3,
-                              message:
-                                "Street address must be at least 3 characters",
+                            max: {
+                              value: moment().add(2, "days").format("YYYY-MM-DD") + " 23:59",
+                              message: "Delivery time should not exceed 2 days",
                             },
-                            maxLength: {
-                              value: 100,
-                              message:
-                                "Street address must be at most 100 characters",
-                            },
+                            
                           })}
                         />
-                        {errors.street && (
-                          <div className="text-danger">
-                            {errors.street.message}
-                          </div>
-                        )}
+                        {errors.time && (
+                        <div className="text-danger">{errors.time.message}</div>
+                      )}
+                        {/* {watch("time") && (
+                          <p>
+                            Time 1 hour later:{" "}
+                            {moment(watch("time"), "HH:mm")
+                              .add(1, "hour")
+                              .format("HH:mm")}
+                          </p>
+                        )} */}
                       </div>
-                      <div className="col-lg-6 pt-4">
-                        <label htmlFor="" className="form-label">
-                          Nearest Landmark
-                          <span className="text-color-red">*</span>
-                        </label>
-                        <input
-                          type="text"
-                          className="form-control my-2"
-                          placeholder="Nearest Landmark"
-                          {...register("landmark", {
-                            required: "Landmark is required",
-                            pattern: {
-                              value: /^[a-zA-Z0-9\s]+$/,
-                              message: "Invalid landmark",
-                            },
-                            minLength: {
-                              value: 3,
-                              message: "Landmark must be at least 3 characters",
-                            },
-                            maxLength: {
-                              value: 100,
-                              message:
-                                "Landmark must be at most 100 characters",
-                            },
-                          })}
-                        />
-                        {errors.landmark && (
-                          <div className="text-danger">
-                            {errors.landmark.message}
-                          </div>
-                        )}
-                      </div>
+
+                    
                       <div className="col-lg-6 pt-4">
                         <label htmlFor="" className="form-label">
                           Zipcode
@@ -355,8 +330,9 @@ const OrderCheckoutPayment = () => {
                           type="text"
                           className="form-control my-2"
                           placeholder="Zipcode"
-                          value={enteredZipcode}
+                          value={get.enteredZipcode}
                           onChange={handleZipcodeChange}
+                          name="zipcode"
                         />
 
                         <div className="text-color-red">{message}</div>
@@ -376,6 +352,7 @@ const OrderCheckoutPayment = () => {
                         type="date"
                         className="form-control my-2"
                         placeholder="DD/MM/YYYY"
+                        defaultValue={get.date}
                         {...register("date", {
                           required: "Delivery Date is required",
                         })}
@@ -385,29 +362,23 @@ const OrderCheckoutPayment = () => {
                       )}
                     </div>
 
-                    <div className="pt-4">
+                   
+                    <div className="col-lg-12 pt-4">
                       <label htmlFor="" className="form-label">
-                        Delivery Time Slot
-                        <span className="text-color-red">*</span>
+                        Nearest Landmark
                       </label>
                       <input
-                        type="time"
+                        type="text"
                         className="form-control my-2"
-                        placeholder="2PM - 5PM"
-                        {...register("timeslot", {
-                          required: " Delivery Time Slot is required",
-                        })}
+                        placeholder="Nearest Landmark"
+                        defaultValue={get.landmark}
+                        {...register("landmark")}
                       />
-                      {errors.timeslot && (
-                        <div className="text-danger">
-                          {errors.timeslot.message}
-                        </div>
-                      )}
+                    
                     </div>
                     <div className="pt-4">
                       <label htmlFor="" className="form-label">
                         Additional Information
-                        <span className="text-color-red">*</span>
                       </label>
                       <div className="text-color-gray pb-2">
                         Order Notes (Optional)
@@ -418,6 +389,7 @@ const OrderCheckoutPayment = () => {
                         cols="30"
                         rows="5"
                         className="textarea"
+                        value={get.additional}
                         {...register("additional", {})}
                       />
                     </div>
@@ -489,7 +461,7 @@ const OrderCheckoutPayment = () => {
                             className="me-2"
                             {...register("paymentMethod", { required: true })}
                           />
-                          Case
+                          Cash on Delivery
                         </label>
                       </div>
                       <div className="col-lg-6">
@@ -500,15 +472,16 @@ const OrderCheckoutPayment = () => {
                             className="me-2"
                             {...register("paymentMethod", { required: true })}
                           />
-                          PayPal
+                          UPI Payment
                         </label>
                       </div>
                     </div>
 
                     {errors.paymentMethod && (
-                      <span className="text-danger">Please select a payment method</span>
+                      <span className="text-danger">
+                        Please select a payment method
+                      </span>
                     )}
-                     
                   </div>
 
                   {/* <NavLink to="/orderFinal" className="text-decoration-none"> */}

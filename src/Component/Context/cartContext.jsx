@@ -23,7 +23,7 @@ const initialState = {
 
 const CartProvider = ({ children }) => {
   const [loggedInUser, setLoggedInUser] = useState(null);
-  const [orderPayment, setOrderPayment] = useState()
+  const [orderPayment, setOrderPayment] = useState([])
   const [singleImage, setSingleImage] = useState(null)
   const [state, dispatch] = useReducer(reducer, initialState);
 
